@@ -28,8 +28,7 @@
   <a href="https://socioverse.fudan-disc.com/challenge/"><img alt="Challenge 2026" src="https://img.shields.io/badge/Challenge%202026-open-f97316.svg"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"></a>
   <img alt="Python" src="https://img.shields.io/badge/python-3.11%2B-3776AB.svg?logo=python&logoColor=white">
-  <!-- after the first PyPI upload:
-  <a href="https://pypi.org/project/socioverse2/"><img alt="PyPI" src="https://img.shields.io/pypi/v/socioverse2.svg"></a> -->
+  <a href="https://pypi.org/project/socioverse2/"><img alt="PyPI" src="https://img.shields.io/pypi/v/socioverse2.svg"></a>
 </p>
 
 <p align="center">
@@ -83,6 +82,8 @@ pip install -e ".[dev,viz]"
 
 pytest -q    # no key needed; tests that need a companion repository, an optional extra (chicago, workbench) or a live LLM are skipped
 ```
+
+The core library alone is also on PyPI as `socioverse2` (import name `socioverse`): `pip install socioverse2`. The workflow skills, the dashboard and the reference studies come with the clone above.
 
 ### 2. Run a study without an API key
 

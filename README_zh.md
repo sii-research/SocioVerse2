@@ -28,8 +28,7 @@
   <a href="https://socioverse.fudan-disc.com/challenge/"><img alt="Challenge 2026" src="https://img.shields.io/badge/Challenge%202026-open-f97316.svg"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"></a>
   <img alt="Python" src="https://img.shields.io/badge/python-3.11%2B-3776AB.svg?logo=python&logoColor=white">
-  <!-- after the first PyPI upload:
-  <a href="https://pypi.org/project/socioverse2/"><img alt="PyPI" src="https://img.shields.io/pypi/v/socioverse2.svg"></a> -->
+  <a href="https://pypi.org/project/socioverse2/"><img alt="PyPI" src="https://img.shields.io/pypi/v/socioverse2.svg"></a>
 </p>
 
 <p align="center">
@@ -83,6 +82,8 @@ pip install -e ".[dev,viz]"
 
 pytest -q    # 无需密钥；需要配套仓库、可选扩展（chicago、workbench）或真实 LLM 的测试会被跳过
 ```
+
+核心库也单独发布在 PyPI 上，包名 `socioverse2`（导入名 `socioverse`）：`pip install socioverse2`。工作流 skills、仪表盘和参考研究需要按上面的方式 clone 仓库获得。
 
 ### 2. 不用 API 密钥运行一个研究
 
