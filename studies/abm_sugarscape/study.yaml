@@ -1,0 +1,52 @@
+{
+  "study_id": "abm_sugarscape",
+  "title": "Sugarscape wealth dynamics (SocioVerse-ABM)",
+  "research_question": "Does foraging on an uneven sugar field produce wealth inequality, and does an LLM agent reproduce it?",
+  "hypothesis": "Survivors concentrate wealth (Gini rises) while low-vision/high-metabolism agents starve.",
+  "study_type": "longitudinal",
+  "n_steps": 30,
+  "seed": 42,
+  "metrics": [
+    "alive",
+    "mean_sugar",
+    "gini"
+  ],
+  "domain": "economics",
+  "tags": [
+    "abm",
+    "sugarscape",
+    "economics",
+    "market",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "grid size",
+    "n_citizens",
+    "vision/metabolism ranges",
+    "regrowth"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "market-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "resource foraging + wealth inequality emergence (Sugarscape); market-family exemplar under the abm.* seam"
+}

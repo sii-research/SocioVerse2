@@ -1,0 +1,60 @@
+{
+  "study_id": "opinion_diffusion",
+  "layers": [
+    {
+      "name": "peer_opinions",
+      "modality": "physical",
+      "scope": "local",
+      "dynamics": "endogenous",
+      "source": null,
+      "schema_ref": null,
+      "description": "ring neighbours' current opinions"
+    },
+    {
+      "name": "media_pressure",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": null,
+      "schema_ref": null,
+      "description": "city-wide media pressure scalar"
+    },
+    {
+      "name": "campaign",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": null,
+      "schema_ref": null,
+      "description": "broadcast campaign message"
+    }
+  ],
+  "scheduled_events": [
+    {
+      "at_step": 2,
+      "target_layer": "media_pressure",
+      "op": "set",
+      "selector": {},
+      "property_name": "level",
+      "value": 1.0,
+      "note": "media pressure ramps up at the campaign step"
+    }
+  ],
+  "information_program": {
+    "broadcasts": [
+      {
+        "message_id": "C1",
+        "content": "Adopt the new policy — it benefits everyone.",
+        "channel": "campaign",
+        "at_step": 2,
+        "ttl": 2,
+        "audience": "all",
+        "note": ""
+      }
+    ]
+  },
+  "provider_ref": "opinion.env",
+  "provider_args": {
+    "n_agents": 12
+  }
+}

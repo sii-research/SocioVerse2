@@ -1,0 +1,86 @@
+{
+  "study_id": "chicago_schelling",
+  "title": "Chicago racial segregation under a South-Side transit intervention (longitudinal)",
+  "research_question": "Starting from the 2010 census, how does the Black-White dissimilarity index D_bw evolve over 3 steps when a CTA subway station opens in a South-Side tract at step 2, accompanied by a policy broadcast?",
+  "hypothesis": "Opening the station and broadcasting the policy improves transit access in the South-Side tract, drawing a more diverse inflow and lowering D_bw relative to a no-intervention baseline; the shift emerges at/after step 2.",
+  "title_i18n": {
+    "zh": "南城轨道交通干预下的芝加哥种族居住隔离演化（纵向）",
+    "en": "Chicago racial segregation under a South-Side transit intervention (longitudinal)"
+  },
+  "research_question_i18n": {
+    "zh": "以 2010 年人口普查为起点，当第 2 步在南城某普查区开通一座 CTA 轨道车站并配以政策广播时，黑白居住隔离指数 D_bw 在 3 步内如何演化？",
+    "en": "Starting from the 2010 census, how does the Black-White dissimilarity index D_bw evolve over 3 steps when a CTA subway station opens in a South-Side tract at step 2, accompanied by a policy broadcast?"
+  },
+  "hypothesis_i18n": {
+    "zh": "开通车站并广播政策会改善该南城普查区的交通可达性，吸引更为多元的人口流入、相对无干预基线压低 D_bw；该效应在第 2 步及其后显现。",
+    "en": "Opening the station and broadcasting the policy improves transit access in the South-Side tract, drawing a more diverse inflow and lowering D_bw relative to a no-intervention baseline; the shift emerges at/after step 2."
+  },
+  "study_type": "longitudinal",
+  "n_steps": 3,
+  "seed": 42,
+  "metrics": [
+    "D_black_white",
+    "D_hispanic_white",
+    "D_asian_white",
+    "Isolation_black"
+  ],
+  "metric_descriptions": {
+    "D_black_white": "Black–White residential dissimilarity index (0–1, higher = more segregated): the share of Black or White residents who would have to move to reach an even distribution.",
+    "D_hispanic_white": "Hispanic–White dissimilarity index (0–1, higher = more segregated).",
+    "D_asian_white": "Asian–White dissimilarity index (0–1, higher = more segregated).",
+    "Isolation_black": "Black isolation/exposure index (0–1): the Black population share of the tract the average Black resident lives in; higher = more isolated.",
+    "Isolation_white": "White isolation index (0–1): the White population share of the tract the average White resident lives in.",
+    "Isolation_hispanic": "Hispanic isolation index (0–1).",
+    "n_movers": "Number of households that moved this step (count).",
+    "pct_pop_moved": "Share of the total population that moved this step (0–1).",
+    "gap_reduction_pct": "Percentage change of the satisfaction gap relative to the previous step (a diagnostic; can be positive or negative).",
+    "mover_alignment_rate": "Share of moving households whose destination matches their own group's majority (0–1)."
+  },
+  "display_metrics": [
+    "D_black_white",
+    "D_hispanic_white",
+    "D_asian_white",
+    "Isolation_black"
+  ],
+  "environment_ref": "environment/environment.json",
+  "population_ref": "population/population.json",
+  "simulation_ref": "simulation/simulation.json",
+  "resources_ref": "resources.json",
+  "domain": "urban-segregation",
+  "tags": [
+    "ABM",
+    "Schelling",
+    "geography",
+    "census",
+    "transit-intervention",
+    "mesa"
+  ],
+  "legacy_simulator": "SocioVerse-ABM/tasks/organization/chicago_segregation/legacy/src",
+  "provider_refs": [
+    "chicago.env",
+    "chicago.census",
+    "chicago.schelling"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "intervention tract & step",
+    "policy broadcast text",
+    "metrics subset"
+  ],
+  "status": "parity-tested",
+  "maintainer": "",
+  "demonstrates": [
+    "legacy-seam",
+    "geo-spatial",
+    "policy-intervention",
+    "info-broadcast"
+  ],
+  "teaches": "how to wrap a validated legacy simulator (engine seam + adapter, zero edits) with real census data, scheduled interventions and audience-scoped broadcasts",
+  "reference": true,
+  "requires": [
+    "legacy:chicago",
+    "extra:chicago"
+  ],
+  "created_by": "sv-init"
+}

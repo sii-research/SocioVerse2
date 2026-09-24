@@ -1,0 +1,133 @@
+{
+  "summary": "围绕『LLM 硅样本能否预测信心指数、信息环境如何驱动信心』检索并精读 6 篇:LLM 硅样本线(Argyle 算法保真开山作 + 营销学可复现性审视)、文本情绪→信心指数实证线(O'Connor 等)、新闻冲击宏观线。对本研究最关键的是 Argyle(2023)与 O'Connor(2010)。",
+  "themes": [
+    {
+      "name": "LLM 硅样本",
+      "n": 2
+    },
+    {
+      "name": "文本情绪与信心指数",
+      "n": 3
+    },
+    {
+      "name": "新闻冲击宏观",
+      "n": 1
+    }
+  ],
+  "papers": [
+    {
+      "id": "https://openalex.org/W4321455981",
+      "title": "Out of One, Many: Using Language Models to Simulate Human Samples",
+      "authors": [
+        "Lisa P. Argyle",
+        "Ethan C. Busby",
+        "Nancy Fulda",
+        "Joshua R. Gubler",
+        "Christopher Rytting",
+        "David Wingate"
+      ],
+      "year": 2023,
+      "venue": "Political Analysis",
+      "citations": 623,
+      "doi": "10.1017/pan.2023.2",
+      "url": "https://doi.org/10.1017/pan.2023.2",
+      "relevance": 0.95,
+      "note": "『硅样本』开山作:条件在真实人口属性上的 LLM 可作为特定亚人群的有效代理(算法保真)——本研究 6 个分层核心样本由 LLM 直接作答五个 UMich 式问题,正是该范式的预测型应用。",
+      "bibkey": "argyle2023out"
+    },
+    {
+      "id": "https://openalex.org/W4391713857",
+      "title": "Using large language models to generate silicon samples in consumer and marketing research: Challenges, opportunities, and guidelines",
+      "authors": [
+        "Marko Sarstedt",
+        "Susanne Adler",
+        "Lea Rau",
+        "Bernd H. Schmitt"
+      ],
+      "year": 2024,
+      "venue": "Psychology and Marketing",
+      "citations": 113,
+      "doi": "10.1002/mar.21982",
+      "url": "https://doi.org/10.1002/mar.21982",
+      "relevance": 0.85,
+      "note": "综述硅样本在消费者研究中的表现:结果随领域与提示差异大、须以人类基准校准——支撑本研究把 LLM 读数当『方向与分项结构』而非绝对点位(量纲假设 a-index-scale-mapping)。",
+      "bibkey": "sarstedt2024using"
+    },
+    {
+      "id": "https://openalex.org/W2122369144",
+      "title": "From Tweets to Polls: Linking Text Sentiment to Public Opinion Time Series",
+      "authors": [
+        "Brendan O’Connor",
+        "Ramnath Balasubramanyan",
+        "Bryan Routledge",
+        "Noah A. Smith"
+      ],
+      "year": 2010,
+      "venue": "Proceedings of the International AAAI Conference on Web and Social Media",
+      "citations": 1962,
+      "doi": "10.1609/icwsm.v4i1.14031",
+      "url": "https://doi.org/10.1609/icwsm.v4i1.14031",
+      "relevance": 0.9,
+      "note": "文本情绪率与消费者信心调查(ICS/Gallup)的时间序列显著相关:『信息环境情绪→信心指数』链路的实证基础——本研究以 combined_score 驱动核心样本预测,即把这条链路机制化。",
+      "bibkey": "oconnor2010from"
+    },
+    {
+      "id": "https://openalex.org/W359818833",
+      "title": "Modeling Public Mood and Emotion: Twitter Sentiment and Socio-Economic Phenomena",
+      "authors": [
+        "Johan Bollen",
+        "Huina Mao",
+        "Alberto Pepe"
+      ],
+      "year": 2021,
+      "venue": "Proceedings of the International AAAI Conference on Web and Social Media",
+      "citations": 950,
+      "doi": "10.1609/icwsm.v5i1.14171",
+      "url": "https://doi.org/10.1609/icwsm.v5i1.14171",
+      "relevance": 0.7,
+      "note": "大规模社媒情绪的心理测量学建模(六维情绪、事件冲击响应):为 news_score『净情绪被混杂新闻稀释』的现象提供测量学参照。",
+      "bibkey": "bollen2021modeling"
+    },
+    {
+      "id": "https://openalex.org/W1595459570",
+      "title": "Sentiment Analysis in the News",
+      "authors": [
+        "Balahur, Alexandra",
+        "Steinberger, Ralf",
+        "Kabadjov, Mijail",
+        "Vanni Zavarella",
+        "Erik van der Goot",
+        "Matina Halkia",
+        "Bruno Pouliquen",
+        "Jenya Belyaeva"
+      ],
+      "year": 2013,
+      "venue": "arXiv (Cornell University)",
+      "citations": 211,
+      "doi": "10.4230/oasics.slate.2021.17",
+      "url": "https://doi.org/10.4230/oasics.slate.2021.17",
+      "relevance": 0.6,
+      "note": "新闻文本的情绪标注目标多元、远比评论复杂:解释信息层为什么用相关度加权的净情绪而非裸情绪均值。",
+      "bibkey": "alexandra2013sentiment"
+    },
+    {
+      "id": "https://openalex.org/W3122454653",
+      "title": "Stock Prices, News, and Economic Fluctuations",
+      "authors": [
+        "Paul Beaudry",
+        "Franck Portier"
+      ],
+      "year": 2006,
+      "venue": "American Economic Review",
+      "citations": 876,
+      "doi": "10.1257/aer.96.4.1293",
+      "url": "https://doi.org/10.1257/aer.96.4.1293",
+      "relevance": 0.65,
+      "note": "宏观『新闻冲击』文献:预期性信息先于基本面驱动周期波动——把『信息累积改变信心』放进新闻冲击的宏观传统。",
+      "bibkey": "beaudry2006stock"
+    }
+  ],
+  "queries": [],
+  "curated_by": "sv-lit (reference curation)",
+  "retrieved_at": "2026-08-04T08:56:35+00:00"
+}

@@ -1,0 +1,1 @@
+{"stage": "sv-build-model", "narrative": "v3:环境信号改真实数据驱动。ev_climate/byd_ramp/tesla_shock不再是手写曲线,改为从真实KBA月度份额序列派生(比亚迪份额归一化→铺货度、特斯拉份额相对基线偏离→冲击项、纯电份额归一化→EV气候),WebSearch的比亚迪+750%/特斯拉-48%/BEV回暖佐证。scripted自检MAE≈0.74pp/格,Tesla/BYD轨迹贴合真实。", "ts": 1785299746.9527636}

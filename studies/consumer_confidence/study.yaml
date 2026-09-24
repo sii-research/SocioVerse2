@@ -1,0 +1,107 @@
+{
+  "study_id": "consumer_confidence",
+  "title": "US Consumer Confidence Forecast via ConsumerSim",
+  "research_question": "Forecast monthly consumer confidence from a fixed SocioVerse population and point-in-time information.",
+  "hypothesis": "Consumer confidence responds to contemporaneous news and indicators, with group-level uncertainty propagated through Bayesian expansion.",
+  "title_i18n": {
+    "zh": "基于 ConsumerSim 的美国消费者信心预测（参考模板）",
+    "en": "US Consumer Confidence Forecast via ConsumerSim (reference template)"
+  },
+  "research_question_i18n": {
+    "zh": "给定一个固定的 SocioVerse 人群池与某一时点可得的新闻/指标信息，能否预测该月的美国消费者信心指数？当同一目标月内信息随 as_of 逐步累积时，预测如何随之更新？",
+    "en": "Given a fixed SocioVerse population pool and the news/indicator information available at a point in time, can we forecast that month's US consumer confidence? And how does the forecast update as information accrues across as_of cutoffs within the same target month?"
+  },
+  "hypothesis_i18n": {
+    "zh": "消费者信心对当期新闻与宏观指标作出反应：由 LLM 预测的分层核心样本捕捉信息冲击，群体层面的不确定性再经贝叶斯扩展传播到未抽样人群；随着利好新闻（油价回落）在月内累积，前瞻性分项与修正后总分应随之抬升。",
+    "en": "Consumer confidence responds to contemporaneous news and macro indicators: an LLM-predicted stratified core absorbs the information shock, group-level uncertainty is then propagated to the unsampled pool by Bayesian expansion; as favorable news (easing gas prices) accrues within the month, the forward-looking components and the corrected score should rise."
+  },
+  "study_type": "longitudinal",
+  "n_steps": 3,
+  "seed": 42,
+  "metrics": [
+    "region",
+    "target_month",
+    "as_of",
+    "population_size",
+    "core_size",
+    "raw_score",
+    "corrected_score",
+    "score_current_finance",
+    "score_durable_buying",
+    "score_future_finance",
+    "score_business_12m",
+    "score_business_5y",
+    "news_score",
+    "indicator_score",
+    "combined_score",
+    "news_count",
+    "indicator_count",
+    "correction_residual",
+    "correction_adjustment"
+  ],
+  "metric_descriptions": {
+    "corrected_score": "Corrected overall consumer-confidence score (Conference-Board-style index scale, ~90–105): the final forecast after raw_score is corrected by a regression on the previous month's forecast error — this study's headline output.",
+    "raw_score": "Uncorrected raw overall confidence score: the weighted aggregate of the five sub-scores, reflecting the immediate signal of the LLM core forecast + Bayesian expansion.",
+    "combined_score": "Combined information-environment score (weighted mean of news sentiment and macro indicators, clipped to [-3, 3]): the strength of the exogenous information shock that shifts the core sample's answer distribution.",
+    "news_score": "Point-in-time-safe news sentiment score (news published before as_of, weighted by relevance): the main driver of within-month change as information accumulates.",
+    "score_future_finance": "Forward-looking sub-score — confidence in one's future personal finances (one of five_business/finance): the sub-score that should rise first as good news accumulates.",
+    "score_current_finance": "Confidence score for current personal finances.",
+    "score_durable_buying": "Confidence score for buying conditions for durable goods.",
+    "score_business_12m": "Confidence score for business conditions over the next 12 months.",
+    "score_business_5y": "Confidence score for business conditions over the next 5 years.",
+    "news_count": "Number of news items in the information set at the current as_of (after point-in-time-safe filtering): a direct view of the accumulation process.",
+    "indicator_count": "Number of macro indicators in the information set at the current as_of.",
+    "population_size": "Total size of the population pool (fixed; the same agents tracked in the panel).",
+    "core_size": "Size of the stratified core sample the LLM forecasts directly this step; the rest is covered by Bayesian expansion.",
+    "correction_residual": "Previous month's residual (forecast − actual), the input to the historical correction term.",
+    "correction_adjustment": "Correction applied to raw_score (clipped by max_absolute_adjustment).",
+    "region": "Target region (US).",
+    "target_month": "Target forecast month (2026-06).",
+    "as_of": "This step's information cutoff date (the point-in-time safety boundary)."
+  },
+  "display_metrics": [
+    "corrected_score",
+    "raw_score",
+    "score_current_finance",
+    "score_future_finance"
+  ],
+  "environment_ref": "environment/environment.json",
+  "population_ref": "population/population.json",
+  "simulation_ref": "simulation/simulation.json",
+  "resources_ref": "resources.json",
+  "domain": "consumer-confidence",
+  "tags": [
+    "ConsumerSim",
+    "forecast",
+    "survey",
+    "Bayesian",
+    "population-pool"
+  ],
+  "legacy_simulator": "ConsumerSim-Consumer-Confidence-Forecast/consumer_pipeline",
+  "provider_refs": [
+    "consumersim.env",
+    "socioverse.population",
+    "consumersim.decision",
+    "consumersim.collector"
+  ],
+  "adjustable_params": [
+    "region",
+    "target_months",
+    "as_of_dates",
+    "news/indicator/history inputs",
+    "core_ratio",
+    "prediction provider"
+  ],
+  "status": "draft",
+  "maintainer": "",
+  "demonstrates": [
+    "legacy-seam",
+    "cross-sectional-survey"
+  ],
+  "teaches": "a Path-C adapter around an external forecasting pipeline (ConsumerSim) driven from a pooled population",
+  "reference": true,
+  "requires": [
+    "sibling:ConsumerSim-Consumer-Confidence-Forecast"
+  ],
+  "created_by": "sv-init"
+}

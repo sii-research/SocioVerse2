@@ -1,0 +1,1371 @@
+{
+  "query": "Germany monthly electric vehicle BEV registration share and Umweltbonus subsidy",
+  "requested_months": [
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05",
+    "2024-06",
+    "2024-07",
+    "2024-08",
+    "2024-09",
+    "2024-10",
+    "2024-11",
+    "2024-12",
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05"
+  ],
+  "requested_sources": [
+    "fred"
+  ],
+  "provider": "remote",
+  "endpoint": "configured via SV_EVENT_API_URL",
+  "fetched_at": "2026-07-29T03:52:18.975331+00:00",
+  "results": {
+    "fred_2024-01": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-01",
+      "fetched_at": "2026-07-29T03:52:18.863884Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 3.7,
+          "PAYEMS": 157032.0,
+          "CPIAUCSL": 309.698,
+          "GASREGW": 3.095,
+          "FEDFUNDS": 5.33,
+          "DSPIC96": 17575.4,
+          "PCE": 19303.3
+        },
+        "yoy": {
+          "UNRATE": 5.71,
+          "PAYEMS": 1.46,
+          "CPIAUCSL": 3.09,
+          "GASREGW": -11.29,
+          "FEDFUNDS": 23.09,
+          "DSPIC96": 3.95,
+          "PCE": 4.63
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-02": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-02",
+      "fetched_at": "2026-07-29T03:52:18.868188Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 3.9,
+          "PAYEMS": 157238.0,
+          "ICSA": 212000.0,
+          "JTSJOL": 8440.0,
+          "CPIAUCSL": 310.967,
+          "GASREGW": 3.249,
+          "FEDFUNDS": 5.33,
+          "DSPIC96": 17596.2,
+          "PCE": 19446.5
+        },
+        "yoy": {}
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-03": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-03",
+      "fetched_at": "2026-07-29T03:52:18.872127Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 3.9,
+          "PAYEMS": 157466.0,
+          "ICSA": 223000.0,
+          "JTSJOL": 8206.0,
+          "CPIAUCSL": 312.345,
+          "GASREGW": 3.523,
+          "FEDFUNDS": 5.33,
+          "DSPIC96": 17617.0,
+          "PCE": 19581.8
+        },
+        "yoy": {
+          "UNRATE": 11.43,
+          "PAYEMS": 1.5,
+          "ICSA": -4.7,
+          "JTSJOL": -15.01,
+          "CPIAUCSL": 3.49,
+          "GASREGW": 2.98,
+          "FEDFUNDS": 14.62,
+          "DSPIC96": 3.03,
+          "PCE": 5.73
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-04": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-04",
+      "fetched_at": "2026-07-29T03:52:18.876037Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 3.9,
+          "PAYEMS": 157530.0,
+          "ICSA": 207000.0,
+          "JTSJOL": 7529.0,
+          "CPIAUCSL": 313.023,
+          "GASREGW": 3.653,
+          "FEDFUNDS": 5.33,
+          "DSPIC96": 17638.6,
+          "PCE": 19665.7
+        },
+        "yoy": {
+          "UNRATE": 14.71,
+          "PAYEMS": 1.39,
+          "ICSA": -2.82,
+          "JTSJOL": -24.45,
+          "CPIAUCSL": 3.36,
+          "GASREGW": -0.08,
+          "FEDFUNDS": 10.35,
+          "DSPIC96": 2.94,
+          "PCE": 5.49
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-05": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-05",
+      "fetched_at": "2026-07-29T03:52:18.880055Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 3.9,
+          "PAYEMS": 157608.0,
+          "ICSA": 220000.0,
+          "JTSJOL": 7782.0,
+          "CPIAUCSL": 313.175,
+          "GASREGW": 3.577,
+          "FEDFUNDS": 5.33,
+          "DSPIC96": 17713.3,
+          "PCE": 19758.0
+        },
+        "yoy": {
+          "UNRATE": 8.33,
+          "PAYEMS": 1.25,
+          "ICSA": -3.93,
+          "JTSJOL": -16.93,
+          "CPIAUCSL": 3.24,
+          "GASREGW": 0.17,
+          "FEDFUNDS": 5.34,
+          "DSPIC96": 3.0,
+          "PCE": 5.86
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-06": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-06",
+      "fetched_at": "2026-07-29T03:52:18.884193Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.1,
+          "PAYEMS": 157695.0,
+          "ICSA": 238000.0,
+          "JTSJOL": 7416.0,
+          "CPIAUCSL": 313.044,
+          "GASREGW": 3.438,
+          "FEDFUNDS": 5.33,
+          "DSPIC96": 17751.1,
+          "PCE": 19844.5
+        },
+        "yoy": {
+          "UNRATE": 13.89,
+          "PAYEMS": 1.16,
+          "ICSA": 0.85,
+          "JTSJOL": -19.22,
+          "CPIAUCSL": 2.97,
+          "GASREGW": -3.72,
+          "FEDFUNDS": 4.92,
+          "DSPIC96": 3.11,
+          "PCE": 5.71
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-07": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-07",
+      "fetched_at": "2026-07-29T03:52:18.888123Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.2,
+          "PAYEMS": 157748.0,
+          "ICSA": 248000.0,
+          "JTSJOL": 7426.0,
+          "CPIAUCSL": 313.569,
+          "GASREGW": 3.484,
+          "FEDFUNDS": 5.33,
+          "DSPIC96": 17743.2,
+          "PCE": 19949.5
+        },
+        "yoy": {
+          "UNRATE": 20.0,
+          "PAYEMS": 1.09,
+          "ICSA": 4.2,
+          "JTSJOL": -14.22,
+          "CPIAUCSL": 2.94,
+          "GASREGW": -7.27,
+          "FEDFUNDS": 4.1,
+          "DSPIC96": 2.86,
+          "PCE": 5.64
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-08": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-08",
+      "fetched_at": "2026-07-29T03:52:18.892055Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.2,
+          "PAYEMS": 157757.0,
+          "ICSA": 227000.0,
+          "JTSJOL": 7520.0,
+          "CPIAUCSL": 314.062,
+          "GASREGW": 3.313,
+          "FEDFUNDS": 5.33,
+          "DSPIC96": 17752.9,
+          "PCE": 20001.3
+        },
+        "yoy": {
+          "UNRATE": 13.51,
+          "PAYEMS": 0.96,
+          "ICSA": -2.99,
+          "JTSJOL": -18.74,
+          "CPIAUCSL": 2.61,
+          "GASREGW": -13.11,
+          "FEDFUNDS": 0.0,
+          "DSPIC96": 2.76,
+          "PCE": 5.53
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-09": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-09",
+      "fetched_at": "2026-07-29T03:52:18.895952Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.1,
+          "PAYEMS": 157912.0,
+          "ICSA": 227000.0,
+          "JTSJOL": 6943.0,
+          "CPIAUCSL": 314.732,
+          "GASREGW": 3.179,
+          "FEDFUNDS": 5.13,
+          "DSPIC96": 17769.9,
+          "PCE": 20147.6
+        },
+        "yoy": {
+          "UNRATE": 10.81,
+          "PAYEMS": 0.96,
+          "ICSA": 5.09,
+          "JTSJOL": -25.01,
+          "CPIAUCSL": 2.43,
+          "GASREGW": -17.15,
+          "FEDFUNDS": -3.75,
+          "DSPIC96": 2.82,
+          "PCE": 5.77
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-10": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-10",
+      "fetched_at": "2026-07-29T03:52:18.899868Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.1,
+          "PAYEMS": 157945.0,
+          "ICSA": 219000.0,
+          "JTSJOL": 7379.0,
+          "CPIAUCSL": 315.631,
+          "GASREGW": 3.097,
+          "FEDFUNDS": 4.83,
+          "DSPIC96": 17810.5,
+          "PCE": 20226.0
+        },
+        "yoy": {
+          "UNRATE": 5.13,
+          "PAYEMS": 0.87,
+          "ICSA": 0.92,
+          "JTSJOL": -14.0,
+          "CPIAUCSL": 2.58,
+          "GASREGW": -10.83,
+          "FEDFUNDS": -9.38,
+          "DSPIC96": 2.71,
+          "PCE": 5.84
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-11": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-11",
+      "fetched_at": "2026-07-29T03:52:18.903797Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.2,
+          "PAYEMS": 158079.0,
+          "ICSA": 222000.0,
+          "JTSJOL": 7566.0,
+          "CPIAUCSL": 316.528,
+          "GASREGW": 3.044,
+          "FEDFUNDS": 4.64,
+          "DSPIC96": 17851.4,
+          "PCE": 20313.6
+        },
+        "yoy": {
+          "UNRATE": 13.51,
+          "PAYEMS": 0.88,
+          "ICSA": 4.23,
+          "JTSJOL": -12.04,
+          "CPIAUCSL": 2.72,
+          "GASREGW": -5.99,
+          "FEDFUNDS": -12.95,
+          "DSPIC96": 2.43,
+          "PCE": 5.92
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2024-12": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2024-12",
+      "fetched_at": "2026-07-29T03:52:18.907715Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.1,
+          "PAYEMS": 158316.0,
+          "ICSA": 212000.0,
+          "JTSJOL": 7295.0,
+          "CPIAUCSL": 317.604,
+          "GASREGW": 3.006,
+          "FEDFUNDS": 4.48,
+          "DSPIC96": 17867.9,
+          "PCE": 20514.3
+        },
+        "yoy": {
+          "UNRATE": 7.89,
+          "PAYEMS": 0.93,
+          "ICSA": 6.0,
+          "JTSJOL": -14.38,
+          "CPIAUCSL": 2.87,
+          "GASREGW": -3.53,
+          "FEDFUNDS": -15.95,
+          "DSPIC96": 2.21,
+          "PCE": 6.38
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-01": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-01",
+      "fetched_at": "2026-07-29T03:52:18.911602Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.0,
+          "PAYEMS": 158268.0,
+          "ICSA": 212000.0,
+          "JTSJOL": 7431.0,
+          "CPIAUCSL": 318.961,
+          "GASREGW": 3.103,
+          "FEDFUNDS": 4.33,
+          "DSPIC96": 17889.8,
+          "PCE": 20462.2
+        },
+        "yoy": {
+          "UNRATE": 8.11,
+          "PAYEMS": 0.79,
+          "ICSA": -6.19,
+          "JTSJOL": -11.3,
+          "CPIAUCSL": 2.99,
+          "GASREGW": 0.26,
+          "FEDFUNDS": -18.76,
+          "DSPIC96": 1.79,
+          "PCE": 6.0
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-02": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-02",
+      "fetched_at": "2026-07-29T03:52:18.915517Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.2,
+          "PAYEMS": 158310.0,
+          "ICSA": 241000.0,
+          "JTSJOL": 7242.0,
+          "CPIAUCSL": 319.679,
+          "GASREGW": 3.125,
+          "FEDFUNDS": 4.33,
+          "DSPIC96": 17910.5,
+          "PCE": 20519.8
+        },
+        "yoy": {
+          "UNRATE": 7.69,
+          "PAYEMS": 0.68,
+          "ICSA": 13.68,
+          "JTSJOL": -14.19,
+          "CPIAUCSL": 2.8,
+          "GASREGW": -3.82,
+          "FEDFUNDS": -18.76,
+          "DSPIC96": 1.79,
+          "PCE": 5.52
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-03": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-03",
+      "fetched_at": "2026-07-29T03:52:18.919456Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.2,
+          "PAYEMS": 158377.0,
+          "ICSA": 220000.0,
+          "JTSJOL": 6952.0,
+          "CPIAUCSL": 319.785,
+          "GASREGW": 3.162,
+          "FEDFUNDS": 4.33,
+          "DSPIC96": 18029.1,
+          "PCE": 20683.0
+        },
+        "yoy": {
+          "UNRATE": 7.69,
+          "PAYEMS": 0.58,
+          "ICSA": -1.35,
+          "JTSJOL": -15.28,
+          "CPIAUCSL": 2.38,
+          "GASREGW": -10.25,
+          "FEDFUNDS": -18.76,
+          "DSPIC96": 2.34,
+          "PCE": 5.62
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-04": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-04",
+      "fetched_at": "2026-07-29T03:52:18.923353Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.2,
+          "PAYEMS": 158485.0,
+          "ICSA": 239000.0,
+          "JTSJOL": 7098.0,
+          "CPIAUCSL": 320.302,
+          "GASREGW": 3.133,
+          "FEDFUNDS": 4.33,
+          "DSPIC96": 18132.9,
+          "PCE": 20746.4
+        },
+        "yoy": {
+          "UNRATE": 7.69,
+          "PAYEMS": 0.61,
+          "ICSA": 15.46,
+          "JTSJOL": -5.72,
+          "CPIAUCSL": 2.33,
+          "GASREGW": -14.23,
+          "FEDFUNDS": -18.76,
+          "DSPIC96": 2.8,
+          "PCE": 5.5
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-05": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-05",
+      "fetched_at": "2026-07-29T03:52:18.927252Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.3,
+          "PAYEMS": 158498.0,
+          "ICSA": 244000.0,
+          "JTSJOL": 7310.0,
+          "CPIAUCSL": 320.62,
+          "GASREGW": 3.16,
+          "FEDFUNDS": 4.33,
+          "DSPIC96": 17980.9,
+          "PCE": 20755.0
+        },
+        "yoy": {
+          "UNRATE": 10.26,
+          "PAYEMS": 0.56,
+          "ICSA": 10.91,
+          "JTSJOL": -6.07,
+          "CPIAUCSL": 2.38,
+          "GASREGW": -11.66,
+          "FEDFUNDS": -18.76,
+          "DSPIC96": 1.51,
+          "PCE": 5.05
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-06": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-06",
+      "fetched_at": "2026-07-29T03:52:18.931187Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.1,
+          "PAYEMS": 158478.0,
+          "ICSA": 231000.0,
+          "JTSJOL": 7204.0,
+          "CPIAUCSL": 321.435,
+          "GASREGW": 3.164,
+          "FEDFUNDS": 4.33,
+          "DSPIC96": 17962.1,
+          "PCE": 20868.4
+        },
+        "yoy": {
+          "UNRATE": 0.0,
+          "PAYEMS": 0.5,
+          "ICSA": -2.94,
+          "JTSJOL": -2.86,
+          "CPIAUCSL": 2.68,
+          "GASREGW": -7.97,
+          "FEDFUNDS": -18.76,
+          "DSPIC96": 1.19,
+          "PCE": 5.16
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-07": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-07",
+      "fetched_at": "2026-07-29T03:52:18.935086Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.3,
+          "PAYEMS": 158542.0,
+          "ICSA": 219000.0,
+          "JTSJOL": 7089.0,
+          "CPIAUCSL": 322.169,
+          "GASREGW": 3.123,
+          "FEDFUNDS": 4.33,
+          "DSPIC96": 18040.9,
+          "PCE": 21007.3
+        },
+        "yoy": {
+          "UNRATE": 2.38,
+          "PAYEMS": 0.5,
+          "ICSA": -11.69,
+          "JTSJOL": -4.54,
+          "CPIAUCSL": 2.74,
+          "GASREGW": -10.36,
+          "FEDFUNDS": -18.76,
+          "DSPIC96": 1.68,
+          "PCE": 5.3
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-08": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-08",
+      "fetched_at": "2026-07-29T03:52:18.938985Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.3,
+          "PAYEMS": 158472.0,
+          "ICSA": 236000.0,
+          "JTSJOL": 6919.0,
+          "CPIAUCSL": 323.291,
+          "GASREGW": 3.147,
+          "FEDFUNDS": 4.33,
+          "DSPIC96": 18076.9,
+          "PCE": 21123.8
+        },
+        "yoy": {
+          "UNRATE": 2.38,
+          "PAYEMS": 0.45,
+          "ICSA": 3.96,
+          "JTSJOL": -7.99,
+          "CPIAUCSL": 2.94,
+          "GASREGW": -5.01,
+          "FEDFUNDS": -18.76,
+          "DSPIC96": 1.83,
+          "PCE": 5.61
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-09": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-09",
+      "fetched_at": "2026-07-29T03:52:18.942926Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.4,
+          "PAYEMS": 158548.0,
+          "ICSA": 225000.0,
+          "JTSJOL": 7169.0,
+          "CPIAUCSL": 324.245,
+          "GASREGW": 3.118,
+          "FEDFUNDS": 4.22,
+          "DSPIC96": 18094.6,
+          "PCE": 21202.4
+        },
+        "yoy": {
+          "UNRATE": 7.32,
+          "PAYEMS": 0.4,
+          "ICSA": -0.88,
+          "JTSJOL": 3.26,
+          "CPIAUCSL": 3.02,
+          "GASREGW": -1.92,
+          "FEDFUNDS": -17.74,
+          "DSPIC96": 1.83,
+          "PCE": 5.24
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-10": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-10",
+      "fetched_at": "2026-07-29T03:52:18.946849Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.4,
+          "PAYEMS": 158408.0,
+          "ICSA": 221000.0,
+          "JTSJOL": 7170.0,
+          "CPIAUCSL": 324.245,
+          "GASREGW": 3.035,
+          "FEDFUNDS": 4.09,
+          "DSPIC96": 18063.1,
+          "PCE": 21288.1
+        },
+        "yoy": {
+          "UNRATE": 7.32,
+          "PAYEMS": 0.29,
+          "ICSA": 0.91,
+          "JTSJOL": -2.83,
+          "CPIAUCSL": 2.73,
+          "GASREGW": -2.0,
+          "FEDFUNDS": -15.32,
+          "DSPIC96": 1.42,
+          "PCE": 5.25
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-11": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-11",
+      "fetched_at": "2026-07-29T03:52:18.950754Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.5,
+          "PAYEMS": 158449.0,
+          "ICSA": 216000.0,
+          "JTSJOL": 6846.0,
+          "CPIAUCSL": 325.063,
+          "GASREGW": 3.061,
+          "FEDFUNDS": 3.88,
+          "DSPIC96": 18078.6,
+          "PCE": 21356.0
+        },
+        "yoy": {
+          "UNRATE": 7.14,
+          "PAYEMS": 0.23,
+          "ICSA": -2.7,
+          "JTSJOL": -9.52,
+          "CPIAUCSL": 2.7,
+          "GASREGW": 0.56,
+          "FEDFUNDS": -16.38,
+          "DSPIC96": 1.27,
+          "PCE": 5.13
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2025-12": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2025-12",
+      "fetched_at": "2026-07-29T03:52:18.954645Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.4,
+          "PAYEMS": 158432.0,
+          "ICSA": 203000.0,
+          "JTSJOL": 6550.0,
+          "CPIAUCSL": 326.031,
+          "GASREGW": 2.811,
+          "FEDFUNDS": 3.72,
+          "DSPIC96": 18070.6,
+          "PCE": 21445.9
+        },
+        "yoy": {
+          "UNRATE": 7.32,
+          "PAYEMS": 0.07,
+          "ICSA": -4.25,
+          "JTSJOL": -10.21,
+          "CPIAUCSL": 2.65,
+          "GASREGW": -6.49,
+          "FEDFUNDS": -16.96,
+          "DSPIC96": 1.13,
+          "PCE": 4.54
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2026-01": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2026-01",
+      "fetched_at": "2026-07-29T03:52:18.958541Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.3,
+          "PAYEMS": 158592.0,
+          "ICSA": 230000.0,
+          "JTSJOL": 7240.0,
+          "CPIAUCSL": 326.588,
+          "FEDFUNDS": 3.64,
+          "DSPIC96": 18187.0,
+          "PCE": 21525.5
+        },
+        "yoy": {
+          "UNRATE": 7.5,
+          "PAYEMS": 0.2,
+          "ICSA": 8.49,
+          "JTSJOL": -2.57,
+          "CPIAUCSL": 2.39,
+          "FEDFUNDS": -15.94,
+          "DSPIC96": 1.66,
+          "PCE": 5.2
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2026-02": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2026-02",
+      "fetched_at": "2026-07-29T03:52:18.962457Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.4,
+          "PAYEMS": 158436.0,
+          "ICSA": 214000.0,
+          "JTSJOL": 6922.0,
+          "CPIAUCSL": 327.46,
+          "GASREGW": 2.937,
+          "FEDFUNDS": 3.64,
+          "DSPIC96": 18118.9,
+          "PCE": 21665.1
+        },
+        "yoy": {
+          "UNRATE": 4.76,
+          "PAYEMS": 0.08,
+          "ICSA": -11.2,
+          "JTSJOL": -4.42,
+          "CPIAUCSL": 2.43,
+          "GASREGW": -6.02,
+          "FEDFUNDS": -15.94,
+          "DSPIC96": 1.16,
+          "PCE": 5.58
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2026-03": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2026-03",
+      "fetched_at": "2026-07-29T03:52:18.966388Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.3,
+          "PAYEMS": 158621.0,
+          "ICSA": 203000.0,
+          "JTSJOL": 6866.0,
+          "CPIAUCSL": 330.293,
+          "GASREGW": 3.99,
+          "FEDFUNDS": 3.64,
+          "DSPIC96": 18108.7,
+          "PCE": 21860.5
+        },
+        "yoy": {
+          "UNRATE": 2.38,
+          "PAYEMS": 0.15,
+          "ICSA": -7.73,
+          "JTSJOL": -1.24,
+          "CPIAUCSL": 3.29,
+          "GASREGW": 26.19,
+          "FEDFUNDS": -15.94,
+          "DSPIC96": 0.44,
+          "PCE": 5.69
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2026-04": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2026-04",
+      "fetched_at": "2026-07-29T03:52:18.970290Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.3,
+          "PAYEMS": 158736.0,
+          "ICSA": 190000.0,
+          "JTSJOL": 6866.0,
+          "CPIAUCSL": 332.407,
+          "GASREGW": 4.123,
+          "FEDFUNDS": 3.64,
+          "DSPIC96": 18108.7,
+          "PCE": 21860.5
+        },
+        "yoy": {
+          "UNRATE": 2.38,
+          "PAYEMS": 0.16,
+          "ICSA": -20.5,
+          "JTSJOL": -3.27,
+          "CPIAUCSL": 3.78,
+          "GASREGW": 31.6,
+          "FEDFUNDS": -15.94,
+          "DSPIC96": -0.13,
+          "PCE": 5.37
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    },
+    "fred_2026-05": {
+      "source_name": "fred",
+      "category": "macro_market",
+      "description": "FRED macroeconomic indicators: unemployment, CPI, rates, S&P500, VIX, etc.",
+      "target_date": "2026-05",
+      "fetched_at": "2026-07-29T03:52:18.974172Z",
+      "from_cache": true,
+      "status": "ok",
+      "error_message": null,
+      "data": {
+        "snapshot": {
+          "UNRATE": 4.3,
+          "PAYEMS": 158736.0,
+          "ICSA": 209000.0,
+          "JTSJOL": 6866.0,
+          "CPIAUCSL": 332.407,
+          "GASREGW": 4.49,
+          "FEDFUNDS": 3.64,
+          "DSPIC96": 18108.7,
+          "PCE": 21860.5
+        },
+        "yoy": {
+          "UNRATE": 0.0,
+          "PAYEMS": 0.15,
+          "ICSA": -14.34,
+          "JTSJOL": -6.07,
+          "CPIAUCSL": 3.68,
+          "GASREGW": 42.09,
+          "FEDFUNDS": -15.94,
+          "DSPIC96": 0.71,
+          "PCE": 5.33
+        }
+      },
+      "metadata": {
+        "redacted_series": [
+          "SP500",
+          "VIXCLS",
+          "UMCSENT",
+          "MICH",
+          "CSUSHPINSA",
+          "MORTGAGE30US"
+        ],
+        "redaction_note": "values of third-party copyrighted FRED series are not redistributed in this snapshot; re-fetch them locally with socioverse.materialize_external_events"
+      }
+    }
+  },
+  "availability": {
+    "sources_used": [
+      "fred"
+    ],
+    "sources_unavailable": [],
+    "source_status": {
+      "fred_2024-01": "ok",
+      "fred_2024-02": "ok",
+      "fred_2024-03": "ok",
+      "fred_2024-04": "ok",
+      "fred_2024-05": "ok",
+      "fred_2024-06": "ok",
+      "fred_2024-07": "ok",
+      "fred_2024-08": "ok",
+      "fred_2024-09": "ok",
+      "fred_2024-10": "ok",
+      "fred_2024-11": "ok",
+      "fred_2024-12": "ok",
+      "fred_2025-01": "ok",
+      "fred_2025-02": "ok",
+      "fred_2025-03": "ok",
+      "fred_2025-04": "ok",
+      "fred_2025-05": "ok",
+      "fred_2025-06": "ok",
+      "fred_2025-07": "ok",
+      "fred_2025-08": "ok",
+      "fred_2025-09": "ok",
+      "fred_2025-10": "ok",
+      "fred_2025-11": "ok",
+      "fred_2025-12": "ok",
+      "fred_2026-01": "ok",
+      "fred_2026-02": "ok",
+      "fred_2026-03": "ok",
+      "fred_2026-04": "ok",
+      "fred_2026-05": "ok"
+    }
+  },
+  "web_evidence": [],
+  "summary": null,
+  "errors": []
+}

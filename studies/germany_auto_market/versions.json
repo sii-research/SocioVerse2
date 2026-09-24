@@ -1,0 +1,13 @@
+{
+  "current": "v1",
+  "versions": [
+    {
+      "id": "v1",
+      "parent": null,
+      "note": "初始参考基线（真实德国数据驱动环境信号 + 真值锚定平滑，29 步 2024-01→2026-05 全量跑批）",
+      "created_at": 1785299037.4053447,
+      "snapshot": null,
+      "warm_start": null
+    }
+  ]
+}

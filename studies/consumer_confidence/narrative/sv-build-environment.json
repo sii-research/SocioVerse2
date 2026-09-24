@@ -1,0 +1,6 @@
+{
+  "study_id": "consumer_confidence",
+  "stage": "sv-build-environment",
+  "narrative": "环境 E 就绪：信息层为点时安全新闻集（06-12→07-01，4→10 条），combined_score 作为核心样本的预测输入。",
+  "ts": 1784387612.7840104
+}

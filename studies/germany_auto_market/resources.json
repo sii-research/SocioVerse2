@@ -1,0 +1,23 @@
+{
+  "study_id": "germany_auto_market",
+  "mcp_servers": [
+    {
+      "name": "event_tool",
+      "transport": "stdio",
+      "command": null,
+      "args": [],
+      "url": null,
+      "env": {},
+      "description": ""
+    }
+  ],
+  "datasets": [
+    {
+      "name": "marketsim-grounding-data",
+      "path": "uploads/marketsim-grounding-data.xlsx",
+      "kind": "other",
+      "description": "xlsx。德国购车成人真实人口联合分布(约5000万, Destatis/Zensus2022/BBSR/MiD2023 合成, 40320单元, sheets: population_state/population_state_urban/population_joint) + KBA FZ10 月度品牌份额真值(2023-01..2026-05, 41月×13类, sheets: brand_ground_truth/brand_share_wide)。人群锚定用 population_joint；品牌基线与校验目标用 brand_ground_truth。"
+    }
+  ],
+  "tools": []
+}

@@ -1,0 +1,54 @@
+{
+  "study_id": "abm_social_force",
+  "title": "Helbing Social Force evacuation (SocioVerse-ABM)",
+  "research_question": "Does the crowd flow toward the exit under social forces, and does an LLM agent reproduce it?",
+  "hypothesis": "Pedestrians steadily close the distance to the exit and begin evacuating.",
+  "study_type": "longitudinal",
+  "n_steps": 50,
+  "seed": 42,
+  "metrics": [
+    "n",
+    "evacuated",
+    "evac_fraction",
+    "mean_dist_to_goal"
+  ],
+  "domain": "crowd-dynamics",
+  "tags": [
+    "abm",
+    "social_force",
+    "crowd-dynamics",
+    "flow",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "num_pedestrians",
+    "room/exit",
+    "tau",
+    "A/B repulsion",
+    "v_max"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "flow-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "pedestrian social-force dynamics; continuous-space crowd flow exemplar"
+}

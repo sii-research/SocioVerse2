@@ -1,0 +1,129 @@
+# SocioVerse2 capability registry — the PUBLIC index of OPTIONAL external services the sv-*
+# workflow can attach. This file is committed and open-source: an entry advertises that a
+# capability EXISTS, when to use it, and how to fall back without it. Every entry is optional:
+# with none configured, each stage completes on its `fallback` path. Endpoints and keys are
+# NOT here — kind=mcp resolves through the gitignored `.mcp.json`, kind=http_client through
+# env vars / `.env` (see each entry's `attach`). A study pins what it actually used in its own
+# `resources.json` (`McpServerDecl`, by NAME — private dev endpoints never land in committed
+# study artifacts).
+#
+# The sv-* build skills consume this via `skills.sv_workspace.capability_view(stage=...)`:
+# each skill carries one stable, generic "capability check" hook that lists the entries
+# anchored to its stage and follows them. Adding/removing/changing a service is an edit to
+# THIS file only — the skill text never changes.
+#
+# Entry schema
+#   name            unique id; for kind=mcp it MUST equal the `.mcp.json` server name
+#   kind            mcp | http_client | builtin
+#   provides        one line: what it gives a study
+#   stages          which sv-* skills it anchors to (capability_view filters on this)
+#   use_when        the trigger condition a skill matches the study against
+#   confirm         true = calling it spends money / sends data out → ask the user first;
+#                   false = free/read-only → use it and report at the stage gate
+#   available_when  static availability check: {mcp_server: <name>} or {env: [VARS…]}
+#   health          the LIVE probe to run right before relying on it (MCP tool / HTTP check)
+#   howto           how a skill applies it — materialize + provenance rules included
+#   fallback        what to do when it is unavailable (the open-source / offline path)
+#   attach          how someone with access registers the endpoint (if configured)
+
+- name: event_tool
+  kind: http_client
+  provides: >
+    structured real-world macro / news / market context for E (fred, census, monthly news
+    archives), plus an optional realtime `search_web` MCP tool (news search) when the service
+    is also registered in .mcp.json
+  stages: [sv-init, sv-build-environment]
+  use_when: >
+    the study's E needs real-world event or macro context — broadcast content, layer
+    baselines, price/rate series over the study's time horizon. sv-init's grounding
+    bootstrap defers structured facts here; sv-build-environment materializes them.
+    LIVE news/event retrieval (grounding, public opinion, breaking context) defaults to the built-in
+    WebSearch; when this service is configured, its in-session MCP tool
+    `search_web(query, max_results, days, lang)` is an optional upgrade (multilingual news
+    search) and the first thing to try if WebSearch is failing.
+  confirm: false
+  cost: >
+    depends on the provider you configured — a service may meter event fetches. Cheap vs a
+    persona simulation, but if your provider charges per call, tell the user when you pull
+    event data.
+  available_when:
+    env: [SV_EVENT_API_URL]
+  health: GET <host root>/healthz (off the MCP path) — the client fail-fasts on it automatically
+  howto: >
+    Use the tiered client, never raw HTTP: `socioverse.materialize_external_events(study_dir,
+    query, months=…, sources=…)` writes the evidence to environment/external_events.json.
+    The production service is an MCP (structured data only, no query parser) — always pass
+    explicit `months=` (+ `sources=`). Author broadcasts/layers from `ev.results`, NEVER from
+    `ev.summary` (legacy field; another LLM's prose would contaminate B=f(P,E) attribution);
+    web evidence is YOUR WebSearch job and lands in grounding.json. Numbers E consumes also get
+    grounding facts (via="event_service"). Full rules: the "External events" section of
+    sv-build-environment's SKILL.md.
+  fallback: >
+    the client degrades on its own (remote → SV_EVENT_LOCAL_CACHE dir → unavailable); when
+    unavailable YOU are tier 3 — Claude WebSearch + hand-authored broadcasts, every number
+    landing in grounding.json (via="web_search", url + accessed date).
+  attach: >
+    optional service, if configured: SV_EVENT_API_URL (the FULL MCP endpoint — path
+    `/event_mcp` included, not the bare host) + SV_EVENT_API_KEY in the gitignored .env (key
+    never in artifacts); `python scripts/gen_mcp_json.py` also registers it in the gitignored
+    .mcp.json for the in-session MCP tools. Access to the hosted service is on request
+    (contact@socioverse.fudan-disc.com). A study may pin the service by NAME via
+    McpServerDecl(name="event_tool", transport="http") in resources.json; add url= only for a
+    public endpoint.
+
+- name: user_pool_survey_mcp
+  kind: mcp
+  provides: >
+    platform user personas (real X/Twitter & Xiaohongshu (RED) users, plus registered open datasets such
+    as census-grounded Nemotron personas) sampled to target distributions, a field-coverage
+    routing tool for composing P from several pools, and LLM questionnaire answering
+  stages: [sv-build-population, sv-report]
+  use_when: >
+    P should be grounded in real platform users or a registered open persona pool (sampling
+    by AGE/GENDER/… distributions — list_user_pool_platforms shows what is registered), the
+    study needs fields no single pool covers (route with match_user_pool_fields, then compose
+    per the skill's "Composing P" section), or the study wants a cross-sectional
+    questionnaire baseline / what-if poll next to the longitudinal panel.
+  confirm: true   # the SIMULATION call spends LLM budget; read-only lookups below are free
+  cost: >
+    NOT free — a distribution simulation runs one LLM questionnaire answer PER simulated
+    respondent, so cost scales with `user_count` (≈ user_count × the provider's per-respondent
+    rate). BEFORE calling, tell the user the expected spend (state the user_count) and
+    confirm — this is a real, billable call, not a free lookup.
+  available_when:
+    mcp_server: user_pool_survey_mcp
+  health: get_user_pool_simulation_capabilities   # MCP tool; get_user_pool_index_status for the index
+  howto: >
+    BUILD-time only, via the in-session MCP tools. Health-check first. FREE read-only tools
+    (no confirm needed, report at the stage gate): match_user_pool_fields(fields,
+    value_probes=…) — per-pool field coverage, anchor suggestion, complement pools, and
+    unresolved fields for the composition plan; ALWAYS probe the exact category labels before
+    sampling (label vocabularies differ across pools — sampling matches strings exactly);
+    also search_user_pool / get_user_pool_field_values for cross-pool statistical matching.
+    The metered call is run_user_pool_distribution_simulation(platform_id, distributions,
+    user_count, questionnaire, seed, max_workers ≤ 128). To ground P in REAL users set
+    allow_virtual_users=false and inspect `sample` for missing distribution cells — the
+    default silently substitutes VIRTUAL_* users. Prefer sampling_mode="preserve_joint" when
+    the study cares about cross-field correlations (keeps real users' joint structure; target
+    labels the pool cannot support are filled by flagged VIRTUAL_* respondents as a last
+    resort unless allow_virtual_users=false — check virtual_user_count and record
+    achieved_marginals vs targets in grounding); the default "independent" mode multiplies
+    marginals independently. Materialize the
+    returned output_jsonl into population/ artifacts (personas + roster; P-side seam:
+    provider_ref="mcp.socioverse_pool") or a report baseline table; record one grounding
+    fact per load-bearing distribution (via="provider", source = platform + query) and keep
+    the returned llm_model in the provenance. Responses carry an `attribution` block
+    (project/author/license/url) for open-dataset platforms — copy it into
+    grounding.json and surface it in the report's acknowledgements/sources section; this is a
+    hard requirement for open-data pools. `auth` is a passthrough placeholder — no real key
+    management yet.
+  fallback: >
+    synthesize personas under the grounding-first rules (searched anchors or declared
+    assumptions), or a user-uploaded file (provider_ref="file.personas"); note in provenance
+    that the pool was unavailable.
+  attach: >
+    optional service, if configured: set SV_USER_POOL_MCP_URL (+ SV_USER_POOL_MCP_KEY) in the
+    gitignored .env and run `python scripts/gen_mcp_json.py`, which registers it in the
+    gitignored .mcp.json (mcpServers.user_pool_survey_mcp — streamable-http). Access to the
+    hosted service is on request (contact@socioverse.fudan-disc.com). Never commit the
+    endpoint or put it in a study's resources.json.

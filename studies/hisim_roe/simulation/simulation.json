@@ -1,0 +1,21 @@
+{
+  "study_id": "hisim_roe",
+  "n_steps": 4,
+  "seed": 42,
+  "warm_start": null,
+  "decision_ref": "hisim.hybrid_decision",
+  "decision_args": {
+    "alpha": 0.3,
+    "bc_bound": 0.1,
+    "mode": "llm",
+    "llm_kind": "openai",
+    "target": "the protection of Abortion Rights",
+    "model": "gpt-4o-mini"
+  },
+  "collector_ref": "hisim.metrics",
+  "collector_args": {},
+  "interaction_rounds": 1,
+  "engine_args": {},
+  "store_ref": "duckdb",
+  "store_args": {}
+}

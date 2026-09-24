@@ -1,0 +1,214 @@
+{
+  "source_csv": "https://raw.githubusercontent.com/RunRiotComeOn/ConsumerSim-Consumer-Confidence-Forecast/f018181eb105e6845993a5ba1f2ab2a5287608bd/data/consumersim_site_data.csv",
+  "generated_from_record_types": [
+    "series",
+    "agent_profile",
+    "agent_monthly_prediction",
+    "leaderboard",
+    "region_summary"
+  ],
+  "target_index": "University of Michigan Index of Consumer Sentiment",
+  "backtest_window": "2020-01 to 2026-06",
+  "method": "ConsumerSim respondent simulation",
+  "published_stats": {
+    "months": 75,
+    "mae": 3.936,
+    "rmse": 4.879,
+    "pearson": 0.932
+  },
+  "study_window_stats": {
+    "months": 11,
+    "mae": 1.659,
+    "rmse": 2.273,
+    "pearson": 0.863,
+    "direction_hits": 8,
+    "direction_total": 10
+  },
+  "leaderboard": [
+    {
+      "rank": 1,
+      "method": "ConsumerSim respondent simulation",
+      "family": "simulation",
+      "months": 75,
+      "mae": 3.936,
+      "rmse": 4.879,
+      "pearson": 0.932
+    },
+    {
+      "rank": 2,
+      "method": "Autoregressive Ridge (3 lags)",
+      "family": "time_series",
+      "months": 75,
+      "mae": 4.333,
+      "rmse": 5.689,
+      "pearson": 0.879
+    },
+    {
+      "rank": 3,
+      "method": "Expectations Regression",
+      "family": "econometric",
+      "months": 75,
+      "mae": 4.539,
+      "rmse": 6.048,
+      "pearson": 0.894
+    },
+    {
+      "rank": 4,
+      "method": "News Semantic FAAR Proxy",
+      "family": "text_augmented_regression",
+      "months": 75,
+      "mae": 4.542,
+      "rmse": 6.155,
+      "pearson": 0.87
+    },
+    {
+      "rank": 5,
+      "method": "3-Month Rolling Mean",
+      "family": "time_series",
+      "months": 75,
+      "mae": 4.876,
+      "rmse": 6.455,
+      "pearson": 0.837
+    },
+    {
+      "rank": 6,
+      "method": "SARIMAX Macro (small grid)",
+      "family": "econometric",
+      "months": 75,
+      "mae": 5.466,
+      "rmse": 8.47,
+      "pearson": 0.806
+    },
+    {
+      "rank": 7,
+      "method": "Theta Model",
+      "family": "time_series",
+      "months": 75,
+      "mae": 5.709,
+      "rmse": 7.683,
+      "pearson": 0.774
+    },
+    {
+      "rank": 8,
+      "method": "ETS Damped Trend",
+      "family": "time_series",
+      "months": 75,
+      "mae": 5.724,
+      "rmse": 7.72,
+      "pearson": 0.774
+    },
+    {
+      "rank": 9,
+      "method": "Auto ARIMA (small grid)",
+      "family": "time_series",
+      "months": 75,
+      "mae": 6.328,
+      "rmse": 8.661,
+      "pearson": 0.739
+    },
+    {
+      "rank": 10,
+      "method": "Prophet Macro Regressors",
+      "family": "decomposable_additive",
+      "months": 75,
+      "mae": 6.556,
+      "rmse": 8.324,
+      "pearson": 0.825
+    },
+    {
+      "rank": 11,
+      "method": "Prophet Univariate",
+      "family": "decomposable_additive",
+      "months": 75,
+      "mae": 7.118,
+      "rmse": 8.914,
+      "pearson": 0.678
+    },
+    {
+      "rank": 12,
+      "method": "Macro + Market + News Ridge",
+      "family": "augmented_regression",
+      "months": 75,
+      "mae": 7.317,
+      "rmse": 16.369,
+      "pearson": 0.558
+    },
+    {
+      "rank": 13,
+      "method": "Macro Stable Ridge",
+      "family": "macro_regression",
+      "months": 75,
+      "mae": 7.502,
+      "rmse": 17.121,
+      "pearson": 0.478
+    }
+  ],
+  "series": [
+    {
+      "label": "Jul-25",
+      "month": "2025-07",
+      "forecast": 62.12,
+      "actual": 61.7
+    },
+    {
+      "label": "Aug-25",
+      "month": "2025-08",
+      "forecast": 63.01,
+      "actual": 58.2
+    },
+    {
+      "label": "Sep-25",
+      "month": "2025-09",
+      "forecast": 59.61,
+      "actual": 55.1
+    },
+    {
+      "label": "Oct-25",
+      "month": "2025-10",
+      "forecast": 56.3,
+      "actual": 53.6
+    },
+    {
+      "label": "Nov-25",
+      "month": "2025-11",
+      "forecast": 55.32,
+      "actual": 54.0
+    },
+    {
+      "label": "Dec-25",
+      "month": "2025-12",
+      "forecast": 55.91,
+      "actual": 54.9
+    },
+    {
+      "label": "Jan-26",
+      "month": "2026-01",
+      "forecast": 57.26,
+      "actual": 56.4
+    },
+    {
+      "label": "Feb-26",
+      "month": "2026-02",
+      "forecast": 58.65,
+      "actual": 57.6
+    },
+    {
+      "label": "Mar-26",
+      "month": "2026-03",
+      "forecast": 57.47,
+      "actual": 56.4
+    },
+    {
+      "label": "Apr-26",
+      "month": "2026-04",
+      "forecast": 53.0,
+      "actual": 53.2
+    },
+    {
+      "label": "May-26",
+      "month": "2026-05",
+      "forecast": 52.2,
+      "actual": 52.5
+    }
+  ]
+}

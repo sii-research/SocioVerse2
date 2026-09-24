@@ -1,0 +1,14 @@
+{
+  "study_id": "consumer_confidence",
+  "mcp_servers": [],
+  "datasets": [],
+  "tools": [
+    {
+      "name": "ConsumerSim external checkout",
+      "description": "Resolved from SV_CONSUMERSIM_ROOT or a sibling ConsumerSim-Consumer-Confidence-Forecast directory.",
+      "spec": {
+        "default_region": "US"
+      }
+    }
+  ]
+}

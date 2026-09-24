@@ -1,0 +1,181 @@
+{
+  "study_id": "consumer_confidence_us_backtest",
+  "query": "美国消费者信心指数逐月模拟重建 vs 密歇根 ICS 实测（回测）",
+  "updated_at": "2026-08-17T11:02:30Z",
+  "method_notes": "回测导入：指标序列、受访者画像与逐月面板全部解析自 ConsumerSim 公开发布的站点数据，由 build_from_source.py 从固定的 2026-07-03 发布版逐字节重建；真值锚是密歇根大学事后公布的 ICS。本研究不分叉、不重跑——要真跑一轮 ConsumerSim 管线，请分叉可运行的 consumer_confidence 研究（需要 ConsumerSim 兄弟仓）。",
+  "implementation_refs": [
+    {
+      "title": "ConsumerSim: reconstructing the Consumer Confidence Index from simulated household survey responses",
+      "url": "https://arxiv.org/abs/2606.30395",
+      "takeaway": "论文口径：美国 2020-01–2026-03 共 75 个月，MAE 3.45 / RMSE 4.56 / Pearson 0.9590，在 14 种方法中四项指标均列第一；核心 5000 agent 经 50× 后分层扩展至 25 万人。",
+      "accessed": "2026-08-17"
+    },
+    {
+      "title": "University of Michigan Surveys of Consumers — index methodology (five questions, Xi = %pos − %neg + 100)",
+      "url": "https://data.sca.isr.umich.edu/fetchdoc.php?docid=24774",
+      "takeaway": "ICS 由五道问卷题的相对分平均得到；模拟侧沿用同一套题目与计分规则，所以模拟值与官方值在同一量纲上可直接相减。",
+      "accessed": "2026-08-17"
+    }
+  ],
+  "facts": [
+    {
+      "id": "f-target-index",
+      "claim": "本研究的真值锚指数",
+      "value": "University of Michigan Index of Consumer Sentiment",
+      "unit": "index",
+      "as_of": "2026-06",
+      "basis": "sourced",
+      "source": {
+        "title": "ConsumerSim public dashboard data (US)",
+        "url": "https://sii-research.github.io/ConsumerSim/data/consumersim_site_data.csv",
+        "via": "repo_file",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "collector.target_index"
+      ]
+    },
+    {
+      "id": "f-ics-monthly",
+      "claim": "评分窗内 11 个月的 ICS 实测序列（2025-07–2026-05）",
+      "value": "2025-07 61.7, 2025-08 58.2, 2025-09 55.1, 2025-10 53.6, 2025-11 54.0, 2025-12 54.9, 2026-01 56.4, 2026-02 57.6, 2026-03 56.4, 2026-04 53.2, 2026-05 52.5",
+      "unit": "index points",
+      "as_of": "2026-05",
+      "basis": "sourced",
+      "source": {
+        "title": "University of Michigan, Surveys of Consumers — Index of Consumer Sentiment",
+        "url": "https://data.sca.isr.umich.edu/",
+        "via": "consumersim_backtest",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "metrics.actual_ics"
+      ]
+    },
+    {
+      "id": "f-forecast-monthly",
+      "claim": "同期模拟重建序列（ConsumerSim 逐月发布值）",
+      "value": "2025-07 62.12, 2025-08 63.01, 2025-09 59.61, 2025-10 56.30, 2025-11 55.32, 2025-12 55.91, 2026-01 57.26, 2026-02 58.65, 2026-03 57.47, 2026-04 53.00, 2026-05 52.20",
+      "unit": "index points",
+      "as_of": "2026-05",
+      "basis": "sourced",
+      "source": {
+        "title": "ConsumerSim public dashboard data (US)",
+        "url": "https://sii-research.github.io/ConsumerSim/data/consumersim_site_data.csv",
+        "via": "repo_file",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "metrics.forecast_ics"
+      ]
+    },
+    {
+      "id": "f-window-accuracy",
+      "claim": "本研究评分窗（11 个月）的精度",
+      "value": "MAE 1.659 / RMSE 2.273 / Pearson 0.863 / 环比方向命中 8/10",
+      "unit": "index points",
+      "as_of": "2026-05",
+      "basis": "sourced",
+      "source": {
+        "title": "ConsumerSim public dashboard data (US)",
+        "url": "https://sii-research.github.io/ConsumerSim/data/consumersim_site_data.csv",
+        "via": "repo_file",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "metrics.abs_error",
+        "metrics.cum_mae"
+      ]
+    },
+    {
+      "id": "f-published-accuracy",
+      "claim": "ConsumerSim 官方公布的长窗回测精度（75 个月，2020-01 to 2026-06）",
+      "value": "MAE 3.936 / RMSE 4.879 / Pearson 0.932",
+      "unit": "index points",
+      "as_of": "2026-06",
+      "basis": "sourced",
+      "source": {
+        "title": "ConsumerSim public dashboard data (US)",
+        "url": "https://sii-research.github.io/ConsumerSim/data/consumersim_site_data.csv",
+        "via": "repo_file",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "report.context"
+      ]
+    },
+    {
+      "id": "f-leaderboard",
+      "claim": "同一 75 个月窗口下 13 种方法的排名（模拟法第 1，最强统计基线为 Autoregressive Ridge (3 lags)）",
+      "value": "ConsumerSim MAE 3.936 vs Autoregressive Ridge (3 lags) MAE 4.333",
+      "unit": "index points",
+      "as_of": "2026-06",
+      "basis": "sourced",
+      "source": {
+        "title": "ConsumerSim public dashboard data (US)",
+        "url": "https://sii-research.github.io/ConsumerSim/data/consumersim_site_data.csv",
+        "via": "repo_file",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "report.baseline_comparison"
+      ]
+    },
+    {
+      "id": "f-panel",
+      "claim": "受访者面板规模与覆盖窗口",
+      "value": "18 位具名合成受访者 × 2026-01–2026-05（评分窗后 5 个月）",
+      "unit": "agents × months",
+      "as_of": "2026-05",
+      "basis": "sourced",
+      "source": {
+        "title": "ConsumerSim public dashboard data (US)",
+        "url": "https://sii-research.github.io/ConsumerSim/data/consumersim_site_data.csv",
+        "via": "repo_file",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "population.materialized_count",
+        "panel"
+      ]
+    },
+    {
+      "id": "f-info-sources",
+      "claim": "每月信息环境的数据源清单",
+      "value": "FRED / NY Fed SCE / BLS / Treasury / Yahoo Market / Fear&Greed / 信用利差 / 住房金融 / USTR / NYT Archive",
+      "unit": "sources",
+      "as_of": "2026-06",
+      "basis": "sourced",
+      "source": {
+        "title": "ConsumerSim ICS 模拟数据源说明（SocioVerse 事件服务文档；该服务为托管服务，未开源）",
+        "via": "event_service",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "environment.layers"
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "a-external-run",
+      "statement": "本研究的轨迹是 ConsumerSim 官方发布输出的导入，不是在本工作台内重跑得到的。",
+      "rationale": "真跑一轮需要付费 LLM 调用与逐月真实新闻/指标输入；把已发布结果导入可以让回测形态、真值对照与面板结构立刻可见，代价是 study 内不可重现该次运行本身（脚本可重现的是导入过程）。"
+    },
+    {
+      "id": "a-respondent-scale",
+      "statement": "逐人面板的月度分与总指数不在同一标定上，不可直接平均成 forecast_ics。",
+      "rationale": "可直接验证：2026-01 的 18 位受访者均值约 52.4，而同月总指数模拟值为 57.26。因此面板只作为受访者层面的状态展示，绝不参与指标聚合。"
+    },
+    {
+      "id": "a-window-vs-published",
+      "statement": "本研究评分窗（11 个月，MAE 1.66）比官方长窗（75 个月，MAE 3.94）显著更准，这是窗口差异而非方法改进。",
+      "rationale": "长窗覆盖 2020–2022 的疫情与通胀冲击期，信心指数在那几年剧烈跳动，任何方法的误差都被放大；读数时应以长窗与方法榜为准，本窗口只用于逐月演示。"
+    },
+    {
+      "id": "a-panel-coverage",
+      "statement": "评分窗前 6 个月（2025-07–2025-12）没有逐人面板记录，指标 panel_size 为 0。",
+      "rationale": "公开数据里的受访者面板只覆盖 2026-01 起的月份。缺的月份保持为空——不补零、不外推、不用邻月顶替。"
+    }
+  ]
+}

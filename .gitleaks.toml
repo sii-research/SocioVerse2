@@ -1,0 +1,16 @@
+# gitleaks configuration: the default rules, plus a narrow allowlist for two known kinds of
+# false positive in this tree. Nothing else is exempt.
+title = "SocioVerse2"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "citation keys in study literature files; placeholder keys in the vendored paper-search-pro setup guide"
+regexTarget = "line"
+regexes = [
+  # "bibkey": "crooks2010constructing" in studies/*/literature/literature.json
+  '''^\s*"bibkey":\s*"[A-Za-z0-9_:.-]+",?\s*$''',
+  # openalex_api_key: "abcdef1234567890..." (documentation placeholders ending in "...")
+  '''_api_key:\s*"(abcdef1234567890|0123456789abcdef)\.\.\."''',
+]

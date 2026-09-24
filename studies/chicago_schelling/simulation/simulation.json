@@ -1,0 +1,11 @@
+{
+  "study_id": "chicago_schelling",
+  "n_steps": 3,
+  "seed": 42,
+  "decision_ref": "chicago.schelling",
+  "decision_args": {},
+  "interaction_rounds": 1,
+  "engine_args": {},
+  "store_ref": "duckdb",
+  "store_args": {}
+}

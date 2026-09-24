@@ -1,0 +1,139 @@
+{
+  "study_id": "campus_dining_choice",
+  "query": "大学城约150名学生在食堂逐月涨价+本地外卖同期涨价下,4个月就餐选择(食堂/外卖/自己做)与消费满意度的演化",
+  "updated_at": "2026-07-08T08:05:27Z",
+  "method_notes": null,
+  "implementation_refs": [
+    {
+      "title": "Kilders et al. (2024) Consumer preferences for food away from home: Dine in versus delivery (AJAE)",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/ajae.12428",
+      "takeaway": "离散选择实验:就餐渠道之间存在替代;堂食比外卖更价格敏感——支持把\"食堂/外卖/自炊\"建成离散选择、价格上涨驱动渠道转移。",
+      "accessed": "2026-07-07"
+    },
+    {
+      "title": "Andreyeva, Long & Brownell (2010) Price Elasticity of Demand for Food: A Systematic Review (AJPH)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2804646/",
+      "takeaway": "外食(food-away-from-home)价格弹性约0.7–0.8,价格敏感——为决策模型对涨价的响应强度提供量级参考。",
+      "accessed": "2026-07-07"
+    }
+  ],
+  "facts": [
+    {
+      "id": "f-canteen-meal",
+      "claim": "中国高校校内食堂一餐(两荤一素套餐)校内价",
+      "value": 12.0,
+      "unit": "元/餐",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "复旦食堂对外开放报道(套餐约15元菜价);北理工称食堂比外卖便宜",
+        "url": "https://m.gmw.cn/2024-03/11/content_1303682374.htm",
+        "via": "web_search",
+        "accessed": "2026-07-07"
+      },
+      "applies_to": [
+        "environment.baseline.canteen_price"
+      ]
+    },
+    {
+      "id": "f-delivery-order",
+      "claim": "大学生外卖单次消费金额(通常50元以下,常见区间)",
+      "value": 25.0,
+      "unit": "元/单",
+      "as_of": "2024",
+      "basis": "proxy",
+      "source": {
+        "title": "大学生外卖调查:单次消费通常50元以下,77%每周1–5次",
+        "url": "https://k.sina.cn/article_5391043395_14154cb43001011h25.html",
+        "via": "web_search",
+        "accessed": "2026-07-07"
+      },
+      "applies_to": [
+        "environment.baseline.delivery_price"
+      ]
+    },
+    {
+      "id": "f-monthly-food-budget",
+      "claim": "大学生月均餐饮预算(生活费1000–2000元×饮食占比~50%)",
+      "value": 750.0,
+      "unit": "元/月",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "2024中国大学生消费:七成月支出1000–2000元,饮食占生活费约50%",
+        "url": "https://news.qq.com/rain/a/20240907A058B900",
+        "via": "web_search",
+        "accessed": "2026-07-07"
+      },
+      "applies_to": [
+        "population.budget_distribution"
+      ]
+    },
+    {
+      "id": "f-delivery-adoption",
+      "claim": "有外卖消费行为的学生占比(基线渠道混合参考)",
+      "value": 0.839,
+      "unit": "占比",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "大学生外卖调查:83.9%有外卖行为,77%每周1–5次",
+        "url": "https://k.sina.cn/article_5391043395_14154cb43001011h25.html",
+        "via": "web_search",
+        "accessed": "2026-07-07"
+      },
+      "applies_to": [
+        "population.baseline_choice_mix"
+      ]
+    },
+    {
+      "id": "f-fafh-elasticity",
+      "claim": "外食价格弹性(堂食比外卖更价格敏感)",
+      "value": 0.75,
+      "unit": "弹性(绝对值)",
+      "as_of": "2010/2024",
+      "basis": "sourced",
+      "source": {
+        "title": "Andreyeva 2010(FAFH~0.7–0.8);Kilders 2024(堂食>外卖价格敏感)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2804646/",
+        "via": "web_search",
+        "accessed": "2026-07-07"
+      },
+      "applies_to": [
+        "decision.price_sensitivity"
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "a-cook-cost",
+      "claim": "自己做饭单餐食材成本约5–8元,但需额外时间与精力(有隐性成本)",
+      "rationale": "无直接针对大学生自炊单餐成本的公开统计,按食材价格与常识保守估计;时间/精力成本作为决策阻力项。"
+    },
+    {
+      "id": "a-price-schedule",
+      "claim": "食堂\"逐月上调\"与外卖\"同期上涨\"的具体涨幅(如每月约+5–10%)为情景设定",
+      "rationale": "题目给定的假设性政策情景,无对应历史价格序列;涨幅在sv-build-environment作为可调情景参数显式声明,而非真实数据。"
+    },
+    {
+      "id": "a-satisfaction-scale",
+      "claim": "消费满意度用0–1连续量表(0=很不满意,1=很满意)",
+      "rationale": "建模刻度选择,便于跨月比较与聚合;非真实测量量表。"
+    },
+    {
+      "id": "a-archetype-shares",
+      "claim": "5 类学生就餐画像及占比——食堂党42%/外卖党24%/省钱型16%/校外自炊11%/吃货7%——为风格化行为细分(非人口学抽样);baseline 主就餐方式混合约 食堂58%/外卖31%/自炊11%。",
+      "rationale": "参考外卖渗透率 [[f-delivery-adoption]](83.9% 有外卖行为,但作为\"主要\"就餐方式占比更低)与月餐饮预算 [[f-monthly-food-budget]](~750元)设定;各画像预算/价格敏感度/做饭可行性区间为课题设计,用于驱动离散选择。未采用 user_pool_survey_mcp——该服务可用但按人口学 marginal 抽样,不含就餐预算/做饭可行性/习惯就餐方式等模型所需字段,且 confirm 计费;按 capability fallback 合成人群。"
+    },
+    {
+      "id": "a-dorm-discussion",
+      "claim": "宿舍式随机小组(每组~6人,跨画像混合)+每月3轮组内\"倾向+一句话理由\"讨论,为建模设定,用于考察社交商议(从众/劝说)对就餐选择的影响。",
+      "rationale": "题目要求\"每步agent互相讨论3轮再决定\";随机分组模拟宿舍;讨论经 MessageBus 在轮次间传递,最后一轮为记录选择。非真实社交网络数据。"
+    },
+    {
+      "id": "a-canteen-cap",
+      "claim": "第3月食堂宣布\"涨价封顶\":canteen 价格在第3月后不再上调(外卖/自炊照常涨),为中途政策干预情景。",
+      "rationale": "题目要求\"从中途加干预\";基于 [[a-price-schedule]],干预=停止食堂涨价+封顶公告(信息)。多轮研究无法 warm-start,干预排在第3月一次性跑完整条。"
+    }
+  ]
+}

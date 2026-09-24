@@ -1,0 +1,83 @@
+{
+  "study_id": "hisim_roe",
+  "layers": [
+    {
+      "name": "tweet_feed",
+      "modality": "information",
+      "scope": "local",
+      "dynamics": "endogenous",
+      "source": null,
+      "schema_ref": null,
+      "description": "audience timeline of recent tweets"
+    },
+    {
+      "name": "trigger_news",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": null,
+      "schema_ref": null,
+      "description": "offline event news broadcast"
+    },
+    {
+      "name": "peer_opinion",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "endogenous",
+      "source": null,
+      "schema_ref": null,
+      "description": "global confidence-band peer opinions (BCM)"
+    }
+  ],
+  "scheduled_events": [
+    {
+      "at_step": 0,
+      "target_layer": "trigger_news",
+      "op": "set",
+      "selector": {},
+      "property_name": "headline",
+      "value": "触发事件：最高法院推翻 Roe v. Wade",
+      "note": "触发事件：最高法院推翻 Roe v. Wade"
+    },
+    {
+      "at_step": 10,
+      "target_layer": "trigger_news",
+      "op": "set",
+      "selector": {},
+      "property_name": "headline",
+      "value": "后续新闻：华盛顿特区抗议与逮捕",
+      "note": "后续新闻：华盛顿特区抗议与逮捕"
+    },
+    {
+      "at_step": 11,
+      "target_layer": "trigger_news",
+      "op": "set",
+      "selector": {},
+      "property_name": "headline",
+      "value": "后续新闻：华盛顿特区抗议与逮捕",
+      "note": "后续新闻：华盛顿特区抗议与逮捕"
+    }
+  ],
+  "information_program": {
+    "broadcasts": [
+      {
+        "message_id": "N1",
+        "content": "News- a major event concerning the protection of Abortion Rights occurs.",
+        "channel": "trigger_news",
+        "at_step": 2,
+        "ttl": 4,
+        "audience": "all",
+        "note": ""
+      }
+    ]
+  },
+  "provider_ref": "hisim.twitter_env",
+  "provider_args": {
+    "n_core": 8,
+    "n_ord": 12,
+    "seed": 42,
+    "alpha": 0.3,
+    "bc_bound": 0.1,
+    "target": "the protection of Abortion Rights"
+  }
+}

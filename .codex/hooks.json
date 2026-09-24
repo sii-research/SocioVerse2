@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 dashboard/hooks/sv_emit.py awaiting"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 dashboard/hooks/sv_emit.py resumed"
+          }
+        ]
+      }
+    ]
+  }
+}

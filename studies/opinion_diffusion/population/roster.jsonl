@@ -1,0 +1,12 @@
+{"agent_id": "od-000", "step": 0, "state": {"opinion": 0.0417}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-001", "step": 0, "state": {"opinion": 0.125}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-002", "step": 0, "state": {"opinion": 0.2083}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-003", "step": 0, "state": {"opinion": 0.2917}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-004", "step": 0, "state": {"opinion": 0.375}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-005", "step": 0, "state": {"opinion": 0.4583}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-006", "step": 0, "state": {"opinion": 0.5417}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-007", "step": 0, "state": {"opinion": 0.625}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-008", "step": 0, "state": {"opinion": 0.7083}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-009", "step": 0, "state": {"opinion": 0.7917}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-010", "step": 0, "state": {"opinion": 0.875}, "action_kind": null, "action_payload": {}}
+{"agent_id": "od-011", "step": 0, "state": {"opinion": 0.9583}, "action_kind": null, "action_payload": {}}

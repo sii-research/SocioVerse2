@@ -1,0 +1,252 @@
+{
+  "study_id": "campus_dining_choice",
+  "layers": [
+    {
+      "name": "canteen_price",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-canteen-meal",
+      "schema_ref": null,
+      "description": "食堂单餐价格（元/餐），逐月上调至封顶"
+    },
+    {
+      "name": "delivery_price",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-delivery-order",
+      "schema_ref": null,
+      "description": "本地外卖客单价（元/单），同期上涨"
+    },
+    {
+      "name": "cook_cost",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:a-cook-cost",
+      "schema_ref": null,
+      "description": "自己做饭单餐食材成本（元/餐），小幅上涨"
+    },
+    {
+      "name": "canteen_notice",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:a-price-schedule",
+      "schema_ref": null,
+      "description": "食堂公告（逐月上调 / 涨价封顶）"
+    },
+    {
+      "name": "delivery_news",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:a-price-schedule",
+      "schema_ref": null,
+      "description": "本地外卖涨价新闻"
+    },
+    {
+      "name": "cohort_trend",
+      "modality": "information",
+      "scope": "local",
+      "dynamics": "endogenous",
+      "source": null,
+      "schema_ref": null,
+      "description": "同类同学上月各就餐方式占比（社交扩散）"
+    },
+    {
+      "name": "dorm_chat",
+      "modality": "information",
+      "scope": "local",
+      "dynamics": "endogenous",
+      "source": null,
+      "schema_ref": null,
+      "description": "本月宿舍小组讨论：舍友当轮的倾向+理由（多轮传递）"
+    }
+  ],
+  "scheduled_events": [
+    {
+      "at_step": 1,
+      "target_layer": "canteen_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.08,
+      "note": "第1月：食堂餐价上调（×1.08）"
+    },
+    {
+      "at_step": 1,
+      "target_layer": "delivery_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.06,
+      "note": "第1月：本地外卖客单价上调（×1.06）"
+    },
+    {
+      "at_step": 1,
+      "target_layer": "cook_cost",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.02,
+      "note": "第1月：自炊食材价格小幅上涨（×1.02）"
+    },
+    {
+      "at_step": 2,
+      "target_layer": "canteen_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.08,
+      "note": "第2月：食堂餐价上调（×1.08）"
+    },
+    {
+      "at_step": 2,
+      "target_layer": "delivery_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.06,
+      "note": "第2月：本地外卖客单价上调（×1.06）"
+    },
+    {
+      "at_step": 2,
+      "target_layer": "cook_cost",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.02,
+      "note": "第2月：自炊食材价格小幅上涨（×1.02）"
+    },
+    {
+      "at_step": 3,
+      "target_layer": "canteen_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.08,
+      "note": "第3月：食堂餐价上调（×1.08）"
+    },
+    {
+      "at_step": 3,
+      "target_layer": "delivery_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.06,
+      "note": "第3月：本地外卖客单价上调（×1.06）"
+    },
+    {
+      "at_step": 3,
+      "target_layer": "cook_cost",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.02,
+      "note": "第3月：自炊食材价格小幅上涨（×1.02）"
+    },
+    {
+      "at_step": 4,
+      "target_layer": "delivery_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.06,
+      "note": "第4月：本地外卖客单价上调（×1.06）"
+    },
+    {
+      "at_step": 4,
+      "target_layer": "cook_cost",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.02,
+      "note": "第4月：自炊食材价格小幅上涨（×1.02）"
+    },
+    {
+      "at_step": 5,
+      "target_layer": "delivery_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.06,
+      "note": "第5月：本地外卖客单价上调（×1.06）"
+    },
+    {
+      "at_step": 5,
+      "target_layer": "cook_cost",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.02,
+      "note": "第5月：自炊食材价格小幅上涨（×1.02）"
+    },
+    {
+      "at_step": 6,
+      "target_layer": "delivery_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.06,
+      "note": "第6月：本地外卖客单价上调（×1.06）"
+    },
+    {
+      "at_step": 6,
+      "target_layer": "cook_cost",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.02,
+      "note": "第6月：自炊食材价格小幅上涨（×1.02）"
+    },
+    {
+      "at_step": 3,
+      "target_layer": "canteen_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price",
+      "value": 1.0,
+      "note": "第3月：食堂宣布餐价封顶，后续不再上调（干预）"
+    }
+  ],
+  "information_program": {
+    "broadcasts": [
+      {
+        "message_id": "CANTEEN_NOTICE",
+        "content": "校园食堂公告：受成本上涨影响，未来数月将逐月上调餐价（每月约+8%），请同学们理解。",
+        "channel": "canteen_notice",
+        "at_step": 0,
+        "ttl": 3,
+        "audience": "all",
+        "note": ""
+      },
+      {
+        "message_id": "CANTEEN_CAP",
+        "content": "校园食堂公告：餐价即日起封顶，后续不再上调，请同学们放心就餐。",
+        "channel": "canteen_notice",
+        "at_step": 3,
+        "ttl": 4,
+        "audience": "all",
+        "note": ""
+      },
+      {
+        "message_id": "DELIVERY_NEWS",
+        "content": "本地外卖：近期平台配送费与商家客单价持续上涨（环比约+6%/月），满减力度也有所收缩。",
+        "channel": "delivery_news",
+        "at_step": 0,
+        "ttl": 7,
+        "audience": "all",
+        "note": ""
+      }
+    ]
+  },
+  "provider_ref": "campus_dining_choice.env",
+  "provider_args": {
+    "n_agents": 150,
+    "base_canteen": 12.0,
+    "base_delivery": 25.0,
+    "base_cook": 7.0
+  }
+}

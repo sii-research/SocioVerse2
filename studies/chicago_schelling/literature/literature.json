@@ -1,0 +1,161 @@
+{
+  "summary": "检索围绕三条线：Schelling 机制本身与临界点、真实地理/普查数据驱动的隔离 ABM、以及隔离的外溢效应。最关键的是 Zhang (2010) 的统一 Schelling 模型（给出 tipping 的解析条件）与 Crooks (2010) 的矢量 GIS 隔离 ABM（把 Schelling 放到真实地理上），两者合起来正是本研究的骨架：真实普查地理 + 临界点动力学。",
+  "themes": [
+    {
+      "name": "Schelling 机制与临界点理论",
+      "n": 3
+    },
+    {
+      "name": "真实地理与普查数据驱动的隔离 ABM",
+      "n": 3
+    },
+    {
+      "name": "隔离的外溢：学校与日间流动",
+      "n": 2
+    }
+  ],
+  "papers": [
+    {
+      "title": "TIPPING AND RESIDENTIAL SEGREGATION: A UNIFIED SCHELLING MODEL*",
+      "authors": [
+        "Junfu Zhang"
+      ],
+      "year": 2010,
+      "venue": "Journal of Regional Science",
+      "citations": 126,
+      "doi": "10.1111/j.1467-9787.2010.00671.x",
+      "url": "https://doi.org/10.1111/j.1467-9787.2010.00671.x",
+      "abstract": "ABSTRACT This paper presents a Schelling-type checkerboard model of residential segregation formulated as a spatial game. It shows that although every agent prefers to live in a mixed-race neighborhood, complete segregation is observed almost all of the time. A concept of tipping is rigorously defined, which is crucial for understanding the dynamics of segregation. Complete segregation emerges and persists in the checkerboard model precisely because tipping is less likely to occur to such residential patterns. Agent-based simulations are used to illustrate how an integrated residential area is tipped into complete segregation and why this process is irreversible. This model incorporates insights from Schelling's two classical models of segregation (the checkerboard model and the neighborhood tipping model) and puts them on a rigorous footing. It helps us better understand the persistence of residential segregation in urban America.",
+      "note": "把 Schelling 形式化为空间博弈并给出 tipping 的解析条件（126 引）。本研究关心的正是'干预把系统推过还是推不过临界点'，这篇是判断轨迹里那次转折是否属于 tipping 的理论标尺。",
+      "relevance": 0.9,
+      "bibkey": "zhang2010tipping"
+    },
+    {
+      "title": "Constructing and implementing an agent-based model of residential segregation through vector GIS",
+      "authors": [
+        "Andrew Crooks"
+      ],
+      "year": 2010,
+      "venue": "International Journal of Geographical Information Systems",
+      "citations": 135,
+      "doi": "10.1080/13658810903569572",
+      "url": "https://doi.org/10.1080/13658810903569572",
+      "abstract": "In this article, we present a geographically explicit agent-based model (ABM), loosely coupled with vector geographical information systems (GISs), which explicitly captures and uses geometric data and socioeconomic attributes in the simulation process. The ability to represent the urban environment as a series of points, lines, and polygons not only allows one to represent a range of different-sized features such as buildings or larger areas portrayed as the urban environment but is a move away from many ABMs utilizing GIS that are rooted in grid-based structures. We apply this model to the study of residential segregation, specifically creating a Schelling (Citation1971) type of model within a hypothetical cityscape, thus demonstrating how this approach can be used for linking vector-based GIS and agent-based modeling. A selection of simulation experiments are presented, highlighting the inner workings of the model and how aggregate patterns of segregation can emerge from the mild tastes and preferences of individual agents interacting locally over time. Furthermore, the article suggests how this model could be extended and demonstrates the importance of explicit geographical spa",
+      "note": "把 Schelling ABM 与矢量 GIS 松耦合、用真实地块几何而非棋盘格（135 引）。本研究用芝加哥真实普查 tract 的做法与之同源，是'真实地理会改变隔离动力学'这一主张的方法学出处。",
+      "relevance": 0.9,
+      "bibkey": "crooks2010constructing"
+    },
+    {
+      "title": "The Schelling Model of Ethnic Residential Dynamics: Beyond the Integrated - Segregated Dichotomy of Patterns",
+      "authors": [
+        "Erez Hatna",
+        "Itzhak Benenson"
+      ],
+      "year": 2012,
+      "venue": "Journal of Artificial Societies and Social Simulation",
+      "citations": 90,
+      "doi": "10.18564/jasss.1873",
+      "url": "https://doi.org/10.18564/jasss.1873",
+      "abstract": "The Schelling model of segregation is an agent-based model that illustrates how individual tendencies regarding neighbors can lead to segregation. The model is especially useful for the study of residential segregation of ethnic groups where agents represent householders who relocate in the city. In the model, each agent belongs to one of two groups and aims to reside within a neighborhood where the fraction of 'friends' is sufficiently high: above a predefined tolerance threshold value F. It is known that depending on F, for groups of equal size, Schelling's residential pattern converges to either complete integration (a random-like pattern) or segregation. The study of high-resolution ethnic residential patterns of Israeli cities reveals that reality is more complicated than this simple integration-segregation dichotomy: some neighborhoods are ethnically homogeneous while others are populated by both groups in varying ratios. In this study, we explore whether the Schelling model can reproduce such patterns. We investigate the model's dynamics in terms of dependence on group-specific tolerance thresholds and on the ratio of the size of the two groups. We reveal new type of model p",
+      "note": "指出 Schelling 的结局不是'融合/隔离'二分，中间态与斑块结构同样稳定。本研究报告隔离指数轨迹时不应只看终值高低，这篇给了读中间态的框架。",
+      "relevance": 0.8,
+      "bibkey": "hatna2012the"
+    },
+    {
+      "title": "Exploring the dynamics of neighbourhood ethnic segregation with agent-based modelling: an empirical application to Bradford, UK",
+      "authors": [
+        "Carolina V. Zuccotti",
+        "Jan Lorenz",
+        "Rocco Paolillo",
+        "Alejandra Rodríguez Sánchez",
+        "Selamawit Serka"
+      ],
+      "year": 2022,
+      "venue": "Journal of Ethnic and Migration Studies",
+      "citations": 14,
+      "doi": "10.1080/1369183x.2022.2100554",
+      "url": "https://doi.org/10.1080/1369183x.2022.2100554",
+      "abstract": "How individuals’ residential moves translate into overall emergent segregation patterns remains a key challenge in neighbourhood ethnic segregation research. In this paper, we use agent-based modelling to explore this concern, focusing on the interactive role of ethnic and socio-economic homophilic preferences and socioeconomic housing constraints as determinants of residential choice. Specifically, we extend the classic Schelling model to a random utility discrete choice approach to simulate the relocation decisions of people. We model different weights for preferences for ethnic and socioeconomic similarity in neighbourhood composition over random relocations, in addition to housing constraints. We formalise how different combinations of these variables could replicate empirically observed ethnic segregation scenarios in Bradford, a substantially segregated local authority in the UK. We initialise our model with geo-referenced data from the 2011 Census and use various measures of segregation to describe our results. As in the original Schelling model, we find that even mild ethnic preferences alone would lead to unrealistic ethnic over-segregation in Bradford. However, we demonst",
+      "note": "用真实迁居微观数据校准邻里族裔隔离 ABM —— 与本研究'个体迁居选择如何聚合成宏观隔离'是同一问题，且同样面对'个体偏好与宏观格局对不上'的经验难题，是最直接可比的实证工作。",
+      "relevance": 0.8,
+      "bibkey": "zuccotti2022exploring"
+    },
+    {
+      "title": "A geospatial agent-based model of the spatial urban dynamics of immigrant population: A study of the island of Montreal, Canada",
+      "authors": [
+        "Liliana Pérez",
+        "Suzana Dragićević",
+        "Jonathan Gaudreau"
+      ],
+      "year": 2019,
+      "venue": "PLoS ONE",
+      "citations": 30,
+      "doi": "10.1371/journal.pone.0219188",
+      "url": "https://doi.org/10.1371/journal.pone.0219188",
+      "abstract": "Residential segregation into spatial neighborhoods and boroughs is a well-known spatial dynamic process that characterise complex urban environments. Existing models of segregation, including the pioneering Schelling ones, often do not consider all the factors that can contribute to this process. Segregation as well as aggregation emerges from local interactions among individuals, and is rooted in the complexity of social, economic and environmental interactions. The main objective of this study is to develop and implement a geospatial agent-based model to simulate the decision-making process of location of new household for incoming immigrant populations. Particularly this study aims to simulate and analyse the dynamics of the new immigrant populations arriving in the bilingual cities and boroughs of the island of Montreal. The model was implemented in NetLogo software, using real geospatial datasets. The obtained simulation results indicate realistic spatial patterns of spatial composition of the ethnographic fabric on the island of Montreal. The proposed model has the potential to be used as part of the city planning purposes.",
+      "note": "地理显式的移民人口城市动态 ABM（30 引）。它处理的'新增人口进入既有隔离格局'与本研究的交通干预情景同属外生冲击类，可作为冲击建模的参照。",
+      "relevance": 0.7,
+      "bibkey": "prez2019a"
+    },
+    {
+      "title": "An agent-based model to investigate the effects of urban segregation around the clock on inequalities in health behaviour",
+      "authors": [
+        "Clémentine Cottineau",
+        "Julien Perret",
+        "Romain Reuillon",
+        "Sébastien Rey‐Coyrehourcq",
+        "Julie Vallée"
+      ],
+      "year": 2025,
+      "venue": "EPJ Data Science",
+      "citations": 0,
+      "doi": "10.1140/epjds/s13688-025-00603-4",
+      "url": "https://doi.org/10.1140/epjds/s13688-025-00603-4",
+      "abstract": "Social segregation in cities refers to the uneven spatial distribution of individuals from unequal social groups, such as affluent and economically vulnerable people. Social segregation may, in turn, produce social inequalities through contextual effects, since neighbourhood mixing or concentration plays a role in shaping individuals' opinions and behaviours in multiple life domains, including health. Because segregation and contextual effects occur at the places of residence as well as throughout the day, as people move between locations in a city, we aim to understand the social effect of urban segregation 'around the clock' on health behaviours (such as the choice of a healthy diet), using an empirical agent-based model initialised on the Paris region with a synthetic population. We built this synthetic population by pulling together data from two health & nutrition surveys conducted 6 years apart, data from the French census and data from an origin-destination survey. We then combined scenarios of residential patterns (random allocation vs. census-based allocation reflecting the empirical level of residential segregation) with scenarios of daily mobility (no daily moves, random",
+      "note": "把隔离从'居住地'扩展到'一天中的时空轨迹'。本研究的轨道交通干预正是改变日间可达性，这篇提示了只看居住地隔离指数会低估或高估干预效果。",
+      "relevance": 0.7,
+      "bibkey": "cottineau2025an"
+    },
+    {
+      "title": "Mechanisms for increased school segregation relative to residential segregation: a model-based analysis",
+      "authors": [
+        "Eric Dignum",
+        "Efi Athieniti",
+        "Willem Boterman",
+        "Andreas Flache",
+        "Michael Lees"
+      ],
+      "year": 2022,
+      "venue": "Computers Environment and Urban Systems",
+      "citations": 17,
+      "doi": "10.1016/j.compenvurbsys.2022.101772",
+      "url": "https://doi.org/10.1016/j.compenvurbsys.2022.101772",
+      "abstract": "Excess school segregation is a phenomena observed across many countries and one common explanation from the literature is the hypothesis that parents might want to live in a diverse neighbourhood, but when it comes to their children, they are less tolerant with respect to school compositions. This study uses an agent-based model where households face residential decisions depending on neighbourhood compositions and make school choices based on distance and school compositions. Results indicate that increased school segregation relative to residential segregation can be observed in large parts of the parameter space, even when the tolerance for households belonging to the other group is equal for neighbourhood and school compositions. Our results demonstrate that asymmetric preferences are not a requirement for excess school segregation and show that residential segregation combined with distance preferences play a key role in this increase.",
+      "note": "学校隔离相对居住隔离的超额部分及其机制。本研究若要把结论外推到教育后果，这篇界定了不能直接外推的原因。",
+      "relevance": 0.6,
+      "bibkey": "dignum2022mechanisms"
+    },
+    {
+      "title": "Fast Acceptance by Common Experience: FACE-recognition in Schelling's model of neighborhood segregation",
+      "authors": [
+        "Nathan Berg",
+        "Ulrich Hoffrage",
+        "Katarzyna Abramczuk"
+      ],
+      "year": 2010,
+      "venue": "Judgment and Decision Making",
+      "citations": 32,
+      "doi": "10.1017/s1930297500002199",
+      "url": "https://doi.org/10.1017/s1930297500002199",
+      "abstract": "Abstract Schelling (1969, 1971a,b, 1978) observed that macro-level patterns do not necessarily reflect micro-level intentions, desires or goals. In his classic model on neighborhood segregation which initiated a large and influential literature, individuals with no desire to be segregated from those who belong to other social groups nevertheless wind up clustering with their own type. Most extensions of Schelling’s model have replicated this result. There is an important mismatch, however, between theory and observation, which has received relatively little attention. Whereas Schelling-inspired models typically predict large degrees of segregation starting from virtually any initial condition, the empirical literature documents considerable heterogeneity in measured levels of segregation. This paper introduces a mechanism that can produce significantly higher levels of integration and, therefore, brings predicted distributions of segregation more in line with real-world observation. As in the classic Schelling model, agents in a simulated world want to stay or move to a new location depending on the proportion of neighbors they judge to be acceptable. In contrast to the classic mod",
+      "note": "给 Schelling 的容忍度参数换上'共同经验带来接纳'的认知机制。本研究的 archetype 容忍度参数是载荷参数，这篇是讨论该参数心理学解释的锚点。",
+      "relevance": 0.55,
+      "bibkey": "berg2010fast"
+    }
+  ],
+  "queries": [
+    "residential segregation Schelling model empirical census agent based",
+    "LLM agent residential mobility housing choice simulation segregation"
+  ],
+  "retrieved_at": "2026-08-17T13:47:42+00:00"
+}

@@ -1,0 +1,13 @@
+{
+  "study_id": "chicago_schelling",
+  "mcp_servers": [],
+  "datasets": [
+    {
+      "name": "chicago_tracts",
+      "path": "../SocioVerse-ABM/tasks/organization/chicago_segregation/legacy/processed_data/chicago_tracts.geojson",
+      "kind": "geojson",
+      "description": "2010 census tract demographics (nh_white/nh_black/nh_asian/hispanic...) plus amenity counts such as cta_stations (the column the step-2 subway intervention mutates); the P + physical-E baseline. Shipped in the SocioVerse-ABM companion repo (sibling clone)."
+    }
+  ],
+  "tools": []
+}

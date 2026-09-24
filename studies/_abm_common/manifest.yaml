@@ -1,0 +1,21 @@
+# SocioVerse-ABM umbrella — one project, many studies.
+# All studies below share the four generic providers in this package (abm.env / abm.pop /
+# abm.decision / abm.collector); each is just a thin config selecting its task by name.
+project: socioverse_abm
+backend: socioverse_abm           # sibling repo SocioVerse-ABM (kernel package `socioverse_abm`)
+providers: [abm.env, abm.pop, abm.decision, abm.collector]
+
+studies:
+  - {id: abm_schelling,        task: schelling,         family: organization, status: done}
+  - {id: abm_civil_violence,   task: civil_violence,    family: organization, status: done}
+  - {id: abm_nasch,            task: nasch,             family: flow,         status: done}
+  - {id: abm_boids,            task: boids,             family: flow,         status: done}
+  - {id: abm_social_force,     task: social_force,      family: flow,         status: done}
+  - {id: abm_sugarscape,       task: sugarscape,        family: market,       status: done}
+  - {id: abm_lux_marchesi,     task: lux_marchesi,      family: market,       status: done}
+  - {id: abm_minority_game,    task: minority_game,     family: market,       status: done}
+  - {id: abm_axelrod,          task: axelrod,           family: market,       status: done}
+  - {id: abm_sir,              task: sir,               family: diffusion,    status: done}
+  - {id: abm_hegselmann_krause, task: hegselmann_krause, family: diffusion,   status: done}
+  # note: SocioVerse2 also ships a native `opinion_diffusion` template (Path B); abm_hegselmann_krause
+  # is the SocioVerse-ABM HK task wrapped via this umbrella (kept separate, do not edit the template).

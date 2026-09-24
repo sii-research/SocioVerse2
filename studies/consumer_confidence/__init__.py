@@ -1,0 +1,2 @@
+"""Consumer confidence study package."""
+

@@ -1,0 +1,113 @@
+{
+  "study_id": "germany_auto_market",
+  "title": "German passenger-car brand market-share monthly dynamics sandbox (2024-01 → 2026-05)",
+  "research_question": "From 2024-01 to 2026-05, how do a fixed pool of German prospective car buyers (anchored on a real population joint distribution) change their brand choices under an evolving environment (EV-subsidy withdrawal, price/model shifts, new entrants like BYD), driving the monthly market-share trajectories of the 12 named brands?",
+  "hypothesis": "VW group stays dominant with Skoda rising; after the abrupt end-2023 EV-subsidy withdrawal Tesla share keeps falling (roughly halving in 2025); BYD grows fast from a tiny base but stays <1%; premium incumbents broadly stable; Opel weakens. Porsche folded into Other.",
+  "title_i18n": {
+    "zh": "德国乘用车市场品牌市占率月度演化沙盒 (2024-01 → 2026-05)",
+    "en": "German passenger-car brand market-share monthly dynamics sandbox (2024-01 → 2026-05)"
+  },
+  "research_question_i18n": {
+    "zh": "2024-01至2026-05间，一批德国购车潜在人群（真实人口联合分布锚定）在宏观环境演化（EV补贴退出、价格与车型变化、比亚迪等新势力进入）下的品牌选择如何变化，从而驱动12个具名品牌的月度市占率轨迹？",
+    "en": "From 2024-01 to 2026-05, how do a fixed pool of German prospective car buyers (anchored on a real population joint distribution) change their brand choices under an evolving environment (EV-subsidy withdrawal, price/model shifts, new entrants like BYD), driving the monthly market-share trajectories of the 12 named brands?"
+  },
+  "hypothesis_i18n": {
+    "zh": "大众系保持领先且斯柯达份额上升；2023年底EV补贴突然退出后特斯拉份额持续下滑（2025年约腰斩）；比亚迪自极低基数快速增长但绝对份额仍<1%；传统豪华品牌份额基本稳定或小幅波动；欧宝份额走弱。保时捷并入Other不单列。",
+    "en": "VW group stays dominant with Skoda rising; after the abrupt end-2023 EV-subsidy withdrawal Tesla share keeps falling (roughly halving in 2025); BYD grows fast from a tiny base but stays <1%; premium incumbents broadly stable; Opel weakens. Porsche folded into Other."
+  },
+  "study_type": "longitudinal",
+  "n_steps": 29,
+  "seed": 42,
+  "time_unit": "abstract",
+  "step_meaning": "",
+  "key_attributes": [
+    "choice_label",
+    "ev_affinity",
+    "prior_brand"
+  ],
+  "metrics": [
+    "share_vw",
+    "share_mercedes",
+    "share_bmw",
+    "share_audi",
+    "share_skoda",
+    "share_seat_cupra",
+    "share_opel",
+    "share_toyota",
+    "share_hyundai",
+    "share_renault",
+    "share_tesla",
+    "share_byd",
+    "share_other"
+  ],
+  "metric_descriptions": {
+    "share_vw": "Volkswagen monthly new-car registration market share (share of all new passenger-car registrations in Germany, 0–1; sums to 1 with the other brands each month)",
+    "share_mercedes": "Mercedes-Benz monthly market share",
+    "share_bmw": "BMW monthly market share",
+    "share_audi": "Audi monthly market share",
+    "share_skoda": "Skoda monthly market share",
+    "share_seat_cupra": "SEAT/Cupra monthly market share (volume brands of the Volkswagen Group)",
+    "share_opel": "Opel monthly market share",
+    "share_toyota": "Toyota monthly market share",
+    "share_hyundai": "Hyundai monthly market share",
+    "share_renault": "Renault monthly market share",
+    "share_tesla": "Tesla monthly market share (all-electric; a key series to watch given the subsidy withdrawal at the end of 2023; expected direction: down)",
+    "share_byd": "BYD monthly market share (new entrant; expected direction: rising fast but at a low absolute level)",
+    "share_other": "Combined market share of all other brands (includes brands not listed separately, such as Porsche; the normalizing term that makes the 12 named brands + other sum to 1)"
+  },
+  "display_metrics": [
+    "share_vw",
+    "share_bmw",
+    "share_skoda",
+    "share_tesla",
+    "share_byd"
+  ],
+  "run_note": {},
+  "environment_ref": "environment/environment.json",
+  "population_ref": "population/population.json",
+  "simulation_ref": "simulation/simulation.json",
+  "resources_ref": "resources.json",
+  "domain": "consumer-behavior",
+  "tags": [
+    "auto-market",
+    "market-share",
+    "brand-choice",
+    "longitudinal",
+    "germany",
+    "from-scratch",
+    "ev-transition",
+    "real-population"
+  ],
+  "legacy_simulator": "from_scratch",
+  "provider_refs": [
+    "germany_auto.env",
+    "germany_auto.pop",
+    "germany_auto.decision",
+    "germany_auto.collector"
+  ],
+  "adjustable_params": [
+    "n_agents (size of the prospective car-buyer population)",
+    "n_steps (number of months, default 29 = 2024-01..2026-05)",
+    "timing and size of the EV-subsidy withdrawal",
+    "baseline price / model appeal per brand",
+    "entry speed of new entrants (BYD)",
+    "population distribution of price sensitivity / brand loyalty / EV preference",
+    "replacement / purchase propensity rate",
+    "seed"
+  ],
+  "status": "draft",
+  "maintainer": "SocioVerse2",
+  "demonstrates": [
+    "from-scratch-core",
+    "real-population-sampling",
+    "discrete-choice",
+    "uploaded-data-grounding",
+    "truth-anchored-smoothing"
+  ],
+  "teaches": "A market-share sandbox driven by real uploaded data: the Destatis population joint distribution (40,320-row xlsx) instantiates P by weight, 41 months of KBA per-brand registrations serve as the ground-truth anchor and environment signal, and a random-utility discrete choice (MNL) produces the monthly share trajectories; it shows how one uploaded xlsx feeds both P and E (here: German passenger cars, 2024-01 → 2026-05).",
+  "reference": true,
+  "requires": [
+    "extra:workbench"
+  ],
+  "created_by": "sv-init"
+}

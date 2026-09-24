@@ -1,0 +1,52 @@
+{
+  "study_id": "abm_lux_marchesi",
+  "title": "Lux-Marchesi interacting-agents market (SocioVerse-ABM)",
+  "research_question": "Does noise-trader herding generate price fluctuations, and does an LLM trader reproduce the rule?",
+  "hypothesis": "Optimist/pessimist herding drives the price away from and back to the fundamental anchor.",
+  "study_type": "longitudinal",
+  "n_steps": 50,
+  "seed": 42,
+  "metrics": [
+    "price",
+    "value",
+    "opinion_index",
+    "log_return"
+  ],
+  "domain": "finance",
+  "tags": [
+    "abm",
+    "lux_marchesi",
+    "finance",
+    "market",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "trader counts",
+    "herding a1/a2",
+    "beta/gamma/tc"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "market-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "chartist/fundamentalist switching → fat-tailed returns (Lux-Marchesi); market microstructure exemplar"
+}

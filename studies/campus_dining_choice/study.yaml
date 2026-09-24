@@ -1,0 +1,75 @@
+{
+  "study_id": "campus_dining_choice",
+  "title": "Dining choice and satisfaction of university-town students as canteen and delivery prices rise month by month",
+  "research_question": "As the campus canteen raises meal prices month by month and local food delivery also gets more expensive over the same period, how will the main dining mode (canteen / food delivery / cooking for oneself) and consumer satisfaction of about 150 university students evolve month by month?",
+  "hypothesis": "As canteen and delivery prices rise month by month, students gradually shift from delivery to the canteen, and then partly to cooking for themselves to contain food spending; mean satisfaction falls as the value for money of the available options declines, and low-budget / price-sensitive students show the largest shifts and the steepest drop in satisfaction.",
+  "title_i18n": {
+    "zh": "大学城学生在食堂逐月涨价与外卖同步涨价下的就餐选择与满意度演化",
+    "en": "Dining choice and satisfaction of university-town students as canteen and delivery prices rise month by month"
+  },
+  "research_question_i18n": {
+    "zh": "当校园食堂逐月上调餐价、本地外卖同期也在涨价时,约150名大学生的主要就餐方式(食堂/点外卖/自己做饭)与消费满意度将如何逐月演变?",
+    "en": "As the campus canteen raises meal prices month by month and local food delivery also gets more expensive over the same period, how will the main dining mode (canteen / food delivery / cooking for oneself) and consumer satisfaction of about 150 university students evolve month by month?"
+  },
+  "hypothesis_i18n": {
+    "zh": "随食堂与外卖价格逐月上涨,学生逐步从外卖转向食堂、再部分转向自己做饭以控制餐饮支出;平均满意度随可选项性价比下降而走低,低预算/价格敏感者转移与满意度下滑最明显。",
+    "en": "As canteen and delivery prices rise month by month, students gradually shift from delivery to the canteen, and then partly to cooking for themselves to contain food spending; mean satisfaction falls as the value for money of the available options declines, and low-budget / price-sensitive students show the largest shifts and the steepest drop in satisfaction."
+  },
+  "study_type": "longitudinal",
+  "n_steps": 6,
+  "seed": 42,
+  "metrics": [
+    "share_canteen",
+    "share_delivery",
+    "share_cook",
+    "mean_satisfaction",
+    "mean_food_spend"
+  ],
+  "metric_descriptions": {
+    "share_canteen": "Share of students whose main dining mode this month is the canteen (0–1)",
+    "share_delivery": "Share of students whose main dining mode this month is food delivery (0–1)",
+    "share_cook": "Share of students whose main dining mode this month is cooking for themselves (0–1)",
+    "mean_satisfaction": "Mean consumer satisfaction of all students with this month's dining (0–1, higher = more satisfied)",
+    "mean_food_spend": "Per-capita food spending this month (CNY/month, estimated as this month's main dining mode × number of main meals); reflects the pressure the price environment puts on wallets"
+  },
+  "environment_ref": "environment/environment.json",
+  "population_ref": "population/population.json",
+  "simulation_ref": "simulation/simulation.json",
+  "resources_ref": "resources.json",
+  "domain": "consumer-behavior",
+  "tags": [
+    "dining-choice",
+    "price-response",
+    "student-consumption",
+    "longitudinal",
+    "from-scratch",
+    "multi-round-discussion"
+  ],
+  "legacy_simulator": "from_scratch",
+  "provider_refs": [
+    "campus_dining_choice.env",
+    "campus_dining_choice.pop",
+    "campus_dining_choice.decision",
+    "campus_dining_choice.collector"
+  ],
+  "adjustable_params": [
+    "n_students (~150)",
+    "n_steps (number of months)",
+    "monthly price increase for canteen / delivery / home cooking",
+    "step at which canteen price rises are capped (canteen_cap_step)",
+    "dorm discussion rounds (interaction_rounds)",
+    "baseline prices",
+    "price-sensitivity / budget distribution",
+    "seed"
+  ],
+  "status": "draft",
+  "maintainer": "",
+  "demonstrates": [
+    "from-scratch-core",
+    "multi-round-messaging",
+    "llm-decision-reason"
+  ],
+  "teaches": "from-scratch on Core with intra-step dorm discussion (MessageBus, interaction_rounds>1) and LLM decisions that emit a first-person one-line reason; scripted↔LLM dual-mode decision layer",
+  "reference": true,
+  "created_by": "sv-init"
+}

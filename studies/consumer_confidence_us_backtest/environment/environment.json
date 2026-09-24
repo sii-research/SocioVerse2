@@ -1,0 +1,196 @@
+{
+  "study_id": "consumer_confidence_us_backtest",
+  "layers": [
+    {
+      "name": "macro_indicators",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-info-sources",
+      "schema_ref": null,
+      "description": "FRED：失业率、CPI、油价、按揭利率、Fed funds、SP500、VIX、房价、非农 —— 该月调查截止前可得的宏观快照"
+    },
+    {
+      "name": "inflation_expectations",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-info-sources",
+      "schema_ref": null,
+      "description": "NY Fed SCE：一年期通胀预期、失业上升概率、再就业概率 —— 驱动预期类问题"
+    },
+    {
+      "name": "labor_prices",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-info-sources",
+      "schema_ref": null,
+      "description": "BLS：失业率、CPI、汽油 CPI、时薪、劳动参与率"
+    },
+    {
+      "name": "financing_conditions",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-info-sources",
+      "schema_ref": null,
+      "description": "Treasury 平均利率 + 信用利差（HY/IG OAS、AAA10Y、BAA10Y）：融资与信用环境"
+    },
+    {
+      "name": "market_regime",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-info-sources",
+      "schema_ref": null,
+      "description": "Yahoo 市场窗口收益（SPY/QQQ/XLY/XLP/TLT/HYG/GLD/USO 等）+ Fear&Greed：风险偏好 regime"
+    },
+    {
+      "name": "housing_finance",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-info-sources",
+      "schema_ref": null,
+      "description": "FRED 住房金融：30Y/15Y 按揭、Case-Shiller、新房销售、开工与许可 —— 主要作用于耐用品与商业前景题"
+    },
+    {
+      "name": "policy_shocks",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-info-sources",
+      "schema_ref": null,
+      "description": "USTR 新闻稿：贸易/关税政策冲击的窗口期信号"
+    },
+    {
+      "name": "news_headlines",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-info-sources",
+      "schema_ref": null,
+      "description": "NYT Archive：调查窗内的宏观相关新闻（主题、情绪、摘要），构成该月 headline context"
+    },
+    {
+      "name": "survey_window",
+      "modality": "information",
+      "scope": "local",
+      "dynamics": "scheduled",
+      "source": "grounding:f-info-sources",
+      "schema_ref": null,
+      "description": "当月调查窗与信息截止（as_of）：晚于截止日发布的一切信息都被排除，目标月 ICS 实测值本身从不进入输入"
+    }
+  ],
+  "scheduled_events": [
+    {
+      "at_step": 1,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2025-07",
+      "note": "2025-07 调查窗关闭 → 该月 ICS 实测公布 61.7（模拟重建 62.12）"
+    },
+    {
+      "at_step": 2,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2025-08",
+      "note": "2025-08 调查窗关闭 → 该月 ICS 实测公布 58.2（模拟重建 63.01）"
+    },
+    {
+      "at_step": 3,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2025-09",
+      "note": "2025-09 调查窗关闭 → 该月 ICS 实测公布 55.1（模拟重建 59.61）"
+    },
+    {
+      "at_step": 4,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2025-10",
+      "note": "2025-10 调查窗关闭 → 该月 ICS 实测公布 53.6（模拟重建 56.30）"
+    },
+    {
+      "at_step": 5,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2025-11",
+      "note": "2025-11 调查窗关闭 → 该月 ICS 实测公布 54.0（模拟重建 55.32）"
+    },
+    {
+      "at_step": 6,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2025-12",
+      "note": "2025-12 调查窗关闭 → 该月 ICS 实测公布 54.9（模拟重建 55.91）"
+    },
+    {
+      "at_step": 7,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2026-01",
+      "note": "2026-01 调查窗关闭 → 该月 ICS 实测公布 56.4（模拟重建 57.26）"
+    },
+    {
+      "at_step": 8,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2026-02",
+      "note": "2026-02 调查窗关闭 → 该月 ICS 实测公布 57.6（模拟重建 58.65）"
+    },
+    {
+      "at_step": 9,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2026-03",
+      "note": "2026-03 调查窗关闭 → 该月 ICS 实测公布 56.4（模拟重建 57.47）"
+    },
+    {
+      "at_step": 10,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2026-04",
+      "note": "2026-04 调查窗关闭 → 该月 ICS 实测公布 53.2（模拟重建 53.00）"
+    },
+    {
+      "at_step": 11,
+      "target_layer": "survey_window",
+      "op": "set",
+      "selector": {},
+      "property_name": "as_of",
+      "value": "2026-05",
+      "note": "2026-05 调查窗关闭 → 该月 ICS 实测公布 52.5（模拟重建 52.20）"
+    }
+  ],
+  "information_program": {
+    "broadcasts": []
+  },
+  "provider_ref": "consumersim.us_information_environment",
+  "provider_args": {
+    "region": "us",
+    "point_in_time": true,
+    "note": "每步的信息集 = published_at <= as_of 的子集；目标月实测值永不进入"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "current": "v1",
+  "versions": [
+    {
+      "id": "v1",
+      "parent": null,
+      "note": "Reference run: 3 dorm discussion rounds per month + a canteen price cap from month 3, 6 months",
+      "created_at": 1783497410.0140858,
+      "snapshot": null,
+      "warm_start": null
+    }
+  ]
+}

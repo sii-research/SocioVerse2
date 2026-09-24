@@ -1,0 +1,112 @@
+{
+  "study_id": "opinion_diffusion",
+  "query": "Does a step-2 media campaign accelerate opinion convergence and shift the mean upward? (bounded-confidence opinion dynamics on a ring network)",
+  "updated_at": "2026-07-18T14:15:51Z",
+  "method_notes": "from-scratch demo grounded against the bounded-confidence opinion-dynamics literature (Deffuant/Hegselmann-Krause) and empirical media-persuasion effect sizes; toy-scale params anchored where sourced, amplified gains declared as stylized.",
+  "implementation_refs": [
+    {
+      "title": "Lorenz (2007) Continuous Opinion Dynamics under Bounded Confidence: A Survey",
+      "url": "https://arxiv.org/pdf/0707.1762",
+      "takeaway": "权威综述,覆盖 Deffuant-Weisbuch 与 Hegselmann-Krause 两类有界信心模型:agent 只与意见差<ε的邻居平均,收敛率 μ 常取 0.5——直接支撑本 study 的 peer averaging + confidence 阈值机制。",
+      "accessed": "2026-07-18"
+    },
+    {
+      "title": "Hegselmann & Krause (2002) Opinion Dynamics and Bounded Confidence: Models, Analysis and Simulation (JASSS 5(3))",
+      "url": "https://www.jasss.org/5/3/2.html",
+      "takeaway": "HK 模型原始论文:每步 agent 把意见更新为其信心邻域内所有意见的均值;ε 越大越易达成共识——本 study 的 decide_batch 即 HK 式邻域平均的简化。",
+      "accessed": "2026-07-18"
+    }
+  ],
+  "facts": [
+    {
+      "id": "f-confidence-threshold",
+      "claim": "有界信心模型的信心阈值 ε 常用取值区间(归一化 [0,1] 意见尺度)",
+      "value": "0.2–0.5",
+      "unit": "ε (归一化意见距离)",
+      "as_of": "2002/2007",
+      "basis": "sourced",
+      "source": {
+        "title": "Lorenz 2007 综述 / HK 2002:ε 常在 0.2–0.5 之间取值",
+        "url": "https://arxiv.org/pdf/0707.1762",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "simulation.decision_args.confidence"
+      ],
+      "note": "study 默认 confidence=0.3 落在该区间内(中等开放度),低于全局共识临界值。"
+    },
+    {
+      "id": "f-consensus-critical",
+      "claim": "HK 模型达成全局单一共识的信心阈值临界值(归一化 [0,1])",
+      "value": 0.5,
+      "unit": "ε 临界值",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "A straightforward proof of the critical value in the Hegselmann-Krause model: up to one-half",
+        "url": "https://doi.org/10.48550/arxiv.2408.03718",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "simulation.decision_args.confidence"
+      ],
+      "note": "ε≈0.5 以上必然全局共识;本 study 取 0.3<0.5,故收敛靠 media/campaign 外推力推动而非纯阈值,契合研究问题。"
+    },
+    {
+      "id": "f-convergence-rate",
+      "claim": "Deffuant 类模型的收敛率 μ(每次互动向对方/邻域均值移动的比例)常用值",
+      "value": 0.5,
+      "unit": "μ (移动比例)",
+      "as_of": "2007",
+      "basis": "sourced",
+      "source": {
+        "title": "Lorenz 2007 综述:Deffuant-Weisbuch 收敛参数 μ 典型取 0.5",
+        "url": "https://arxiv.org/pdf/0707.1762",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "decision.peer_rate"
+      ],
+      "note": "study 的 peer_rate=0.5 与文献典型收敛率一致。"
+    },
+    {
+      "id": "f-media-persuasion",
+      "claim": "大众媒体/政治广告的单次说服效应量(实证,极小)",
+      "value": 0.012,
+      "unit": "归一化 [0,1] 意见变动 (源: 0.049/5 分制)",
+      "as_of": "2020",
+      "basis": "proxy",
+      "source": {
+        "title": "Coppock et al. (2020, PNAS) 59 个实时随机实验:广告平均使好感度移动 0.049(5 分制)≈0.012(归一化)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7467695/",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "decision.media_gain",
+        "decision.campaign_gain"
+      ],
+      "note": "实证单次说服效应极小(~0.012);本 demo 的 media_gain=0.1 / campaign_gain=0.15 是为在 3–4 小步内看出可观曲线弯折而放大的风格化值,见 assumption a-amplified-gains。"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "a-amplified-gains",
+      "claim": "media_gain=0.1、campaign_gain=0.15 相对实证单次说服效应(~0.012,见 f-media-persuasion)被显式放大约 8–12 倍。",
+      "rationale": "教学/演示 study 只跑 3–4 小步,须让 macro-physical(媒体压力)与 macro-information(campaign 广播)的外推力在如此短的时程内产生肉眼可辨的均值抬升与收敛;真实量级会让 4 步内曲线几乎不动。这是刻意的风格化选择,非真实效应量。"
+    },
+    {
+      "id": "a-ring-network",
+      "claim": "12 个 agent 排成环、每人只与左右 2 个邻居交流,为最小可解释网络拓扑。",
+      "rationale": "演示 local_physical 观测象限与 contagion 传播模式所需的最简显式网络;非真实社交网络数据。真实规模/度分布可作为可调参数扩展。"
+    },
+    {
+      "id": "a-initial-spread",
+      "claim": "初始意见沿 [0,1] 均匀铺开((i+0.5)/n),使人群起点最大离散。",
+      "rationale": "确定性初始化,便于复现并让 opinion_std 的下降(收敛)清晰可见;非抽样自真实民调分布。"
+    }
+  ]
+}

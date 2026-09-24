@@ -1,0 +1,72 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+
+# --- Secrets (never commit) ---
+.env
+**/.env
+# in-session MCP registration, generated from .env by scripts/gen_mcp_json.py
+.mcp.json
+
+# --- Studies: local-by-default; ship only the whitelisted examples ---
+# Any study dir is LOCAL SCRATCH (open a fresh session and experiment freely) unless it is
+# un-ignored below. To SHIP a finished study to the public clone: add a "!" line for it here,
+# then `git add studies/<id>`. To STOP shipping one: delete its "!" line and run
+# `git rm -r --cached studies/<id>` (the files stay on disk, they just leave the repo).
+studies/*/
+# shared infra (not a study)
+!studies/_abm_common/
+# ABM benchmark suite (11) — confirmed example set
+!studies/abm_axelrod/
+!studies/abm_boids/
+!studies/abm_civil_violence/
+!studies/abm_hegselmann_krause/
+!studies/abm_lux_marchesi/
+!studies/abm_minority_game/
+!studies/abm_nasch/
+!studies/abm_schelling/
+!studies/abm_sir/
+!studies/abm_social_force/
+!studies/abm_sugarscape/
+# canonical path templates: opinion_diffusion = Path B (from-scratch), chicago_schelling = Path C (adapter)
+!studies/opinion_diffusion/
+!studies/chicago_schelling/
+# third from-scratch template: dorm-discussion MessageBus + LLM first-person reason exemplar
+!studies/campus_dining_choice/
+# showcase / collaborator cases
+!studies/consumer_confidence/
+!studies/consumer_confidence_us_backtest/
+!studies/hisim_roe/
+!studies/germany_auto_market/
+
+# --- Generated run artifacts (never shipped, even for whitelisted studies) ---
+studies/*/runs/
+studies/germany_auto_market/uploads/*
+# the grounding workbook is shipped (sources and licenses: see NOTICE)
+!studies/germany_auto_market/uploads/marketsim-grounding-data.xlsx
+studies/*/versions/
+**/trajectory/
+**/*.duckdb
+**/*.duckdb.wal
+**/*.parquet
+
+# --- Dashboard runtime ---
+dashboard/.server.log
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+
+# --- Retired dashboard UI and local experiments: not part of the published tree ---
+dashboard/web/index.html
+dashboard/web/v2next/
+
+# --- Optional deep-research skill: CC BY-NC 4.0, incompatible with this repo's Apache-2.0 ---
+.claude/skills/deep-research/

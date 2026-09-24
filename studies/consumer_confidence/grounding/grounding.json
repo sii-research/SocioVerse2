@@ -1,0 +1,119 @@
+{
+  "study_id": "consumer_confidence",
+  "query": "Forecast US monthly consumer confidence from a fixed SocioVerse population and point-in-time news/indicator information (target month 2026-06).",
+  "updated_at": "2026-07-18T15:10:00Z",
+  "method_notes": "Real-world anchoring for the ConsumerSim reference showcase. Load-bearing published index levels (Conference Board CCI, UMich ICS) and the macro drivers behind the June-2026 news snapshot (gasoline, CPI, unemployment) are sourced; two modeling references cover the core→Bayesian-expansion design and the five-question survey structure. What could not be pinned to a public value (the raised showcase core_ratio, the as-of information-accrual longitudinal framing) is declared an assumption, not invented.",
+  "implementation_refs": [
+    {
+      "title": "A Hierarchical Bayesian Nonignorable Nonresponse Model for Multinomial Data from Small Areas (Statistics Canada, Survey Methodology 2002)",
+      "url": "https://www150.statcan.gc.ca/n1/pub/12-001-x/2002002/article/6428-eng.pdf",
+      "takeaway": "Justifies the pipeline's core→expand design: predict a small stratified core, then propagate group-level posterior uncertainty over the multinomial (positive/neutral/negative) responses of the five survey questions to the unsampled majority via a hierarchical Bayesian small-area model. Maps directly to BayesianAggregator.update_and_expand.",
+      "accessed": "2026-07-18"
+    },
+    {
+      "title": "University of Michigan — Surveys of Consumers (Index of Consumer Sentiment methodology)",
+      "url": "https://www.sca.isr.umich.edu/",
+      "takeaway": "The Index of Consumer Sentiment is built from five component questions spanning personal finances (current & year-ahead), buying conditions for durables, and business conditions (12-month & 5-year) — the same five-question skeleton ConsumerSim scores (current_finance, durable_buying, future_finance, business_12m, business_5y). Confirms the survey-instrument structure the decision model emulates.",
+      "accessed": "2026-07-18"
+    }
+  ],
+  "facts": [
+    {
+      "id": "f-cci-jun2026",
+      "claim": "Conference Board US Consumer Confidence Index for June 2026 inched up 0.6 points to 91.2 (1985=100), from a downwardly revised 90.6 in May.",
+      "value": 91.2,
+      "unit": "index (1985=100)",
+      "as_of": "2026-06-30",
+      "basis": "sourced",
+      "source": {
+        "title": "US Consumer Confidence Inched Up in June (Conference Board via PR Newswire)",
+        "url": "https://www.prnewswire.com/news-releases/us-consumer-confidence-inched-up-in-june-302814510.html",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": ["environment.provider_args.target_months", "correction.history_csv"],
+      "note": "Real-world level the corrected_score output (~90-105 range in the pipeline's index scale) should be read against; the pipeline's own history.csv anchors 2026-05 actual=97.0, consistent with this scale."
+    },
+    {
+      "id": "f-cci-components-jun2026",
+      "claim": "Within the June 2026 Conference Board reading, the Present Situation Index fell 3.0 pts to 116.4 while the Expectations Index rose 3.0 pts to 74.4.",
+      "value": {"present_situation": 116.4, "expectations": 74.4},
+      "unit": "index (1985=100)",
+      "as_of": "2026-06-30",
+      "basis": "sourced",
+      "source": {
+        "title": "US Consumer Confidence Inched Up in June (Conference Board via PR Newswire)",
+        "url": "https://www.prnewswire.com/news-releases/us-consumer-confidence-inched-up-in-june-302814510.html",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": ["environment.consumer_information"],
+      "note": "Divergence (present down, expectations up) grounds the 'news-driven forward-looking lift' story: contemporaneous news improves the outlook even as the current-situation read stays soft."
+    },
+    {
+      "id": "f-umcsent-jun2026",
+      "claim": "University of Michigan Index of Consumer Sentiment (UMCSENT) for June 2026 was 44.8, down about 26.2% year-over-year; the 1-year inflation expectation (MICH) was 4.8%.",
+      "value": {"UMCSENT": 44.8, "UMCSENT_yoy_pct": -26.19, "MICH": 4.8},
+      "unit": "index (1966Q1=100) / percent",
+      "as_of": "2026-06",
+      "basis": "sourced",
+      "source": {
+        "title": "FRED macro snapshot (UMCSENT, MICH), served via the SocioVerse Event service",
+        "url": "https://fred.stlouisfed.org/series/UMCSENT",
+        "via": "event_service",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": ["environment.consumer_information"],
+      "note": "Independently corroborates the 'rebounding from record lows but still historically weak' framing carried in the pipeline's news.jsonl (Reuters/MSN June headlines)."
+    },
+    {
+      "id": "f-umcsent-jul2026",
+      "claim": "The rebound continued into July 2026: UMich headline sentiment reached 54.4, with all five index components improving.",
+      "value": 54.4,
+      "unit": "index (1966Q1=100)",
+      "as_of": "2026-07",
+      "basis": "sourced",
+      "source": {
+        "title": "University of Michigan — Surveys of Consumers (July 2026 results)",
+        "url": "https://www.sca.isr.umich.edu/",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": ["environment.provider_args.as_of_dates"],
+      "note": "Out-of-target-month datapoint kept as directional validation only — the forecast target is June 2026; July confirms the upward trajectory the June news snapshot was already pricing in."
+    },
+    {
+      "id": "f-macro-drivers-jun2026",
+      "claim": "June 2026 macro backdrop: CPI +3.9% YoY, unemployment 4.2%, retail gasoline (GASREGW) $3.83/gal. Gasoline was easing month-over-month off an earlier-2026 spike even though it sat ~21% above year-ago.",
+      "value": {"CPI_yoy_pct": 3.9, "UNRATE_pct": 4.2, "gas_usd_per_gal": 3.831, "gas_yoy_pct": 21.08},
+      "unit": "percent / USD per gallon",
+      "as_of": "2026-06",
+      "basis": "sourced",
+      "source": {
+        "title": "FRED macro snapshot (CPIAUCSL, UNRATE, GASREGW), served via the SocioVerse Event service",
+        "url": "https://fred.stlouisfed.org/series/GASREGW",
+        "via": "event_service",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": ["environment.consumer_information"],
+      "note": "Explains why the news snapshot's dominant driver is 'gas prices ease' (a recent-months move) while cost-of-living worries persist (gas still elevated YoY, CPI ~3.9%). The elevated-YoY-vs-easing-MoM tension is preserved, not smoothed away."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "a-core-ratio-showcase",
+      "claim": "For the showcase run, prediction.core_ratio is raised above the default 0.10 so the fixed 12-persona pool yields a multi-agent LLM core (rather than the 1-agent core that 0.10×12 would round to). The exact value used is pinned in environment.json provider_args/config_overrides and reported in the run narrative.",
+      "rationale": "The 12-persona reference pool sits in 12 distinct demographic cells; at core_ratio=0.10 the stratified core collapses to a single consumer, which cannot exercise the real-LLM path or the Bayesian expansion meaningfully. core_ratio is an explicit adjustable, config-level parameter (no simulator-code change), so raising it for a demo is artifact-level. Not a published quantity — declared, not sourced."
+    },
+    {
+      "id": "a-asof-accrual-longitudinal",
+      "claim": "The longitudinal axis is an information-accrual sequence over a single target month (2026-06): the same fixed population is re-forecast at successive as_of cutoffs while June news accumulates (news.jsonl spans 2026-06-12 → 2026-07-01). Each step's information set is the point-in-time-safe subset of news/indicators published on or before that step's as_of.",
+      "rationale": "ConsumerSim is natively a point-in-time monthly forecast (n_steps=1 in the template). To show a genuine panel trajectory without fabricating months of unavailable future data, the demo varies as_of within the month the data actually covers — a real, defensible use of the existing information set. The InformationEnvironmentBuilder already enforces the as_of cutoff, so this is artifact-level (target_months/as_of_dates) with no code change."
+    },
+    {
+      "id": "a-index-scale-mapping",
+      "claim": "The pipeline's raw_score/corrected_score output is treated as living on a Conference-Board-style index scale (~90-105 region), not the UMich scale (~45-55 region).",
+      "rationale": "The pipeline's history.csv correction anchor (2026-05 actual=97.0) and the resulting corrected_score (~100) align with the Conference Board CCI level (May 90.6 / June 91.2), not the much lower UMich ICS level (44.8). UMich values are retained as directional trend corroboration only. Inferred from the data files, not stated by the pipeline docs."
+    }
+  ]
+}

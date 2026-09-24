@@ -1,0 +1,15 @@
+{
+  "study_id": "germany_auto_market",
+  "personas": [],
+  "interaction": {
+    "kind": "none",
+    "edges": null,
+    "adjacency_ref": null
+  },
+  "propagation": "independent",
+  "provider_ref": "germany_auto.pop",
+  "provider_args": {
+    "n_agents": 1500
+  },
+  "materialized_count": 1500
+}

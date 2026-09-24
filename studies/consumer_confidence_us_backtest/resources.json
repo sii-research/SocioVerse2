@@ -1,0 +1,43 @@
+{
+  "study_id": "consumer_confidence_us_backtest",
+  "mcp_servers": [],
+  "datasets": [
+    {
+      "name": "ConsumerSim published site data",
+      "path": "https://raw.githubusercontent.com/RunRiotComeOn/ConsumerSim-Consumer-Confidence-Forecast/f018181eb105e6845993a5ba1f2ab2a5287608bd/data/consumersim_site_data.csv",
+      "kind": "csv",
+      "description": "逐月模拟重建值、受访者面板与 75 个月方法榜；本研究全部数字的唯一来源。",
+      "spec": {
+        "path": "data/consumersim_site_data.csv",
+        "region": "us",
+        "record_types": [
+          "series",
+          "agent_profile",
+          "agent_monthly_prediction",
+          "leaderboard",
+          "region_summary"
+        ],
+        "as_of": "2026-07-03",
+        "latest_url": "https://sii-research.github.io/ConsumerSim/data/consumersim_site_data.csv"
+      }
+    },
+    {
+      "name": "University of Michigan Surveys of Consumers — Index of Consumer Sentiment",
+      "path": "https://data.sca.isr.umich.edu/",
+      "kind": "other",
+      "description": "真值锚：每月事后公布的官方 ICS。",
+      "spec": {
+        "url": "https://data.sca.isr.umich.edu/"
+      }
+    }
+  ],
+  "tools": [
+    {
+      "name": "ConsumerSim external checkout",
+      "description": "Not used by this study, which is imported and never re-run. The ConsumerSim pipeline itself runs in the `consumer_confidence` study, which resolves the checkout from SV_CONSUMERSIM_ROOT or a sibling ConsumerSim-Consumer-Confidence-Forecast directory. build_from_source.py reads the pinned published CSV by default and accepts a checkout directory via --source.",
+      "spec": {
+        "default_region": "US"
+      }
+    }
+  ]
+}

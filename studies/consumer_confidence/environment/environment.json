@@ -1,0 +1,55 @@
+{
+  "study_id": "consumer_confidence",
+  "layers": [
+    {
+      "name": "consumer_information",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": null,
+      "schema_ref": null,
+      "description": "Point-in-time news and indicator snapshot for the target month, refreshed each step as the as_of cutoff advances (information accrual within 2026-06)."
+    },
+    {
+      "name": "consumer_demographics",
+      "modality": "physical",
+      "scope": "local",
+      "dynamics": "static",
+      "source": null,
+      "schema_ref": null,
+      "description": "SocioVerse persona demographics used by ConsumerSim (fixed pool)."
+    }
+  ],
+  "scheduled_events": [],
+  "information_program": {
+    "broadcasts": []
+  },
+  "provider_ref": "consumersim.env",
+  "provider_args": {
+    "region": "US",
+    "target_months": [
+      "2026-06",
+      "2026-06",
+      "2026-06"
+    ],
+    "as_of_dates": [
+      "2026-06-13",
+      "2026-06-20",
+      "2026-07-01"
+    ],
+    "config_overrides": {
+      "population": {
+        "core_ratio": 0.5
+      },
+      "prediction": {
+        "provider": "openai_compatible",
+        "endpoint": "https://api.openai.com/v1/chat/completions",
+        "model": "gpt-4o-mini",
+        "timeout_seconds": 60
+      },
+      "credentials": {
+        "model_api_key": "SV_LLM_API_KEY"
+      }
+    }
+  }
+}

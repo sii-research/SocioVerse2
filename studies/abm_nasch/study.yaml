@@ -1,0 +1,52 @@
+{
+  "study_id": "abm_nasch",
+  "title": "Nagel-Schreckenberg single-lane traffic (SocioVerse-ABM)",
+  "research_question": "Does the fundamental flow-density relation emerge, and does an LLM driver reproduce the rule?",
+  "hypothesis": "Mean speed and flow settle to the congested-branch values for the chosen density.",
+  "study_type": "longitudinal",
+  "n_steps": 20,
+  "seed": 42,
+  "metrics": [
+    "n",
+    "density",
+    "mean_speed",
+    "flow"
+  ],
+  "domain": "traffic",
+  "tags": [
+    "abm",
+    "nasch",
+    "traffic",
+    "flow",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "density",
+    "vmax",
+    "randomization_prob"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "flow-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "Nagel-Schreckenberg traffic flow; discrete kinetic/flow-family exemplar under the abm.* seam"
+}

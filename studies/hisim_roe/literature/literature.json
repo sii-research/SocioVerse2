@@ -1,0 +1,180 @@
+{
+  "summary": "检索围绕三条线展开：混合 LLM+ABM 舆论模拟、社交媒体数字孪生环境、以及生成式社会模拟的效度验证。最关键的一篇是 Mou 等 (2024) —— 本研究展示的 14 轮轨迹、三场景评测口径与混合范式本身都出自它；其次是 Larooij & Törnberg (2025) 对生成式社会模拟'验证才是核心难题'的批判性综述，本 case 的真值对照正是对该批评的直接回应。",
+  "themes": [
+    {
+      "name": "混合 LLM+规则的舆论动力学",
+      "n": 4
+    },
+    {
+      "name": "社交媒体数字孪生与平台环境",
+      "n": 2
+    },
+    {
+      "name": "生成式社会模拟的效度与验证",
+      "n": 2
+    }
+  ],
+  "papers": [
+    {
+      "title": "Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation",
+      "authors": [
+        "Xinyi Mou",
+        "Zhongyu Wei",
+        "Xuanjing Huang"
+      ],
+      "year": 2024,
+      "venue": null,
+      "citations": 28,
+      "doi": "10.18653/v1/2024.findings-acl.285",
+      "url": "https://doi.org/10.18653/v1/2024.findings-acl.285",
+      "abstract": "Social media has emerged as a cornerstone of social movements, wielding significant influence in driving societal change.Simulating the response of the public and forecasting the potential impact has become increasingly important.However, existing methods for simulating such phenomena encounter challenges concerning their efficacy and efficiency in capturing the behaviors of social movement participants.In this paper, we introduce a hybrid framework for social media user simulation, wherein users are categorized into two types.Core users are driven by Large Language Models, while numerous ordinary users are modeled by deductive agent-based models.We further construct a Twitter-like environment to replicate their response dynamics following trigger events.Subsequently, we develop a multi-faceted benchmark SoMoSiMu-Bench for evaluation and conduct comprehensive experiments across real-world datasets.Experimental results demonstrate the effectiveness and flexibility of our method 1 .",
+      "note": "本研究的直接上游：混合范式（少量 LLM 核心用户 + 大量规则普通用户 + 镜像耦合）、MeToo/Roe/BLM 三场景、以及本 case 展示的 14 轮模拟-真值轨迹与 Corr/ΔBias 口径，全部来自这篇。",
+      "relevance": 1.0,
+      "bibkey": "mou2024unveiling"
+    },
+    {
+      "title": "Social opinions prediction utilizes fusing dynamics equation with LLM-based agents",
+      "authors": [
+        "Junchi Yao",
+        "Hongjie Zhang",
+        "Jie Ou",
+        "Dingyi Zuo",
+        "Zheng Yang",
+        "Zhicheng Dong"
+      ],
+      "year": 2025,
+      "venue": "Scientific Reports",
+      "citations": 6,
+      "doi": "10.1038/s41598-025-99704-3",
+      "url": "https://doi.org/10.1038/s41598-025-99704-3",
+      "abstract": "In the context where social media emerges as a pivotal platform for social movements and shaping public opinion, accurately simulating and predicting the dynamics of user opinions is of significant importance. Such insights are vital for understanding social phenomena, informing policy decisions, and guiding public opinion. Unfortunately, traditional algorithms based on idealized models and disregarding social data often fail to capture the complexity and nuance of real-world social interactions. This study proposes the Fusing Dynamics Equation-Large Language Model (FDE-LLM) algorithm. This innovative approach aligns the actions and evolution of opinions in Large Language Models (LLMs) with the real-world data on social networks. The FDE-LLM divides users into two roles: opinion leaders and followers. Opinion leaders use LLM for role-playing and employ Cellular Automata(CA) to constrain opinion changes. In contrast, opinion followers are integrated into a dynamic system that combines the CA model with the Susceptible-Infectious-Recovered (SIR) model. This innovative design significantly improves the accuracy of the simulation. Our experiments utilized four real-world datasets from ",
+      "note": "最近的同类做法：把舆论动力学方程与 LLM agent 融合做预测。与本研究的镜像耦合是同一问题的两种解法——它把规则写进 LLM 的输入，本研究让两类 agent 各跑各的再互相覆写，可直接对照哪种耦合更稳。",
+      "relevance": 0.85,
+      "bibkey": "yao2025social"
+    },
+    {
+      "title": "Large language models empowered agent-based modeling and simulation: a survey and perspectives",
+      "authors": [
+        "Chen Gao",
+        "Xiaochong Lan",
+        "Nian Li",
+        "Yuan Yuan",
+        "Jingtao Ding",
+        "Zhilun Zhou",
+        "Fengli Xu",
+        "Yong Li"
+      ],
+      "year": 2024,
+      "venue": "Humanities and Social Sciences Communications",
+      "citations": 230,
+      "doi": "10.1057/s41599-024-03611-3",
+      "url": "https://doi.org/10.1057/s41599-024-03611-3",
+      "abstract": "Abstract Agent-based modeling and simulation have evolved as a powerful tool for modeling complex systems, offering insights into emergent behaviors and interactions among diverse agents. Recently, integrating large language models into agent-based modeling and simulation presents a promising avenue for enhancing simulation capabilities. This paper surveys the landscape of utilizing large language models in agent-based modeling and simulation, discussing their challenges and promising future directions. In this survey, since this is an interdisciplinary field, we first introduce the background of agent-based modeling and simulation and large language model-empowered agents. We then discuss the motivation for applying large language models to agent-based simulation and systematically analyze the challenges in environment perception, human alignment, action generation, and evaluation. Most importantly, we provide a comprehensive overview of the recent works of large language model-empowered agent-based modeling and simulation in multiple scenarios, which can be divided into four domains: cyber, physical, social, and hybrid, covering simulation of both real-world and virtual environme",
+      "note": "LLM 驱动 ABM 的领域综述（230 引），本研究在其分类里属于'LLM 与规则 agent 混合'一支；报告里'纯 LLM 跑不起规模、纯 ABM 生成不出话语'这一动机的文献依据。",
+      "relevance": 0.8,
+      "bibkey": "gao2024large"
+    },
+    {
+      "title": "Validation is the central challenge for generative social simulation: a critical review of LLMs in agent-based modeling",
+      "authors": [
+        "Maik Larooij",
+        "Petter Törnberg"
+      ],
+      "year": 2025,
+      "venue": "Artificial Intelligence Review",
+      "citations": 13,
+      "doi": "10.1007/s10462-025-11412-6",
+      "url": "https://doi.org/10.1007/s10462-025-11412-6",
+      "abstract": "Recent advances in Large Language Models (LLMs) have revitalized interest in Agent-Based Models (ABMs) by enabling \"generative\" simulations, with agents that can plan, reason, and interact through natural language. These developments promise greater realism and expressive power, but also revive long-standing concerns over empirical grounding, calibration, and validation-issues that have historically limited the uptake of ABMs in the social sciences. This paper systematically reviews the emerging literature on generative ABMs to assess how these long-standing challenges are being addressed. We map domains of application, categorize reported validation practices, and assess their alignment with the stated modeling goals. Our review suggests that the use of LLMs may exacerbate rather than alleviate the challenge of validating ABMs, given their black-box structure, cultural biases, and stochastic outputs. While the need for validation is increasingly acknowledged, studies often rely on face-validity or outcome measures that are only loosely tied to underlying mechanisms. Generative ABMs thus occupy an ambiguous methodological space-lacking both the parsimony of formal models and the em",
+      "note": "批判性综述：生成式社会模拟最大的问题不是能不能跑，而是**没有真值可对**。本 case 的全部设计（14 轮逐轮对照真实 Twitter 情绪、报出形状相关与 ΔBias）就是针对这一条。讨论节的局限性论述应引它。",
+      "relevance": 0.85,
+      "bibkey": "larooij2025validation"
+    },
+    {
+      "title": "LLM-AIDSim: LLM-Enhanced Agent-Based Influence Diffusion Simulation in Social Networks",
+      "authors": [
+        "Lan Zhang",
+        "Yuxuan Hu",
+        "Weihua Li",
+        "Quan Bai",
+        "Parma Nand"
+      ],
+      "year": 2025,
+      "venue": "Systems",
+      "citations": 12,
+      "doi": "10.3390/systems13010029",
+      "url": "https://doi.org/10.3390/systems13010029",
+      "abstract": "This paper introduces an LLM-Enhanced Agent-Based Influence Diffusion Simulation (LLM-AIDSim) framework that integrates large language models (LLMs) into agent-based modelling to simulate influence diffusion in social networks. The proposed framework enhances traditional influence diffusion models by allowing agents to generate language-level responses, providing deeper insights into user agent interactions. Our framework addresses the limitations of probabilistic models by simulating realistic, context-aware user behaviours in response to public statements. Using real-world news topics, we demonstrate the effectiveness of LLM-AIDSim in simulating topic evolution and tracking user discourse, validating its ability to replicate key aspects of real-world information propagation. Our experimental results highlight the role of influence diffusion in shaping collective discussions, revealing that, over time, diffusion narrows the focus of conversations around a few dominant topics. We further analyse regional differences in topic clustering and diffusion behaviours across three cities, Sydney, Auckland, and Hobart, revealing how demographics, income, and education levels influence topic",
+      "note": "LLM 增强的影响力扩散 ABM，同样在社交网络上跑、同样用真实新闻话题驱动；它的结论'扩散会把话题收窄'与本研究第 5–11 轮模拟情绪系统性偏高、多样性收敛的现象可互为旁证。",
+      "relevance": 0.7,
+      "bibkey": "zhang2025llmaidsim"
+    },
+    {
+      "title": "Stance Detection with Collaborative Role-Infused LLM-Based Agents",
+      "authors": [
+        "Xiaochong Lan",
+        "Chen Gao",
+        "Depeng Jin",
+        "Yong Li"
+      ],
+      "year": 2024,
+      "venue": "Proceedings of the International AAAI Conference on Web and Social Media",
+      "citations": 60,
+      "doi": "10.1609/icwsm.v18i1.31360",
+      "url": "https://doi.org/10.1609/icwsm.v18i1.31360",
+      "abstract": "Stance detection automatically detects the stance in a text towards a target, vital for content analysis in web and social media research. Despite their promising capabilities, LLMs encounter challenges when directly applied to stance detection. First, stance detection demands multi-aspect knowledge, from deciphering event-related terminologies to understanding the expression styles in social media platforms. Second, stance detection requires advanced reasoning to infer authors' implicit viewpoints, as stances are often subtly embedded rather than overtly stated in the text. To address these challenges, we design a three-stage framework COLA (short for Collaborative rOle-infused LLM-based Agents) in which LLMs are designated distinct roles, creating a collaborative system where each role contributes uniquely. Initially, in the multidimensional text analysis stage, we configure the LLMs to act as a linguistic expert, a domain specialist, and a social media veteran to get a multifaceted analysis of texts, thus overcoming the first challenge. Next, in the reasoning-enhanced debating stage, for each potential stance, we designate a specific LLM-based agent to advocate for it, guiding t",
+      "note": "立场检测的 LLM agent 方法（60 引）。本 case 个体层指标里的 stance accuracy 0.943 依赖立场标注质量，这篇是该测量环节的方法学锚点。",
+      "relevance": 0.65,
+      "bibkey": "lan2024stance"
+    },
+    {
+      "title": "Y Social: an LLM-powered Social Media Digital Twin",
+      "authors": [
+        "Giulio Rossetti",
+        "Massimo Stella",
+        "Rémy Cazabet",
+        "Katherine Abramski",
+        "Erica Cau",
+        "Salvatore Citraro",
+        "Andrea Failla",
+        "Riccardo Improta",
+        "Virginia Morini",
+        "Valentina Pansanella"
+      ],
+      "year": 2024,
+      "venue": "arXiv (Cornell University)",
+      "citations": 3,
+      "doi": "10.48550/arxiv.2408.00818",
+      "url": "https://doi.org/10.48550/arxiv.2408.00818",
+      "abstract": "In this paper we introduce Y, a new-generation digital twin designed to replicate an online social media platform. Digital twins are virtual replicas of physical systems that allow for advanced analyses and experimentation. In the case of social media, a digital twin such as Y provides a powerful tool for researchers to simulate and understand complex online interactions. {\\tt Y} leverages state-of-the-art Large Language Models (LLMs) to replicate sophisticated agent behaviors, enabling accurate simulations of user interactions, content dissemination, and network dynamics. By integrating these aspects, Y offers valuable insights into user engagement, information spread, and the impact of platform policies. Moreover, the integration of LLMs allows Y to generate nuanced textual content and predict user responses, facilitating the study of emergent phenomena in online environments. To better characterize the proposed digital twin, in this paper we describe the rationale behind its implementation, provide examples of the analyses that can be performed on the data it enables to be generated, and discuss its relevance for multidisciplinary research.",
+      "note": "Twitter 式平台的 LLM 数字孪生，与本研究环境层（时间线、关注图可见性、通知收件箱）是同类构造，可作为环境建构侧的参照实现。",
+      "relevance": 0.6,
+      "bibkey": "rossetti2024y"
+    },
+    {
+      "title": "Quantifying the Impact of Large Language Models on Collective Opinion Dynamics",
+      "authors": [
+        "Chao Li",
+        "Xing Su",
+        "Haoying Han",
+        "Cong Xue",
+        "Chunmo Zheng",
+        "Chao Fan"
+      ],
+      "year": 2023,
+      "venue": "arXiv (Cornell University)",
+      "citations": 4,
+      "doi": "10.48550/arxiv.2308.03313",
+      "url": "https://doi.org/10.48550/arxiv.2308.03313",
+      "abstract": "The process of opinion expression and exchange is a critical component of democratic societies. As people interact with large language models (LLMs) in the opinion shaping process different from traditional media, the impacts of LLMs are increasingly recognized and being concerned. However, the knowledge about how LLMs affect the process of opinion expression and exchange of social opinion networks is very limited. Here, we create an opinion network dynamics model to encode the opinions of LLMs, cognitive acceptability and usage strategies of individuals, and simulate the impact of LLMs on opinion dynamics in a variety of scenarios. The outcomes of the simulations inform about effective demand-oriented opinion network interventions. The results from this study suggested that the output opinion of LLMs has a unique and positive effect on the collective opinion difference. The marginal effect of cognitive acceptability on collective opinion formation is nonlinear and shows a decreasing trend. When people partially rely on LLMs, the exchange process of opinion becomes more intense and the diversity of opinion becomes more favorable. In fact, there is 38.6% more opinion diversity when ",
+      "note": "量化 LLM 参与如何改变群体意见动态。本研究的核心用户正是这种'LLM 参与者'，这篇提示了核心用户比例这一可调参数为什么会影响整体轨迹。",
+      "relevance": 0.55,
+      "bibkey": "li2023quantifying"
+    }
+  ],
+  "queries": [
+    "hybrid LLM agent based model opinion dynamics social media simulation",
+    "social movement Twitter public opinion trajectory bounded confidence model"
+  ],
+  "retrieved_at": "2026-08-17T13:47:42+00:00"
+}

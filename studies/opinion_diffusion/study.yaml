@@ -1,0 +1,71 @@
+{
+  "study_id": "opinion_diffusion",
+  "title": "Opinion diffusion under a media campaign (from-scratch template)",
+  "research_question": "Does a step-2 media campaign accelerate opinion convergence and shift the mean upward?",
+  "hypothesis": "Bounded-confidence peer averaging shrinks opinion_std over time; the campaign lifts mean_opinion at/after step 2.",
+  "title_i18n": {
+    "zh": "媒体宣传campaign下的意见扩散(from-scratch 参考模板)",
+    "en": "Opinion diffusion under a media campaign (from-scratch template)"
+  },
+  "research_question_i18n": {
+    "zh": "第2步投放的媒体宣传campaign,是否会加速意见收敛并把群体平均意见推高?",
+    "en": "Does a step-2 media campaign accelerate opinion convergence and shift the mean upward?"
+  },
+  "hypothesis_i18n": {
+    "zh": "有界信心下的邻居意见平均会随时间缩小意见分歧(opinion_std 下降);campaign 在第2步及之后抬升平均意见(mean_opinion)。",
+    "en": "Bounded-confidence peer averaging shrinks opinion_std over time; the campaign lifts mean_opinion at/after step 2."
+  },
+  "study_type": "longitudinal",
+  "n_steps": 4,
+  "seed": 42,
+  "metrics": [
+    "mean_opinion",
+    "opinion_std",
+    "frac_above_0_5"
+  ],
+  "metric_descriptions": {
+    "mean_opinion": "Mean opinion of all agents (0–1, higher = more inclined to adopt the new policy; the campaign should push it up)",
+    "opinion_std": "Population standard deviation of all agents' opinions (lower = more convergence / consensus; bounded-confidence averaging should make it fall over time)",
+    "frac_above_0_5": "Share of agents with opinion ≥ 0.5 (inclined to adopt) (0–1; shows when the majority flips)"
+  },
+  "display_metrics": [
+    "mean_opinion",
+    "opinion_std",
+    "frac_above_0_5"
+  ],
+  "environment_ref": "environment/environment.json",
+  "population_ref": "population/population.json",
+  "simulation_ref": "simulation/simulation.json",
+  "resources_ref": "resources.json",
+  "domain": "opinion-dynamics",
+  "tags": [
+    "opinion-dynamics",
+    "bounded-confidence",
+    "network",
+    "from-scratch"
+  ],
+  "legacy_simulator": "from_scratch",
+  "provider_refs": [
+    "opinion.env",
+    "opinion.pop",
+    "opinion.decision",
+    "opinion.collector"
+  ],
+  "adjustable_params": [
+    "n_agents",
+    "n_steps",
+    "confidence threshold",
+    "campaign step & content",
+    "media_pressure schedule"
+  ],
+  "status": "demo-only",
+  "maintainer": "",
+  "demonstrates": [
+    "from-scratch-core",
+    "info-broadcast",
+    "branch-replay"
+  ],
+  "teaches": "the Path-B from-scratch shape: four abc + a make_*_bundles() factory, assembled generically by socioverse.engine.build_simulator (also the branch-replay exemplar)",
+  "reference": true,
+  "created_by": "sv-init"
+}

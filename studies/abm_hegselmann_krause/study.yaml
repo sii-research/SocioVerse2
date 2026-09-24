@@ -1,0 +1,51 @@
+{
+  "study_id": "abm_hegselmann_krause",
+  "title": "Hegselmann-Krause bounded-confidence opinion dynamics (SocioVerse-ABM)",
+  "research_question": "Does bounded-confidence averaging coalesce opinions into clusters, and does an LLM agent reproduce it?",
+  "hypothesis": "The number of opinion clusters drops from the dispersed start toward consensus/polarization.",
+  "study_type": "longitudinal",
+  "n_steps": 10,
+  "seed": 42,
+  "metrics": [
+    "n",
+    "num_clusters",
+    "spread",
+    "variance"
+  ],
+  "domain": "opinion-dynamics",
+  "tags": [
+    "abm",
+    "hegselmann_krause",
+    "opinion-dynamics",
+    "diffusion",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "epsilon (confidence bound)",
+    "n_agents"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "diffusion-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "bounded-confidence opinion convergence (HK); continuous-opinion diffusion exemplar under the abm.* seam"
+}

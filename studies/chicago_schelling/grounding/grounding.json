@@ -1,0 +1,93 @@
+{
+  "study_id": "chicago_schelling",
+  "query": "Starting from the 2010 census, how does the Black-White dissimilarity index evolve over 3 steps when a CTA subway station opens in a South-Side tract at step 2, with a paired policy broadcast?",
+  "updated_at": "2026-07-18T15:33:39Z",
+  "method_notes": "Real-world anchored: 2010-census baseline demographics drive P + physical-E; the step-2 transit intervention is modeled on CTA's real South-Side Red Line Extension. Load-bearing magnitudes (city D_bw baseline, Schelling tolerance regime) are sourced; the specific intervention tract and the +2-station shock size are modeling proxies, declared as assumptions.",
+  "implementation_refs": [
+    {
+      "title": "Schelling, T. (1971) — Dynamic Models of Segregation",
+      "url": "https://www.suz.uzh.ch/dam/jcr:00000000-68cb-72db-ffff-ffffff8071db/04.02_schelling_71.pdf",
+      "takeaway": "Agents relocate when the same-group share of neighbours falls below a tolerance threshold; even mild individual preferences (~30-50%) tip neighbourhoods into sharply segregated macro patterns. This is the decision rule the SchellingDecisionModel implements per household.",
+      "accessed": "2026-07-18"
+    },
+    {
+      "title": "Transit-Induced Gentrification: A Quasi-Experimental Analysis of New U.S. Rapid-Transit Stations Opened 2000-2009 (JAPA, 2025)",
+      "url": "https://doi.org/10.1177/0739456x251366973",
+      "takeaway": "A new rapid-transit station is a plausibly-exogenous shock to a tract's accessibility; downstream neighbourhood ethnoracial change can go either way (diversifying inflow vs. displacement), motivating the paired anti-displacement broadcast in E and the competing-mechanism framing of the hypothesis.",
+      "accessed": "2026-07-18"
+    }
+  ],
+  "facts": [
+    {
+      "id": "f-chicago-dbw-2010",
+      "claim": "Chicago metro Black-White dissimilarity index, 2010 census",
+      "value": 76,
+      "unit": "0-100 (D×100)",
+      "as_of": "2010",
+      "basis": "sourced",
+      "source": {
+        "title": "Brown University US2010 Diversity & Disparities — Segregation 2010 (Logan/Stults)",
+        "url": "https://s4.ad.brown.edu/projects/diversity/segregation2010/Default.aspx",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "metrics.D_black_white (t=0 baseline)"
+      ],
+      "note": "Chicago is one of the most segregated large U.S. metros; a value of 76 means ~76% of Black or White residents would have to relocate for an even distribution. The study's t=0 D_bw=0.816 is at/above this metro figure because the small-scale South-Side tract subset is more segregated than the metro average."
+    },
+    {
+      "id": "f-rle-project",
+      "claim": "CTA Red Line Extension — 5.5-mile South-Side rail expansion (95th/Dan Ryan → 130th St)",
+      "value": 5.5,
+      "unit": "miles",
+      "as_of": "2026",
+      "basis": "sourced",
+      "source": {
+        "title": "CTA — Red Line Extension Project",
+        "url": "https://www.transitchicago.com/rle/",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "environment.scheduled_events (step-2 CTA station opening)"
+      ],
+      "note": "The real South-Side transit shock the step-2 intervention is modeled on: a $5.7B, 4-station extension into historically transit-poor Far South Side communities (ground-broken early 2026). Anchors the direction/plausibility of the intervention, not the exact tract."
+    },
+    {
+      "id": "f-schelling-threshold",
+      "claim": "Schelling tolerance threshold that still tips a neighbourhood to segregation",
+      "value": "30-50",
+      "unit": "% same-group neighbours",
+      "as_of": "1971/2009",
+      "basis": "sourced",
+      "source": {
+        "title": "Schelling (1971) + Schelling's Segregation Model: Parameters, scaling, and aggregation (Demographic Research 2009)",
+        "url": "https://doi.org/10.4054/demres.2009.21.12",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "decision.chicago.schelling (satisfaction threshold regime)"
+      ],
+      "note": "Bounds the plausible satisfaction-threshold regime for the household decision model."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "a-intervention-tract",
+      "claim": "The intervention station is placed in tract 17031612000 (New City, South Side).",
+      "rationale": "A representative South-Side tract in the small-scale subset; the real RLE terminates further south (130th St). Chosen for demonstration — a plausible South-Side transit-shock site, not a claim that RLE serves this exact tract."
+    },
+    {
+      "id": "a-shock-size",
+      "claim": "The station opening is encoded as cta_stations += 2 in the intervention tract at step 2.",
+      "rationale": "No public metric maps a single station opening onto the engine's cta_stations accessibility field; +2 is a deliberate, legible one-off shock large enough to register against the tract's baseline access. Sensitivity to this magnitude is a candidate /sv-iterate sweep."
+    },
+    {
+      "id": "a-anti-displacement-policy",
+      "claim": "The paired citywide + tract broadcasts describe a fair-housing / anti-displacement program.",
+      "rationale": "Stylized policy text, not a specific enacted Chicago ordinance; represents the counter-displacement lever the transit-gentrification literature argues is needed for a station to diversify rather than displace."
+    }
+  ]
+}

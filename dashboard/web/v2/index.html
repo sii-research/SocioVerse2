@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SocioVerse2 · Research Workbench</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e67e22'/%3E%3Cstop offset='1' stop-color='%23f97316'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='bold' text-anchor='middle' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div id="shell">
+
+  <!-- ══ left navigation rail ══ -->
+  <aside id="rail">
+    <div class="rail-brand" id="brandHome" title="SocioVerse2 · Home">
+      <div class="logo">S</div>
+      <div class="brand-txt">
+        <div class="brand-name">SocioVerse<span class="b2">2</span></div>
+        <div class="brand-sub mono">research workbench</div>
+      </div>
+    </div>
+    <div class="rail-study">
+      <select id="switcher" title="switch study"></select>
+    </div>
+    <!-- Starting a new study is the most frequent action here and the one that most needs to be seen: it is pulled out of the
+         row of small icons at the bottom and placed right below the study switcher, above the nav, as a solid brand-color button.
+         navNew / navList / chat dock / quota are hosted-workbench UI: hidden on the local
+         server (body.sv-local, see styles.css and store.js isLocal). -->
+    <a class="rail-new" id="navNew" href="/app/v2/?study=__new__">
+      <span class="rn-ic">＋</span><span class="rn-tx" data-i18n="nav_new">新建研究</span>
+    </a>
+    <nav id="nav" aria-label="study sections">
+      <div class="nav-ind" id="navInd"></div>
+      <!-- nav items injected by app.js -->
+    </nav>
+    <div class="rail-foot">
+      <a class="rf-btn" id="navList" href="/studies" data-i18n-title="nav_list">▤</a>
+      <span class="rf-btn" id="themeBtn"></span>
+      <span class="rf-btn" id="langBtn"></span>
+      <span class="rf-btn" id="tourBtn" data-i18n-title="tour_btn">？</span>
+    </div>
+    <div class="rail-quota mono" id="quotaChip" style="display:none"></div>
+    <div class="rail-quota-btn" id="quotaReqBtn" style="display:none"></div>
+  </aside>
+
+  <!-- ══ central content area ══ -->
+  <main id="main">
+    <header id="topbar">
+      <div class="tb-left">
+        <div class="tb-titlerow">
+          <span id="live"></span>
+          <h1 id="title">—</h1>
+          <span class="pill" id="statusPill"></span>
+        </div>
+        <div class="tb-badges" id="badges"></div>
+      </div>
+      <div class="tb-right">
+        <select id="verswitcher" title="version"></select>
+        <select id="cmpswitcher" title="compare"></select>
+        <button class="tb-btn" id="chatToggle" title="chat">💬</button>
+      </div>
+    </header>
+    <section id="view" tabindex="-1"><!-- tab mounts here --></section>
+  </main>
+
+  <!-- ══ right chat dock ══ -->
+  <aside id="chatDock">
+    <div id="chatResize" title="drag to resize"></div>
+    <div id="chatHead">
+      <span class="ch-title"><span data-i18n="chat_title">对话</span> <span id="chatBusy" class="muted"></span></span>
+      <span class="vseg" id="vseg" title=""></span>
+      <span class="ch-study mono" id="chatStudy"></span>
+      <button class="ch-collapse" id="chatCollapse" title="collapse">⇥</button>
+    </div>
+    <!-- new-study "compose state": the center and right panes merge into one input box in the middle of the page (see app.js setCompose) -->
+    <div id="composeHero"></div>
+    <div id="gatePin"><span class="gp-ic">⏸</span><span data-i18n="gate_pin">流程已暂停，等待你的确认</span><span class="arrow" data-i18n="gate_pin_go">查看 ↓</span></div>
+    <div id="chatLog"></div>
+    <div id="dropHint" style="display:none"><span data-i18n="drop_hint">松开上传文件</span></div>
+    <div id="replyHint">💬 <span data-i18n="reply_hint">agent 向你提了问题——回复后继续</span></div>
+    <div id="quickRow"></div>
+    <div id="chatInputRow">
+      <button class="attach-btn" id="attachBtn" data-i18n-title="upload_file">＋</button>
+      <input type="file" id="fileInput" style="display:none" accept=".csv,.tsv,.json,.jsonl,.txt,.md,.xlsx,.xls,.parquet,.yaml,.yml,.pdf"/>
+      <textarea id="chatInput" rows="2"></textarea>
+      <button id="chatSend" data-i18n="chat_send">发送</button>
+    </div>
+    <div id="composeStarters"></div>
+  </aside>
+
+  <!-- floating button shown when the chat is collapsed -->
+  <button id="chatFab" style="display:none" title="chat">💬<span class="fab-badge" id="fabBadge" style="display:none"></span></button>
+</div>
+
+<div class="lightbox" id="lightbox"><img id="lightboxImg" alt="figure"/><div class="cap" id="lightboxCap"></div></div>
+<div id="toasts"></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

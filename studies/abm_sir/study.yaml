@@ -1,0 +1,53 @@
+{
+  "study_id": "abm_sir",
+  "title": "SIR rumor spreading on a network (SocioVerse-ABM)",
+  "research_question": "Does a rumor cascade through the network, and does an LLM agent reproduce the contact rule?",
+  "hypothesis": "The ignorant fraction falls as the rumor spreads to a sizeable reach.",
+  "study_type": "longitudinal",
+  "n_steps": 30,
+  "seed": 42,
+  "metrics": [
+    "S",
+    "I",
+    "R"
+  ],
+  "domain": "epidemics",
+  "tags": [
+    "abm",
+    "sir",
+    "diffusion",
+    "epidemics",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "topology (ER|BA|WS)",
+    "p",
+    "q",
+    "gamma",
+    "initial_spreaders"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "diffusion-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "compartmental contagion (SIR) as agent contact dynamics; diffusion-family exemplar under the abm.* seam"
+}

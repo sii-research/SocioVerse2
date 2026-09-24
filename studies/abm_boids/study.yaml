@@ -1,0 +1,52 @@
+{
+  "study_id": "abm_boids",
+  "title": "Reynolds Boids flocking (SocioVerse-ABM)",
+  "research_question": "Does local steering produce global flocking order, and does an LLM agent reproduce it?",
+  "hypothesis": "Polarization (order parameter) rises from a near-random start as a coherent flock forms.",
+  "study_type": "longitudinal",
+  "n_steps": 30,
+  "seed": 42,
+  "metrics": [
+    "n",
+    "polarization",
+    "mean_speed"
+  ],
+  "domain": "collective-behavior",
+  "tags": [
+    "abm",
+    "boids",
+    "collective-behavior",
+    "flow",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "num_boids",
+    "perception/separation radius",
+    "max_speed/force",
+    "weights"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "flow-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "alignment/cohesion/separation flocking (Boids); continuous-space collective motion exemplar"
+}

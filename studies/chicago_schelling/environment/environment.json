@@ -1,0 +1,87 @@
+{
+  "study_id": "chicago_schelling",
+  "layers": [
+    {
+      "name": "city_race_share",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "endogenous",
+      "source": null,
+      "schema_ref": null,
+      "description": "city-wide racial shares"
+    },
+    {
+      "name": "tract_local",
+      "modality": "physical",
+      "scope": "local",
+      "dynamics": "endogenous",
+      "source": null,
+      "schema_ref": null,
+      "description": "per-tract demographics + 1-hop Queen surrounding area"
+    },
+    {
+      "name": "news",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": null,
+      "schema_ref": null,
+      "description": "city news / policy broadcasts"
+    },
+    {
+      "name": "ward_notice",
+      "modality": "information",
+      "scope": "local",
+      "dynamics": "scheduled",
+      "source": null,
+      "schema_ref": null,
+      "description": "tract-scoped notices"
+    }
+  ],
+  "scheduled_events": [
+    {
+      "at_step": 2,
+      "target_layer": "tract_local",
+      "op": "add",
+      "selector": {
+        "geoid_list": [
+          "17031612000"
+        ]
+      },
+      "property_name": "cta_stations",
+      "value": 2,
+      "note": "Open a CTA rail station in South-Side tract 17031612000 (New City) at step 2: cta_stations += 2."
+    }
+  ],
+  "information_program": {
+    "broadcasts": [
+      {
+        "message_id": "policy_A_citywide",
+        "content": "City of Chicago: a new CTA rail station opens on the South Side this year, cutting commute times to Loop jobs. Paired with a citywide fair-housing and anti-displacement program to keep newly-connected neighborhoods open and affordable to all.",
+        "channel": "news",
+        "at_step": 2,
+        "ttl": 3,
+        "audience": "all",
+        "note": "Policy A — macro/information, everyone (audience='all')."
+      },
+      {
+        "message_id": "policy_B_tract",
+        "content": "Your block is getting a new CTA rail station — direct downtown rail access. The city guarantees affordable units and anti-displacement protections for current and incoming households, welcoming a mix of new neighbors.",
+        "channel": "ward_notice",
+        "at_step": 2,
+        "ttl": 3,
+        "audience": {
+          "geoid_list": [
+            "17031612000"
+          ]
+        },
+        "note": "Policy B — local/information, only the intervention tract (scenario 1)."
+      }
+    ]
+  },
+  "provider_ref": "chicago.env",
+  "provider_args": {
+    "scale": "small",
+    "init_mode": "census"
+  }
+}

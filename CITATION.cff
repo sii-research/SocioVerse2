@@ -1,0 +1,82 @@
+cff-version: 1.2.0
+message: "If you use SocioVerse2, please cite the technical report below."
+title: "SocioVerse2"
+type: software
+version: 0.2.0
+date-released: "2026-09-25"
+license: Apache-2.0
+repository-code: "https://github.com/sii-research/SocioVerse2"
+url: "https://socioverse.fudan-disc.com/"
+abstract: >-
+  SocioVerse2 is a longitudinal social-simulation framework. A fixed population of
+  LLM agents with persistent ids lives through an environment that keeps changing,
+  interventions and counterfactual branches are recorded as versions of the study,
+  and every step is stored as panel data.
+keywords:
+  - social simulation
+  - LLM agents
+  - agent-based modeling
+  - longitudinal
+  - computational social science
+authors:
+  - name: "The SocioVerse2 Authors"
+preferred-citation:
+  type: article
+  title: "SocioVerse2: A Longitudinal Dynamic Social Simulation Framework under a Human-AI Co-evolutionary Paradigm"
+  year: 2026
+  month: 9
+  journal: "arXiv preprint"
+  identifiers:
+    - type: other
+      value: "arXiv:2609.24911"
+      description: "arXiv identifier"
+    - type: doi
+      value: "10.48550/arXiv.2609.24911"
+      description: "arXiv-issued DOI"
+  doi: "10.48550/arXiv.2609.24911"
+  url: "https://arxiv.org/abs/2609.24911"
+  authors:
+    - family-names: Zhang
+      given-names: Xinnong
+    - family-names: Lin
+      given-names: Jiayu
+    - family-names: Wang
+      given-names: Jia
+    - family-names: Huang
+      given-names: Yixu
+    - family-names: Mou
+      given-names: Xinyi
+    - family-names: Wu
+      given-names: Yingqian
+    - family-names: Liang
+      given-names: Jingcong
+    - family-names: Lei
+      given-names: Shijun
+    - family-names: Shi
+      given-names: Jianing
+    - family-names: Li
+      given-names: Guanying
+    - family-names: Wang
+      given-names: Siyuan
+    - family-names: Lyu
+      given-names: Hanjia
+    - family-names: Yin
+      given-names: Zhenfei
+    - family-names: Yin
+      given-names: Yunlu
+    - family-names: Chen
+      given-names: Siming
+    - family-names: He
+      given-names: Yulan
+    - family-names: Luo
+      given-names: Jiebo
+    - family-names: Huang
+      given-names: Xuanjing
+    - family-names: Jin
+      given-names: Liyin
+    - family-names: Zhou
+      given-names: Baohua
+    - family-names: Yan
+      given-names: Hanqi
+    - family-names: Wei
+      given-names: Zhongyu

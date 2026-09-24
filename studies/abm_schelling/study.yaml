@@ -1,0 +1,50 @@
+{
+  "study_id": "abm_schelling",
+  "title": "Schelling residential segregation (SocioVerse-ABM)",
+  "research_question": "Does mild same-group preference drive macro segregation, and does an LLM agent reproduce the rule?",
+  "hypothesis": "Segregation index rises well above the 50/50 baseline under the homophily rule.",
+  "study_type": "longitudinal",
+  "n_steps": 12,
+  "seed": 42,
+  "metrics": [
+    "segregation",
+    "happy_fraction"
+  ],
+  "domain": "segregation",
+  "tags": [
+    "abm",
+    "schelling",
+    "segregation",
+    "organization",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "homophily threshold",
+    "density",
+    "grid size"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "organization-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "homophily → macro segregation on a grid; the abm.* seam wrapping a socioverse_abm task, rule-f vs LLM-f comparison"
+}

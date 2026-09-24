@@ -1,0 +1,6 @@
+{
+  "study_id": "consumer_confidence",
+  "stage": "sv-build-population",
+  "narrative": "人群 P 物化：12 人固定池覆盖 12 个互异人口格，core_ratio=0.5 产生 6 人分层 LLM 核心。",
+  "ts": 1784387638.561724
+}

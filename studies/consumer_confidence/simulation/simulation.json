@@ -1,0 +1,14 @@
+{
+  "study_id": "consumer_confidence",
+  "n_steps": 3,
+  "seed": 42,
+  "warm_start": null,
+  "decision_ref": "consumersim.decision",
+  "decision_args": {},
+  "collector_ref": "consumersim.collector",
+  "collector_args": {},
+  "interaction_rounds": 1,
+  "engine_args": {},
+  "store_ref": "duckdb",
+  "store_args": {}
+}

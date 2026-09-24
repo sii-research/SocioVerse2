@@ -1,0 +1,6 @@
+{
+  "study_id": "chicago_schelling",
+  "stage": "sv-build-environment",
+  "narrative": "环境 E 就绪：物理层为芝加哥普查区网格，step 2 注入地铁站冲击（cta_stations+2）并配全市＋定向双广播。",
+  "ts": 1781792749.0
+}

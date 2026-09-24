@@ -1,0 +1,18 @@
+{
+  "study_id": "campus_dining_choice",
+  "n_steps": 6,
+  "seed": 42,
+  "warm_start": null,
+  "decision_ref": "campus_dining_choice.decision",
+  "decision_args": {
+    "llm_kind": "openai",
+    "model": "gpt-4o",
+    "max_workers": 24
+  },
+  "collector_ref": "campus_dining_choice.collector",
+  "collector_args": {},
+  "interaction_rounds": 3,
+  "engine_args": {},
+  "store_ref": "duckdb",
+  "store_args": {}
+}

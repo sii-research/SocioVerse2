@@ -1,0 +1,101 @@
+{
+  "summary": "围绕『品牌市占率如何由异质人群的离散选择聚合生成』检索并精读 5 篇:离散选择与品牌忠诚理论线(MMNL/扫描数据 logit/车型选择实证——本模型效用结构的三块基石)与 ABM 方法论线(为什么 1500 个异质 agent 不可被聚合方程替代)。",
+  "themes": [
+    {
+      "name": "离散选择与品牌忠诚",
+      "n": 3
+    },
+    {
+      "name": "汽车市场实证",
+      "n": 1
+    },
+    {
+      "name": "ABM 方法论",
+      "n": 1
+    }
+  ],
+  "papers": [
+    {
+      "id": "https://openalex.org/W2137344397",
+      "title": "Mixed MNL models for discrete response",
+      "authors": [
+        "Daniel McFadden",
+        "Kenneth Train"
+      ],
+      "year": 2000,
+      "venue": "Journal of Applied Econometrics",
+      "citations": 4139,
+      "doi": "10.1002/1099-1255(200009/10)15:5<447::aid-jae570>3.0.co;2-1",
+      "url": "https://doi.org/10.1002/1099-1255(200009/10)15:5<447::aid-jae570>3.0.co;2-1",
+      "relevance": 0.93,
+      "note": "任何随机效用离散选择模型都可被混合 logit 任意逼近:本研究『base_appeal + 个体×品牌交互 + 环境信号』的品牌选择层正是 MMNL 结构——个体偏好特质(价格敏感/EV 亲和/德系偏好)即随机系数。",
+      "bibkey": "mcfadden2000mixed"
+    },
+    {
+      "id": "https://openalex.org/W2083833236",
+      "title": "A Logit Model of Brand Choice Calibrated on Scanner Data",
+      "authors": [
+        "Peter M. Guadagni",
+        "John D. C. Little"
+      ],
+      "year": 1983,
+      "venue": "Marketing Science",
+      "citations": 1861,
+      "doi": "10.1287/mksc.2.3.203",
+      "url": "https://doi.org/10.1287/mksc.2.3.203",
+      "relevance": 0.85,
+      "note": "扫描数据品牌选择 logit 的开山作:品牌忠诚作为状态依赖变量高度显著——支撑本模型 prior_brand 忠诚项的设定与其量级判断。",
+      "bibkey": "guadagni1983a"
+    },
+    {
+      "id": "https://openalex.org/W2104117020",
+      "title": "VEHICLE CHOICE BEHAVIOR AND THE DECLINING MARKET SHARE OF U.S. AUTOMAKERS*",
+      "authors": [
+        "Kenneth Train",
+        "Clifford Winston"
+      ],
+      "year": 2007,
+      "venue": "International Economic Review",
+      "citations": 348,
+      "doi": "10.1111/j.1468-2354.2007.00471.x",
+      "url": "https://doi.org/10.1111/j.1468-2354.2007.00471.x",
+      "relevance": 0.9,
+      "note": "用消费者层面车型选择模型解释美系品牌份额流失:忠诚、经销网络与产品线共同驱动——与本研究『真实品牌根基决定基本盘、环境信号决定边际转移』的结论同构,系数可直接对比解读。",
+      "bibkey": "train2007vehicle"
+    },
+    {
+      "id": "https://openalex.org/W2266374862",
+      "title": "A Theory of Multidimensional Brand Loyalty",
+      "authors": [
+        "Jagdish N. Sheth",
+        "C. Whan Park"
+      ],
+      "year": 1974,
+      "venue": "Illinois Digital Environment for Access to Learning and Scholarship (University of Illinois at Urbana-Champaign)",
+      "citations": 86,
+      "url": "https://openalex.org/W2266374862",
+      "relevance": 0.65,
+      "note": "品牌忠诚的多维理论(行为性+态度性):忠诚不是单一惯性参数——本模型把忠诚与德系偏好/豪华偏好分开建模与此一致。",
+      "bibkey": "sheth1974a"
+    },
+    {
+      "id": "https://openalex.org/W2145736592",
+      "title": "Heterogeneity and Network Structure in the Dynamics of Diffusion: Comparing Agent-Based and Differential Equation Models",
+      "authors": [
+        "Hazhir Rahmandad",
+        "John D. Sterman"
+      ],
+      "year": 2008,
+      "venue": "Management Science",
+      "citations": 749,
+      "doi": "10.1287/mnsc.1070.0787",
+      "url": "https://doi.org/10.1287/mnsc.1070.0787",
+      "relevance": 0.75,
+      "note": "AB 模型与微分方程模型的系统比较:当个体异质性与交互结构不可省略时必须用 AB——本研究分年龄段的 EV 采纳差异(cohort_ev)正是聚合份额方程会抹平的结构。",
+      "bibkey": "rahmandad2008heterogeneity"
+    }
+  ],
+  "queries": [],
+  "curated_by": "sv-lit (reference curation)",
+  "retrieved_at": "2026-08-04T08:56:35+00:00"
+}

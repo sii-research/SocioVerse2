@@ -1,0 +1,151 @@
+# Build SocioVerse2 and publish it with PyPI Trusted Publishing (OIDC). No API token is stored.
+#
+# Triggers:
+#   - A maintainer publishes a GitHub Release whose tag is v<version>, where <version> equals
+#     socioverse.__version__ (for example v0.2.0, or v0.2.1rc1 for a rehearsal). The tests run,
+#     the wheel and sdist are built and attached to the Release. If the repository variable
+#     PYPI_PUBLISH is "true", the build is also uploaded:
+#       - Release marked "pre-release"  -> TestPyPI, environment "testpypi" (version must be a pre-release)
+#       - Full release                  -> PyPI,     environment "pypi"     (version must be final)
+#   - Manual run (Actions -> release -> Run workflow) with an existing release tag and a target
+#     (testpypi or pypi): rebuilds that tag and uploads it to the chosen index. Use it to publish a
+#     release that was created while PYPI_PUBLISH was off, or to rehearse on TestPyPI first.
+#     Uploads still require PYPI_PUBLISH to be "true".
+#
+# One-time setup: add a pending Trusted Publisher on pypi.org and on test.pypi.org
+# (project socioverse2, owner sii-research, repository SocioVerse2, workflow release.yml,
+# environment pypi / testpypi), create both environments in the repository settings, and set the
+# repository variable PYPI_PUBLISH to "true".
+name: release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag to build and upload (for example v0.2.0)"
+        required: true
+        type: string
+      target:
+        description: "Package index to upload to"
+        required: true
+        type: choice
+        options: [testpypi, pypi]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: pytest (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    env:
+      SV_DASH_DISABLE: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -e ".[dev,viz,workbench]"
+      - run: python -m pytest -q
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install build twine packaging
+      - name: Check the tag (and, for a release, the pre-release flag) against the package version
+        env:
+          TAG: ${{ github.event.release.tag_name || inputs.tag }}
+          EVENT: ${{ github.event_name }}
+          PRERELEASE: ${{ github.event.release.prerelease }}
+        run: |
+          VER=$(python -c "import re, pathlib; print(re.search(r'__version__ = \"(.+?)\"', pathlib.Path('socioverse/__init__.py').read_text()).group(1))")
+          test "v${VER}" = "${TAG}" || { echo "::error::tag ${TAG} does not match version v${VER}"; exit 1; }
+          if [ "${EVENT}" = "release" ]; then
+            IS_PRE=$(python -c "from packaging.version import Version; print(str(Version('${VER}').is_prerelease).lower())")
+            test "${IS_PRE}" = "${PRERELEASE}" || { echo "::error::release pre-release=${PRERELEASE} but version ${VER} pre-release=${IS_PRE}"; exit 1; }
+          fi
+      - run: python -m build
+      - run: python -m twine check --strict dist/*
+      - name: Smoke-test the wheel outside the repository
+        run: |
+          python -m venv "$RUNNER_TEMP/wheelenv"
+          "$RUNNER_TEMP/wheelenv/bin/pip" install dist/*.whl pytest
+          cp tests/test_engine_smoke.py "$RUNNER_TEMP/smoke_test.py"
+          cd "$RUNNER_TEMP" && "$RUNNER_TEMP/wheelenv/bin/python" -m pytest -q -p no:cacheprovider smoke_test.py
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
+
+  attach-to-release:
+    needs: build
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: dist
+          path: dist/
+      - name: Upload the wheel and sdist to the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$TAG" dist/* --repo "$GITHUB_REPOSITORY" --clobber
+
+  publish-testpypi:
+    needs: build
+    if: >-
+      vars.PYPI_PUBLISH == 'true' &&
+      ((github.event_name == 'release' && github.event.release.prerelease) ||
+       (github.event_name == 'workflow_dispatch' && inputs.target == 'testpypi'))
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/socioverse2
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
+        with:
+          repository-url: https://test.pypi.org/legacy/
+
+  publish-pypi:
+    needs: build
+    if: >-
+      vars.PYPI_PUBLISH == 'true' &&
+      ((github.event_name == 'release' && !github.event.release.prerelease) ||
+       (github.event_name == 'workflow_dispatch' && inputs.target == 'pypi'))
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/socioverse2
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2

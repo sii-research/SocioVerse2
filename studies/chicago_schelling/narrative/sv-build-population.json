@@ -1,0 +1,6 @@
+{
+  "study_id": "chicago_schelling",
+  "stage": "sv-build-population",
+  "narrative": "人群 P 物化：570 个家庭按 2010 普查族群构成抽样落位普查区，persona 参数来自 archetype 映射。",
+  "ts": 1784388982.6349497
+}

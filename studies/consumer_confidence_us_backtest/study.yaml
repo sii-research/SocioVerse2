@@ -1,0 +1,77 @@
+{
+  "study_id": "consumer_confidence_us_backtest",
+  "title": "US Consumer Confidence Backtest — ConsumerSim vs the published Michigan ICS",
+  "research_question": "Rebuilt bottom-up from a fixed panel of households answering the survey each month, how closely does the simulated consumer confidence index track the University of Michigan Index of Consumer Sentiment actually published afterwards?",
+  "hypothesis": "A respondent-level simulation grounded in each month's point-in-time information environment tracks the published index within a few index points and gets the direction of month-over-month change right most of the time, while the respondent panel shows persistent level differences by income, tenure and employment that the headline number hides.",
+  "title_i18n": {
+    "zh": "美国消费者信心指数回测：逐月模拟值 vs 密歇根大学 ICS 实测（参考模板）",
+    "en": "US Consumer Confidence Backtest — ConsumerSim vs the published Michigan ICS (reference template)"
+  },
+  "research_question_i18n": {
+    "zh": "把消费者信心指数拆成一群有身份的家庭、每月各自作答再聚合，能不能重建出官方后来公布的密歇根大学消费者信心指数（ICS）？逐月的模拟值与事后实测值差多少、方向对不对？",
+    "en": "If the consumer confidence index is rebuilt bottom-up — a fixed panel of households each answering the survey month by month, then aggregated — how closely does it track the University of Michigan Index of Consumer Sentiment published afterwards? Month by month: how large is the gap, and is the direction right?"
+  },
+  "hypothesis_i18n": {
+    "zh": "以每月「点时安全」的信息环境为输入的受访者级模拟，逐月预测应落在实测 ICS 的几个指数点以内，且多数月份的环比方向正确；同时受访者面板会显示出总指数掩盖掉的分化——收入、住房产权与就业状态不同的家庭，信心水平长期错开。",
+    "en": "A respondent-level simulation driven by each month's point-in-time information set should land within a few index points of the published ICS and get most month-over-month directions right; meanwhile the respondent panel should reveal persistent level gaps by income, housing tenure and employment that the headline index hides."
+  },
+  "study_type": "longitudinal",
+  "n_steps": 11,
+  "seed": 42,
+  "metrics": [
+    "forecast_ics",
+    "actual_ics",
+    "abs_error",
+    "cum_mae",
+    "panel_size"
+  ],
+  "metric_descriptions": {
+    "forecast_ics": "Simulated reconstruction of the consumer-confidence index (ConsumerSim's monthly published value, on the Michigan ICS scale)",
+    "actual_ics": "The University of Michigan Index of Consumer Sentiment (ICS) as actually published for that month — this study's ground-truth anchor",
+    "abs_error": "Absolute error for the month |simulated − actual| (index points)",
+    "cum_mae": "Cumulative mean absolute error (MAE) up to that month (index points; lower = more accurate)",
+    "panel_size": "Number of respondents with per-person panel records that month (18 for the last 5 months, 0 before — see the report's note on definitions)"
+  },
+  "display_metrics": [
+    "forecast_ics",
+    "actual_ics"
+  ],
+  "environment_ref": "environment/environment.json",
+  "population_ref": "population/population.json",
+  "simulation_ref": "simulation/simulation.json",
+  "resources_ref": "resources.json",
+  "domain": "consumer-confidence",
+  "tags": [
+    "ConsumerSim",
+    "backtest",
+    "ground-truth",
+    "consumer-confidence",
+    "ICS",
+    "University of Michigan",
+    "survey",
+    "macro-index",
+    "panel"
+  ],
+  "legacy_simulator": "ConsumerSim-Consumer-Confidence-Forecast",
+  "adjustable_params": [
+    "region",
+    "target_month",
+    "as_of",
+    "core_ratio",
+    "population_size"
+  ],
+  "status": "backtest-import",
+  "maintainer": "SocioVerse2",
+  "demonstrates": [
+    "legacy-seam",
+    "ground-truth-validation"
+  ],
+  "teaches": "a backtest template: a longitudinal forecast placed next to the ground truth published afterwards, with per-month error, a running MAE and a named respondent panel — the shape to copy whenever a study has a real-world series to be scored against",
+  "reference": true,
+  "rerunnable": false,
+  "created_by": "sv-init",
+  "run_note": {
+    "zh": "本研究是**回测导入**，不是工作台内的重跑：指标与面板全部由 `build_from_source.py` 解析 ConsumerSim 公开发布的站点数据生成。脚本默认读取固定的 2026-07-03 发布版，可逐字节重建随仓库提供的文件；加 `--latest` 则改读当前的公开 CSV（最近几个月可能已被修订）。本研究不分叉、不重跑。想在工作台内真跑一轮 ConsumerSim 管线（会调用真实 LLM、产生新轨迹），请分叉可运行的 `consumer_confidence`（需要 ConsumerSim 兄弟仓，安装方法见其目录条目的 setup），在那里设置 region / target_months / as_of_dates；或者以本回测为模板新建一个研究。",
+    "en": "This study is a **backtest import**, not an in-workbench run: every metric and panel row is parsed out of ConsumerSim's published site data by `build_from_source.py`. By default the script reads the pinned 2026-07-03 publish and regenerates the shipped files byte-for-byte; `--latest` pulls the current public CSV, whose latest months may have been revised. This study is never forked or re-run. To run the ConsumerSim pipeline itself (real LLM calls, a fresh trajectory), fork the runnable `consumer_confidence` study instead (it needs the ConsumerSim sibling checkout; see the `setup` in its catalog entry) and set region / target_months / as_of_dates there, or start a new study that uses this backtest as a template."
+  }
+}

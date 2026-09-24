@@ -1,0 +1,5417 @@
+{
+  "study_id": "campus_dining_choice",
+  "personas": [
+    {
+      "agent_id": "stu-000",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 829,
+        "price_sensitivity": 0.631,
+        "cook_feasibility": 0.324,
+        "cook_skill": 0.301,
+        "time_pressure": 0.412,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-001",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 756,
+        "price_sensitivity": 0.46,
+        "cook_feasibility": 0.34,
+        "cook_skill": 0.253,
+        "time_pressure": 0.427,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-002",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 755,
+        "price_sensitivity": 0.578,
+        "cook_feasibility": 0.245,
+        "cook_skill": 0.269,
+        "time_pressure": 0.441,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-003",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 733,
+        "price_sensitivity": 0.638,
+        "cook_feasibility": 0.352,
+        "cook_skill": 0.34,
+        "time_pressure": 0.493,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-004",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 714,
+        "price_sensitivity": 0.626,
+        "cook_feasibility": 0.33,
+        "cook_skill": 0.255,
+        "time_pressure": 0.408,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-005",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 684,
+        "price_sensitivity": 0.62,
+        "cook_feasibility": 0.272,
+        "cook_skill": 0.394,
+        "time_pressure": 0.439,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-006",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 765,
+        "price_sensitivity": 0.633,
+        "cook_feasibility": 0.357,
+        "cook_skill": 0.345,
+        "time_pressure": 0.438,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-007",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 727,
+        "price_sensitivity": 0.581,
+        "cook_feasibility": 0.31,
+        "cook_skill": 0.38,
+        "time_pressure": 0.609,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-008",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 831,
+        "price_sensitivity": 0.651,
+        "cook_feasibility": 0.43,
+        "cook_skill": 0.432,
+        "time_pressure": 0.522,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-009",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 697,
+        "price_sensitivity": 0.638,
+        "cook_feasibility": 0.402,
+        "cook_skill": 0.341,
+        "time_pressure": 0.493,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-010",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 804,
+        "price_sensitivity": 0.431,
+        "cook_feasibility": 0.43,
+        "cook_skill": 0.435,
+        "time_pressure": 0.428,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-011",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 835,
+        "price_sensitivity": 0.64,
+        "cook_feasibility": 0.381,
+        "cook_skill": 0.328,
+        "time_pressure": 0.561,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-012",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 744,
+        "price_sensitivity": 0.505,
+        "cook_feasibility": 0.431,
+        "cook_skill": 0.366,
+        "time_pressure": 0.589,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-013",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 727,
+        "price_sensitivity": 0.554,
+        "cook_feasibility": 0.31,
+        "cook_skill": 0.36,
+        "time_pressure": 0.603,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-014",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 809,
+        "price_sensitivity": 0.441,
+        "cook_feasibility": 0.322,
+        "cook_skill": 0.235,
+        "time_pressure": 0.539,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-015",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 741,
+        "price_sensitivity": 0.651,
+        "cook_feasibility": 0.429,
+        "cook_skill": 0.349,
+        "time_pressure": 0.476,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-016",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 722,
+        "price_sensitivity": 0.502,
+        "cook_feasibility": 0.431,
+        "cook_skill": 0.447,
+        "time_pressure": 0.403,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-017",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 716,
+        "price_sensitivity": 0.472,
+        "cook_feasibility": 0.303,
+        "cook_skill": 0.303,
+        "time_pressure": 0.411,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-018",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 820,
+        "price_sensitivity": 0.472,
+        "cook_feasibility": 0.413,
+        "cook_skill": 0.274,
+        "time_pressure": 0.513,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-019",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 791,
+        "price_sensitivity": 0.564,
+        "cook_feasibility": 0.25,
+        "cook_skill": 0.282,
+        "time_pressure": 0.54,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-020",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 696,
+        "price_sensitivity": 0.597,
+        "cook_feasibility": 0.246,
+        "cook_skill": 0.253,
+        "time_pressure": 0.526,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-021",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 786,
+        "price_sensitivity": 0.464,
+        "cook_feasibility": 0.369,
+        "cook_skill": 0.362,
+        "time_pressure": 0.519,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-022",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 705,
+        "price_sensitivity": 0.485,
+        "cook_feasibility": 0.273,
+        "cook_skill": 0.467,
+        "time_pressure": 0.429,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-023",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 668,
+        "price_sensitivity": 0.451,
+        "cook_feasibility": 0.368,
+        "cook_skill": 0.349,
+        "time_pressure": 0.534,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-024",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 823,
+        "price_sensitivity": 0.531,
+        "cook_feasibility": 0.38,
+        "cook_skill": 0.33,
+        "time_pressure": 0.476,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-025",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 818,
+        "price_sensitivity": 0.482,
+        "cook_feasibility": 0.37,
+        "cook_skill": 0.442,
+        "time_pressure": 0.419,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-026",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 758,
+        "price_sensitivity": 0.54,
+        "cook_feasibility": 0.428,
+        "cook_skill": 0.408,
+        "time_pressure": 0.538,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-027",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 711,
+        "price_sensitivity": 0.553,
+        "cook_feasibility": 0.29,
+        "cook_skill": 0.274,
+        "time_pressure": 0.548,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-028",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 777,
+        "price_sensitivity": 0.606,
+        "cook_feasibility": 0.312,
+        "cook_skill": 0.46,
+        "time_pressure": 0.561,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-029",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 701,
+        "price_sensitivity": 0.528,
+        "cook_feasibility": 0.348,
+        "cook_skill": 0.42,
+        "time_pressure": 0.458,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-030",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 779,
+        "price_sensitivity": 0.57,
+        "cook_feasibility": 0.281,
+        "cook_skill": 0.316,
+        "time_pressure": 0.501,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-031",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 674,
+        "price_sensitivity": 0.438,
+        "cook_feasibility": 0.373,
+        "cook_skill": 0.323,
+        "time_pressure": 0.615,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-032",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 766,
+        "price_sensitivity": 0.565,
+        "cook_feasibility": 0.413,
+        "cook_skill": 0.285,
+        "time_pressure": 0.511,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-033",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 713,
+        "price_sensitivity": 0.611,
+        "cook_feasibility": 0.312,
+        "cook_skill": 0.249,
+        "time_pressure": 0.575,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-034",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 749,
+        "price_sensitivity": 0.629,
+        "cook_feasibility": 0.31,
+        "cook_skill": 0.254,
+        "time_pressure": 0.586,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-035",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 732,
+        "price_sensitivity": 0.667,
+        "cook_feasibility": 0.381,
+        "cook_skill": 0.355,
+        "time_pressure": 0.5,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-036",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 783,
+        "price_sensitivity": 0.513,
+        "cook_feasibility": 0.417,
+        "cook_skill": 0.393,
+        "time_pressure": 0.43,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-037",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 733,
+        "price_sensitivity": 0.642,
+        "cook_feasibility": 0.388,
+        "cook_skill": 0.304,
+        "time_pressure": 0.466,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-038",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 697,
+        "price_sensitivity": 0.575,
+        "cook_feasibility": 0.421,
+        "cook_skill": 0.34,
+        "time_pressure": 0.582,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-039",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 726,
+        "price_sensitivity": 0.446,
+        "cook_feasibility": 0.323,
+        "cook_skill": 0.279,
+        "time_pressure": 0.473,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-040",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 664,
+        "price_sensitivity": 0.658,
+        "cook_feasibility": 0.231,
+        "cook_skill": 0.405,
+        "time_pressure": 0.461,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-041",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 758,
+        "price_sensitivity": 0.52,
+        "cook_feasibility": 0.3,
+        "cook_skill": 0.31,
+        "time_pressure": 0.516,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-042",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 797,
+        "price_sensitivity": 0.585,
+        "cook_feasibility": 0.432,
+        "cook_skill": 0.43,
+        "time_pressure": 0.481,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-043",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 800,
+        "price_sensitivity": 0.433,
+        "cook_feasibility": 0.356,
+        "cook_skill": 0.249,
+        "time_pressure": 0.395,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-044",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 712,
+        "price_sensitivity": 0.583,
+        "cook_feasibility": 0.381,
+        "cook_skill": 0.437,
+        "time_pressure": 0.53,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-045",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 752,
+        "price_sensitivity": 0.614,
+        "cook_feasibility": 0.446,
+        "cook_skill": 0.391,
+        "time_pressure": 0.529,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-046",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 768,
+        "price_sensitivity": 0.643,
+        "cook_feasibility": 0.377,
+        "cook_skill": 0.291,
+        "time_pressure": 0.572,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-047",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 725,
+        "price_sensitivity": 0.577,
+        "cook_feasibility": 0.276,
+        "cook_skill": 0.457,
+        "time_pressure": 0.461,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-048",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 823,
+        "price_sensitivity": 0.524,
+        "cook_feasibility": 0.376,
+        "cook_skill": 0.266,
+        "time_pressure": 0.561,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-049",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 795,
+        "price_sensitivity": 0.656,
+        "cook_feasibility": 0.461,
+        "cook_skill": 0.42,
+        "time_pressure": 0.384,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-050",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 671,
+        "price_sensitivity": 0.654,
+        "cook_feasibility": 0.392,
+        "cook_skill": 0.396,
+        "time_pressure": 0.396,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-051",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 776,
+        "price_sensitivity": 0.497,
+        "cook_feasibility": 0.453,
+        "cook_skill": 0.277,
+        "time_pressure": 0.584,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-052",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 701,
+        "price_sensitivity": 0.592,
+        "cook_feasibility": 0.318,
+        "cook_skill": 0.285,
+        "time_pressure": 0.568,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-053",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 711,
+        "price_sensitivity": 0.645,
+        "cook_feasibility": 0.296,
+        "cook_skill": 0.409,
+        "time_pressure": 0.543,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-054",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 794,
+        "price_sensitivity": 0.46,
+        "cook_feasibility": 0.237,
+        "cook_skill": 0.453,
+        "time_pressure": 0.61,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-055",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 752,
+        "price_sensitivity": 0.498,
+        "cook_feasibility": 0.307,
+        "cook_skill": 0.4,
+        "time_pressure": 0.533,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-056",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 770,
+        "price_sensitivity": 0.636,
+        "cook_feasibility": 0.363,
+        "cook_skill": 0.239,
+        "time_pressure": 0.407,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-057",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 806,
+        "price_sensitivity": 0.557,
+        "cook_feasibility": 0.396,
+        "cook_skill": 0.379,
+        "time_pressure": 0.481,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-058",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 670,
+        "price_sensitivity": 0.523,
+        "cook_feasibility": 0.383,
+        "cook_skill": 0.295,
+        "time_pressure": 0.563,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-059",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 697,
+        "price_sensitivity": 0.486,
+        "cook_feasibility": 0.353,
+        "cook_skill": 0.267,
+        "time_pressure": 0.398,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-060",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 672,
+        "price_sensitivity": 0.668,
+        "cook_feasibility": 0.243,
+        "cook_skill": 0.295,
+        "time_pressure": 0.401,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-061",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 791,
+        "price_sensitivity": 0.577,
+        "cook_feasibility": 0.322,
+        "cook_skill": 0.443,
+        "time_pressure": 0.471,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-062",
+      "attributes": {
+        "archetype": "canteen_regular",
+        "archetype_label": "食堂党（常规校内就餐）",
+        "monthly_food_budget": 771,
+        "price_sensitivity": 0.482,
+        "cook_feasibility": 0.439,
+        "cook_skill": 0.299,
+        "time_pressure": 0.381,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.6,
+          "delivery": 0.3,
+          "cook": 0.1
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "canteen_regular",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-063",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 911,
+        "price_sensitivity": 0.384,
+        "cook_feasibility": 0.141,
+        "cook_skill": 0.231,
+        "time_pressure": 0.637,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-064",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 929,
+        "price_sensitivity": 0.448,
+        "cook_feasibility": 0.313,
+        "cook_skill": 0.289,
+        "time_pressure": 0.631,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-065",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 877,
+        "price_sensitivity": 0.385,
+        "cook_feasibility": 0.343,
+        "cook_skill": 0.134,
+        "time_pressure": 0.753,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-066",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 861,
+        "price_sensitivity": 0.393,
+        "cook_feasibility": 0.171,
+        "cook_skill": 0.316,
+        "time_pressure": 0.808,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-067",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 964,
+        "price_sensitivity": 0.319,
+        "cook_feasibility": 0.207,
+        "cook_skill": 0.268,
+        "time_pressure": 0.713,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-068",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 936,
+        "price_sensitivity": 0.299,
+        "cook_feasibility": 0.33,
+        "cook_skill": 0.301,
+        "time_pressure": 0.786,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-069",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 964,
+        "price_sensitivity": 0.394,
+        "cook_feasibility": 0.349,
+        "cook_skill": 0.182,
+        "time_pressure": 0.704,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-070",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1008,
+        "price_sensitivity": 0.278,
+        "cook_feasibility": 0.275,
+        "cook_skill": 0.187,
+        "time_pressure": 0.76,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-071",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 863,
+        "price_sensitivity": 0.249,
+        "cook_feasibility": 0.244,
+        "cook_skill": 0.148,
+        "time_pressure": 0.582,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-072",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 969,
+        "price_sensitivity": 0.356,
+        "cook_feasibility": 0.272,
+        "cook_skill": 0.295,
+        "time_pressure": 0.644,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-073",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 951,
+        "price_sensitivity": 0.306,
+        "cook_feasibility": 0.199,
+        "cook_skill": 0.25,
+        "time_pressure": 0.667,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-074",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 994,
+        "price_sensitivity": 0.308,
+        "cook_feasibility": 0.232,
+        "cook_skill": 0.28,
+        "time_pressure": 0.761,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-075",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1016,
+        "price_sensitivity": 0.249,
+        "cook_feasibility": 0.208,
+        "cook_skill": 0.278,
+        "time_pressure": 0.613,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-076",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 937,
+        "price_sensitivity": 0.339,
+        "cook_feasibility": 0.227,
+        "cook_skill": 0.364,
+        "time_pressure": 0.636,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-077",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 887,
+        "price_sensitivity": 0.46,
+        "cook_feasibility": 0.224,
+        "cook_skill": 0.174,
+        "time_pressure": 0.616,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-078",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 926,
+        "price_sensitivity": 0.431,
+        "cook_feasibility": 0.196,
+        "cook_skill": 0.365,
+        "time_pressure": 0.635,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-079",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 870,
+        "price_sensitivity": 0.409,
+        "cook_feasibility": 0.154,
+        "cook_skill": 0.207,
+        "time_pressure": 0.62,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-080",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 987,
+        "price_sensitivity": 0.359,
+        "cook_feasibility": 0.28,
+        "cook_skill": 0.28,
+        "time_pressure": 0.728,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-081",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 865,
+        "price_sensitivity": 0.329,
+        "cook_feasibility": 0.268,
+        "cook_skill": 0.314,
+        "time_pressure": 0.673,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-082",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1033,
+        "price_sensitivity": 0.453,
+        "cook_feasibility": 0.344,
+        "cook_skill": 0.26,
+        "time_pressure": 0.709,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-083",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1010,
+        "price_sensitivity": 0.274,
+        "cook_feasibility": 0.231,
+        "cook_skill": 0.332,
+        "time_pressure": 0.752,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-084",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 891,
+        "price_sensitivity": 0.25,
+        "cook_feasibility": 0.162,
+        "cook_skill": 0.325,
+        "time_pressure": 0.679,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-085",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1017,
+        "price_sensitivity": 0.315,
+        "cook_feasibility": 0.187,
+        "cook_skill": 0.139,
+        "time_pressure": 0.738,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-086",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1017,
+        "price_sensitivity": 0.265,
+        "cook_feasibility": 0.317,
+        "cook_skill": 0.294,
+        "time_pressure": 0.638,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-087",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 934,
+        "price_sensitivity": 0.319,
+        "cook_feasibility": 0.332,
+        "cook_skill": 0.325,
+        "time_pressure": 0.741,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-088",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 867,
+        "price_sensitivity": 0.338,
+        "cook_feasibility": 0.167,
+        "cook_skill": 0.238,
+        "time_pressure": 0.686,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-089",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 973,
+        "price_sensitivity": 0.36,
+        "cook_feasibility": 0.354,
+        "cook_skill": 0.22,
+        "time_pressure": 0.709,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-090",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 968,
+        "price_sensitivity": 0.291,
+        "cook_feasibility": 0.343,
+        "cook_skill": 0.203,
+        "time_pressure": 0.796,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-091",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1020,
+        "price_sensitivity": 0.426,
+        "cook_feasibility": 0.228,
+        "cook_skill": 0.236,
+        "time_pressure": 0.653,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-092",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1004,
+        "price_sensitivity": 0.263,
+        "cook_feasibility": 0.267,
+        "cook_skill": 0.314,
+        "time_pressure": 0.686,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-093",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1035,
+        "price_sensitivity": 0.404,
+        "cook_feasibility": 0.278,
+        "cook_skill": 0.345,
+        "time_pressure": 0.624,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-094",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 903,
+        "price_sensitivity": 0.237,
+        "cook_feasibility": 0.305,
+        "cook_skill": 0.242,
+        "time_pressure": 0.606,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-095",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 931,
+        "price_sensitivity": 0.371,
+        "cook_feasibility": 0.283,
+        "cook_skill": 0.18,
+        "time_pressure": 0.629,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-096",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 981,
+        "price_sensitivity": 0.253,
+        "cook_feasibility": 0.298,
+        "cook_skill": 0.266,
+        "time_pressure": 0.719,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-097",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 896,
+        "price_sensitivity": 0.338,
+        "cook_feasibility": 0.317,
+        "cook_skill": 0.339,
+        "time_pressure": 0.616,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-098",
+      "attributes": {
+        "archetype": "delivery_lover",
+        "archetype_label": "外卖党（重度外卖、图省事）",
+        "monthly_food_budget": 1035,
+        "price_sensitivity": 0.415,
+        "cook_feasibility": 0.176,
+        "cook_skill": 0.136,
+        "time_pressure": 0.747,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.6,
+          "cook": 0.1
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "delivery_lover",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-099",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 465,
+        "price_sensitivity": 0.928,
+        "cook_feasibility": 0.401,
+        "cook_skill": 0.459,
+        "time_pressure": 0.371,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-100",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 488,
+        "price_sensitivity": 0.88,
+        "cook_feasibility": 0.399,
+        "cook_skill": 0.502,
+        "time_pressure": 0.537,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-101",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 580,
+        "price_sensitivity": 0.848,
+        "cook_feasibility": 0.449,
+        "cook_skill": 0.386,
+        "time_pressure": 0.4,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-102",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 448,
+        "price_sensitivity": 0.795,
+        "cook_feasibility": 0.401,
+        "cook_skill": 0.558,
+        "time_pressure": 0.546,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-103",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 536,
+        "price_sensitivity": 0.879,
+        "cook_feasibility": 0.383,
+        "cook_skill": 0.568,
+        "time_pressure": 0.467,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-104",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 598,
+        "price_sensitivity": 0.886,
+        "cook_feasibility": 0.54,
+        "cook_skill": 0.469,
+        "time_pressure": 0.432,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-105",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 506,
+        "price_sensitivity": 0.788,
+        "cook_feasibility": 0.591,
+        "cook_skill": 0.473,
+        "time_pressure": 0.492,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-106",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 603,
+        "price_sensitivity": 0.919,
+        "cook_feasibility": 0.496,
+        "cook_skill": 0.46,
+        "time_pressure": 0.402,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-107",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 460,
+        "price_sensitivity": 0.811,
+        "cook_feasibility": 0.436,
+        "cook_skill": 0.611,
+        "time_pressure": 0.367,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-108",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 439,
+        "price_sensitivity": 0.824,
+        "cook_feasibility": 0.408,
+        "cook_skill": 0.556,
+        "time_pressure": 0.543,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-109",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 574,
+        "price_sensitivity": 0.758,
+        "cook_feasibility": 0.498,
+        "cook_skill": 0.476,
+        "time_pressure": 0.402,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-110",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 442,
+        "price_sensitivity": 0.793,
+        "cook_feasibility": 0.477,
+        "cook_skill": 0.439,
+        "time_pressure": 0.51,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-111",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 488,
+        "price_sensitivity": 0.817,
+        "cook_feasibility": 0.542,
+        "cook_skill": 0.585,
+        "time_pressure": 0.511,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-112",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 443,
+        "price_sensitivity": 0.86,
+        "cook_feasibility": 0.423,
+        "cook_skill": 0.58,
+        "time_pressure": 0.36,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-113",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 433,
+        "price_sensitivity": 0.795,
+        "cook_feasibility": 0.454,
+        "cook_skill": 0.438,
+        "time_pressure": 0.536,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-114",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 495,
+        "price_sensitivity": 0.841,
+        "cook_feasibility": 0.43,
+        "cook_skill": 0.456,
+        "time_pressure": 0.48,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-115",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 532,
+        "price_sensitivity": 0.935,
+        "cook_feasibility": 0.509,
+        "cook_skill": 0.39,
+        "time_pressure": 0.337,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-116",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 442,
+        "price_sensitivity": 0.9,
+        "cook_feasibility": 0.387,
+        "cook_skill": 0.598,
+        "time_pressure": 0.342,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-117",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 478,
+        "price_sensitivity": 0.889,
+        "cook_feasibility": 0.619,
+        "cook_skill": 0.49,
+        "time_pressure": 0.538,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-118",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 544,
+        "price_sensitivity": 0.869,
+        "cook_feasibility": 0.592,
+        "cook_skill": 0.499,
+        "time_pressure": 0.546,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-119",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 587,
+        "price_sensitivity": 0.744,
+        "cook_feasibility": 0.454,
+        "cook_skill": 0.393,
+        "time_pressure": 0.442,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-120",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 559,
+        "price_sensitivity": 0.902,
+        "cook_feasibility": 0.436,
+        "cook_skill": 0.556,
+        "time_pressure": 0.41,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-121",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 487,
+        "price_sensitivity": 0.848,
+        "cook_feasibility": 0.515,
+        "cook_skill": 0.442,
+        "time_pressure": 0.363,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-122",
+      "attributes": {
+        "archetype": "budget_saver",
+        "archetype_label": "省钱型（预算紧、价格敏感）",
+        "monthly_food_budget": 607,
+        "price_sensitivity": 0.831,
+        "cook_feasibility": 0.507,
+        "cook_skill": 0.481,
+        "time_pressure": 0.451,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.5,
+          "delivery": 0.15,
+          "cook": 0.35
+        },
+        "base_choice": "canteen"
+      },
+      "group_key": "budget_saver",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "canteen",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-123",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 792,
+        "price_sensitivity": 0.544,
+        "cook_feasibility": 0.877,
+        "cook_skill": 0.686,
+        "time_pressure": 0.319,
+        "meals_per_month": 34,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-124",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 782,
+        "price_sensitivity": 0.53,
+        "cook_feasibility": 0.827,
+        "cook_skill": 0.667,
+        "time_pressure": 0.345,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-125",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 834,
+        "price_sensitivity": 0.563,
+        "cook_feasibility": 0.925,
+        "cook_skill": 0.683,
+        "time_pressure": 0.492,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-126",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 888,
+        "price_sensitivity": 0.472,
+        "cook_feasibility": 0.959,
+        "cook_skill": 0.847,
+        "time_pressure": 0.478,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-127",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 781,
+        "price_sensitivity": 0.506,
+        "cook_feasibility": 0.795,
+        "cook_skill": 0.662,
+        "time_pressure": 0.289,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-128",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 909,
+        "price_sensitivity": 0.468,
+        "cook_feasibility": 0.98,
+        "cook_skill": 0.849,
+        "time_pressure": 0.312,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-129",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 806,
+        "price_sensitivity": 0.567,
+        "cook_feasibility": 0.857,
+        "cook_skill": 0.724,
+        "time_pressure": 0.445,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-130",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 787,
+        "price_sensitivity": 0.444,
+        "cook_feasibility": 0.789,
+        "cook_skill": 0.721,
+        "time_pressure": 0.4,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-131",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 900,
+        "price_sensitivity": 0.418,
+        "cook_feasibility": 0.98,
+        "cook_skill": 0.67,
+        "time_pressure": 0.332,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-132",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 775,
+        "price_sensitivity": 0.561,
+        "cook_feasibility": 0.98,
+        "cook_skill": 0.645,
+        "time_pressure": 0.385,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-133",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 780,
+        "price_sensitivity": 0.581,
+        "cook_feasibility": 0.878,
+        "cook_skill": 0.837,
+        "time_pressure": 0.455,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-134",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 893,
+        "price_sensitivity": 0.503,
+        "cook_feasibility": 0.98,
+        "cook_skill": 0.857,
+        "time_pressure": 0.359,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-135",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 764,
+        "price_sensitivity": 0.587,
+        "cook_feasibility": 0.871,
+        "cook_skill": 0.635,
+        "time_pressure": 0.31,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-136",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 861,
+        "price_sensitivity": 0.543,
+        "cook_feasibility": 0.972,
+        "cook_skill": 0.769,
+        "time_pressure": 0.507,
+        "meals_per_month": 33,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-137",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 796,
+        "price_sensitivity": 0.589,
+        "cook_feasibility": 0.98,
+        "cook_skill": 0.861,
+        "time_pressure": 0.385,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-138",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 856,
+        "price_sensitivity": 0.441,
+        "cook_feasibility": 0.859,
+        "cook_skill": 0.689,
+        "time_pressure": 0.337,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-139",
+      "attributes": {
+        "archetype": "off_campus_cook",
+        "archetype_label": "校外自炊（有厨房、会做饭）",
+        "monthly_food_budget": 762,
+        "price_sensitivity": 0.389,
+        "cook_feasibility": 0.978,
+        "cook_skill": 0.867,
+        "time_pressure": 0.309,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.25,
+          "delivery": 0.2,
+          "cook": 0.55
+        },
+        "base_choice": "cook"
+      },
+      "group_key": "off_campus_cook",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "cook",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-140",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1157,
+        "price_sensitivity": 0.266,
+        "cook_feasibility": 0.339,
+        "cook_skill": 0.445,
+        "time_pressure": 0.452,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-141",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1142,
+        "price_sensitivity": 0.274,
+        "cook_feasibility": 0.373,
+        "cook_skill": 0.23,
+        "time_pressure": 0.489,
+        "meals_per_month": 28,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-142",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1075,
+        "price_sensitivity": 0.163,
+        "cook_feasibility": 0.4,
+        "cook_skill": 0.345,
+        "time_pressure": 0.549,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-143",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1182,
+        "price_sensitivity": 0.138,
+        "cook_feasibility": 0.344,
+        "cook_skill": 0.286,
+        "time_pressure": 0.628,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-144",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1128,
+        "price_sensitivity": 0.344,
+        "cook_feasibility": 0.272,
+        "cook_skill": 0.237,
+        "time_pressure": 0.659,
+        "meals_per_month": 29,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-145",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1144,
+        "price_sensitivity": 0.188,
+        "cook_feasibility": 0.265,
+        "cook_skill": 0.271,
+        "time_pressure": 0.653,
+        "meals_per_month": 27,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-146",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1177,
+        "price_sensitivity": 0.147,
+        "cook_feasibility": 0.386,
+        "cook_skill": 0.254,
+        "time_pressure": 0.443,
+        "meals_per_month": 30,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-147",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1112,
+        "price_sensitivity": 0.322,
+        "cook_feasibility": 0.41,
+        "cook_skill": 0.364,
+        "time_pressure": 0.524,
+        "meals_per_month": 31,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-148",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1064,
+        "price_sensitivity": 0.181,
+        "cook_feasibility": 0.311,
+        "cook_skill": 0.407,
+        "time_pressure": 0.538,
+        "meals_per_month": 32,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    },
+    {
+      "agent_id": "stu-149",
+      "attributes": {
+        "archetype": "foodie",
+        "archetype_label": "吃货多样（重口味、追求多样）",
+        "monthly_food_budget": 1095,
+        "price_sensitivity": 0.221,
+        "cook_feasibility": 0.246,
+        "cook_skill": 0.463,
+        "time_pressure": 0.625,
+        "meals_per_month": 26,
+        "pref": {
+          "canteen": 0.3,
+          "delivery": 0.55,
+          "cook": 0.15
+        },
+        "base_choice": "delivery"
+      },
+      "group_key": "foodie",
+      "weight": 1.0,
+      "init_state": {
+        "choice": "delivery",
+        "satisfaction": null,
+        "monthly_spend": null
+      }
+    }
+  ],
+  "interaction": {
+    "kind": "explicit_network",
+    "edges": [
+      [
+        "stu-120",
+        "stu-023"
+      ],
+      [
+        "stu-120",
+        "stu-138"
+      ],
+      [
+        "stu-120",
+        "stu-021"
+      ],
+      [
+        "stu-120",
+        "stu-060"
+      ],
+      [
+        "stu-120",
+        "stu-131"
+      ],
+      [
+        "stu-023",
+        "stu-138"
+      ],
+      [
+        "stu-023",
+        "stu-021"
+      ],
+      [
+        "stu-023",
+        "stu-060"
+      ],
+      [
+        "stu-023",
+        "stu-131"
+      ],
+      [
+        "stu-138",
+        "stu-021"
+      ],
+      [
+        "stu-138",
+        "stu-060"
+      ],
+      [
+        "stu-138",
+        "stu-131"
+      ],
+      [
+        "stu-021",
+        "stu-060"
+      ],
+      [
+        "stu-021",
+        "stu-131"
+      ],
+      [
+        "stu-060",
+        "stu-131"
+      ],
+      [
+        "stu-126",
+        "stu-024"
+      ],
+      [
+        "stu-126",
+        "stu-073"
+      ],
+      [
+        "stu-126",
+        "stu-112"
+      ],
+      [
+        "stu-126",
+        "stu-064"
+      ],
+      [
+        "stu-126",
+        "stu-099"
+      ],
+      [
+        "stu-024",
+        "stu-073"
+      ],
+      [
+        "stu-024",
+        "stu-112"
+      ],
+      [
+        "stu-024",
+        "stu-064"
+      ],
+      [
+        "stu-024",
+        "stu-099"
+      ],
+      [
+        "stu-073",
+        "stu-112"
+      ],
+      [
+        "stu-073",
+        "stu-064"
+      ],
+      [
+        "stu-073",
+        "stu-099"
+      ],
+      [
+        "stu-112",
+        "stu-064"
+      ],
+      [
+        "stu-112",
+        "stu-099"
+      ],
+      [
+        "stu-064",
+        "stu-099"
+      ],
+      [
+        "stu-016",
+        "stu-098"
+      ],
+      [
+        "stu-016",
+        "stu-074"
+      ],
+      [
+        "stu-016",
+        "stu-009"
+      ],
+      [
+        "stu-016",
+        "stu-123"
+      ],
+      [
+        "stu-016",
+        "stu-096"
+      ],
+      [
+        "stu-098",
+        "stu-074"
+      ],
+      [
+        "stu-098",
+        "stu-009"
+      ],
+      [
+        "stu-098",
+        "stu-123"
+      ],
+      [
+        "stu-098",
+        "stu-096"
+      ],
+      [
+        "stu-074",
+        "stu-009"
+      ],
+      [
+        "stu-074",
+        "stu-123"
+      ],
+      [
+        "stu-074",
+        "stu-096"
+      ],
+      [
+        "stu-009",
+        "stu-123"
+      ],
+      [
+        "stu-009",
+        "stu-096"
+      ],
+      [
+        "stu-123",
+        "stu-096"
+      ],
+      [
+        "stu-145",
+        "stu-002"
+      ],
+      [
+        "stu-145",
+        "stu-015"
+      ],
+      [
+        "stu-145",
+        "stu-055"
+      ],
+      [
+        "stu-145",
+        "stu-038"
+      ],
+      [
+        "stu-145",
+        "stu-128"
+      ],
+      [
+        "stu-002",
+        "stu-015"
+      ],
+      [
+        "stu-002",
+        "stu-055"
+      ],
+      [
+        "stu-002",
+        "stu-038"
+      ],
+      [
+        "stu-002",
+        "stu-128"
+      ],
+      [
+        "stu-015",
+        "stu-055"
+      ],
+      [
+        "stu-015",
+        "stu-038"
+      ],
+      [
+        "stu-015",
+        "stu-128"
+      ],
+      [
+        "stu-055",
+        "stu-038"
+      ],
+      [
+        "stu-055",
+        "stu-128"
+      ],
+      [
+        "stu-038",
+        "stu-128"
+      ],
+      [
+        "stu-001",
+        "stu-124"
+      ],
+      [
+        "stu-001",
+        "stu-117"
+      ],
+      [
+        "stu-001",
+        "stu-134"
+      ],
+      [
+        "stu-001",
+        "stu-042"
+      ],
+      [
+        "stu-001",
+        "stu-035"
+      ],
+      [
+        "stu-124",
+        "stu-117"
+      ],
+      [
+        "stu-124",
+        "stu-134"
+      ],
+      [
+        "stu-124",
+        "stu-042"
+      ],
+      [
+        "stu-124",
+        "stu-035"
+      ],
+      [
+        "stu-117",
+        "stu-134"
+      ],
+      [
+        "stu-117",
+        "stu-042"
+      ],
+      [
+        "stu-117",
+        "stu-035"
+      ],
+      [
+        "stu-134",
+        "stu-042"
+      ],
+      [
+        "stu-134",
+        "stu-035"
+      ],
+      [
+        "stu-042",
+        "stu-035"
+      ],
+      [
+        "stu-011",
+        "stu-007"
+      ],
+      [
+        "stu-011",
+        "stu-105"
+      ],
+      [
+        "stu-011",
+        "stu-094"
+      ],
+      [
+        "stu-011",
+        "stu-051"
+      ],
+      [
+        "stu-011",
+        "stu-110"
+      ],
+      [
+        "stu-007",
+        "stu-105"
+      ],
+      [
+        "stu-007",
+        "stu-094"
+      ],
+      [
+        "stu-007",
+        "stu-051"
+      ],
+      [
+        "stu-007",
+        "stu-110"
+      ],
+      [
+        "stu-105",
+        "stu-094"
+      ],
+      [
+        "stu-105",
+        "stu-051"
+      ],
+      [
+        "stu-105",
+        "stu-110"
+      ],
+      [
+        "stu-094",
+        "stu-051"
+      ],
+      [
+        "stu-094",
+        "stu-110"
+      ],
+      [
+        "stu-051",
+        "stu-110"
+      ],
+      [
+        "stu-063",
+        "stu-027"
+      ],
+      [
+        "stu-063",
+        "stu-006"
+      ],
+      [
+        "stu-063",
+        "stu-108"
+      ],
+      [
+        "stu-063",
+        "stu-012"
+      ],
+      [
+        "stu-063",
+        "stu-116"
+      ],
+      [
+        "stu-027",
+        "stu-006"
+      ],
+      [
+        "stu-027",
+        "stu-108"
+      ],
+      [
+        "stu-027",
+        "stu-012"
+      ],
+      [
+        "stu-027",
+        "stu-116"
+      ],
+      [
+        "stu-006",
+        "stu-108"
+      ],
+      [
+        "stu-006",
+        "stu-012"
+      ],
+      [
+        "stu-006",
+        "stu-116"
+      ],
+      [
+        "stu-108",
+        "stu-012"
+      ],
+      [
+        "stu-108",
+        "stu-116"
+      ],
+      [
+        "stu-012",
+        "stu-116"
+      ],
+      [
+        "stu-146",
+        "stu-000"
+      ],
+      [
+        "stu-146",
+        "stu-085"
+      ],
+      [
+        "stu-146",
+        "stu-139"
+      ],
+      [
+        "stu-146",
+        "stu-092"
+      ],
+      [
+        "stu-146",
+        "stu-065"
+      ],
+      [
+        "stu-000",
+        "stu-085"
+      ],
+      [
+        "stu-000",
+        "stu-139"
+      ],
+      [
+        "stu-000",
+        "stu-092"
+      ],
+      [
+        "stu-000",
+        "stu-065"
+      ],
+      [
+        "stu-085",
+        "stu-139"
+      ],
+      [
+        "stu-085",
+        "stu-092"
+      ],
+      [
+        "stu-085",
+        "stu-065"
+      ],
+      [
+        "stu-139",
+        "stu-092"
+      ],
+      [
+        "stu-139",
+        "stu-065"
+      ],
+      [
+        "stu-092",
+        "stu-065"
+      ],
+      [
+        "stu-084",
+        "stu-093"
+      ],
+      [
+        "stu-084",
+        "stu-028"
+      ],
+      [
+        "stu-084",
+        "stu-039"
+      ],
+      [
+        "stu-084",
+        "stu-013"
+      ],
+      [
+        "stu-084",
+        "stu-148"
+      ],
+      [
+        "stu-093",
+        "stu-028"
+      ],
+      [
+        "stu-093",
+        "stu-039"
+      ],
+      [
+        "stu-093",
+        "stu-013"
+      ],
+      [
+        "stu-093",
+        "stu-148"
+      ],
+      [
+        "stu-028",
+        "stu-039"
+      ],
+      [
+        "stu-028",
+        "stu-013"
+      ],
+      [
+        "stu-028",
+        "stu-148"
+      ],
+      [
+        "stu-039",
+        "stu-013"
+      ],
+      [
+        "stu-039",
+        "stu-148"
+      ],
+      [
+        "stu-013",
+        "stu-148"
+      ],
+      [
+        "stu-081",
+        "stu-103"
+      ],
+      [
+        "stu-081",
+        "stu-022"
+      ],
+      [
+        "stu-081",
+        "stu-122"
+      ],
+      [
+        "stu-081",
+        "stu-082"
+      ],
+      [
+        "stu-081",
+        "stu-033"
+      ],
+      [
+        "stu-103",
+        "stu-022"
+      ],
+      [
+        "stu-103",
+        "stu-122"
+      ],
+      [
+        "stu-103",
+        "stu-082"
+      ],
+      [
+        "stu-103",
+        "stu-033"
+      ],
+      [
+        "stu-022",
+        "stu-122"
+      ],
+      [
+        "stu-022",
+        "stu-082"
+      ],
+      [
+        "stu-022",
+        "stu-033"
+      ],
+      [
+        "stu-122",
+        "stu-082"
+      ],
+      [
+        "stu-122",
+        "stu-033"
+      ],
+      [
+        "stu-082",
+        "stu-033"
+      ],
+      [
+        "stu-029",
+        "stu-008"
+      ],
+      [
+        "stu-029",
+        "stu-114"
+      ],
+      [
+        "stu-029",
+        "stu-111"
+      ],
+      [
+        "stu-029",
+        "stu-079"
+      ],
+      [
+        "stu-029",
+        "stu-010"
+      ],
+      [
+        "stu-008",
+        "stu-114"
+      ],
+      [
+        "stu-008",
+        "stu-111"
+      ],
+      [
+        "stu-008",
+        "stu-079"
+      ],
+      [
+        "stu-008",
+        "stu-010"
+      ],
+      [
+        "stu-114",
+        "stu-111"
+      ],
+      [
+        "stu-114",
+        "stu-079"
+      ],
+      [
+        "stu-114",
+        "stu-010"
+      ],
+      [
+        "stu-111",
+        "stu-079"
+      ],
+      [
+        "stu-111",
+        "stu-010"
+      ],
+      [
+        "stu-079",
+        "stu-010"
+      ],
+      [
+        "stu-119",
+        "stu-034"
+      ],
+      [
+        "stu-119",
+        "stu-049"
+      ],
+      [
+        "stu-119",
+        "stu-083"
+      ],
+      [
+        "stu-119",
+        "stu-136"
+      ],
+      [
+        "stu-119",
+        "stu-062"
+      ],
+      [
+        "stu-034",
+        "stu-049"
+      ],
+      [
+        "stu-034",
+        "stu-083"
+      ],
+      [
+        "stu-034",
+        "stu-136"
+      ],
+      [
+        "stu-034",
+        "stu-062"
+      ],
+      [
+        "stu-049",
+        "stu-083"
+      ],
+      [
+        "stu-049",
+        "stu-136"
+      ],
+      [
+        "stu-049",
+        "stu-062"
+      ],
+      [
+        "stu-083",
+        "stu-136"
+      ],
+      [
+        "stu-083",
+        "stu-062"
+      ],
+      [
+        "stu-136",
+        "stu-062"
+      ],
+      [
+        "stu-032",
+        "stu-067"
+      ],
+      [
+        "stu-032",
+        "stu-137"
+      ],
+      [
+        "stu-032",
+        "stu-070"
+      ],
+      [
+        "stu-032",
+        "stu-031"
+      ],
+      [
+        "stu-032",
+        "stu-005"
+      ],
+      [
+        "stu-067",
+        "stu-137"
+      ],
+      [
+        "stu-067",
+        "stu-070"
+      ],
+      [
+        "stu-067",
+        "stu-031"
+      ],
+      [
+        "stu-067",
+        "stu-005"
+      ],
+      [
+        "stu-137",
+        "stu-070"
+      ],
+      [
+        "stu-137",
+        "stu-031"
+      ],
+      [
+        "stu-137",
+        "stu-005"
+      ],
+      [
+        "stu-070",
+        "stu-031"
+      ],
+      [
+        "stu-070",
+        "stu-005"
+      ],
+      [
+        "stu-031",
+        "stu-005"
+      ],
+      [
+        "stu-036",
+        "stu-095"
+      ],
+      [
+        "stu-036",
+        "stu-109"
+      ],
+      [
+        "stu-036",
+        "stu-101"
+      ],
+      [
+        "stu-036",
+        "stu-087"
+      ],
+      [
+        "stu-036",
+        "stu-129"
+      ],
+      [
+        "stu-095",
+        "stu-109"
+      ],
+      [
+        "stu-095",
+        "stu-101"
+      ],
+      [
+        "stu-095",
+        "stu-087"
+      ],
+      [
+        "stu-095",
+        "stu-129"
+      ],
+      [
+        "stu-109",
+        "stu-101"
+      ],
+      [
+        "stu-109",
+        "stu-087"
+      ],
+      [
+        "stu-109",
+        "stu-129"
+      ],
+      [
+        "stu-101",
+        "stu-087"
+      ],
+      [
+        "stu-101",
+        "stu-129"
+      ],
+      [
+        "stu-087",
+        "stu-129"
+      ],
+      [
+        "stu-130",
+        "stu-106"
+      ],
+      [
+        "stu-130",
+        "stu-100"
+      ],
+      [
+        "stu-130",
+        "stu-078"
+      ],
+      [
+        "stu-130",
+        "stu-113"
+      ],
+      [
+        "stu-130",
+        "stu-133"
+      ],
+      [
+        "stu-106",
+        "stu-100"
+      ],
+      [
+        "stu-106",
+        "stu-078"
+      ],
+      [
+        "stu-106",
+        "stu-113"
+      ],
+      [
+        "stu-106",
+        "stu-133"
+      ],
+      [
+        "stu-100",
+        "stu-078"
+      ],
+      [
+        "stu-100",
+        "stu-113"
+      ],
+      [
+        "stu-100",
+        "stu-133"
+      ],
+      [
+        "stu-078",
+        "stu-113"
+      ],
+      [
+        "stu-078",
+        "stu-133"
+      ],
+      [
+        "stu-113",
+        "stu-133"
+      ],
+      [
+        "stu-040",
+        "stu-135"
+      ],
+      [
+        "stu-040",
+        "stu-115"
+      ],
+      [
+        "stu-040",
+        "stu-077"
+      ],
+      [
+        "stu-040",
+        "stu-149"
+      ],
+      [
+        "stu-040",
+        "stu-118"
+      ],
+      [
+        "stu-135",
+        "stu-115"
+      ],
+      [
+        "stu-135",
+        "stu-077"
+      ],
+      [
+        "stu-135",
+        "stu-149"
+      ],
+      [
+        "stu-135",
+        "stu-118"
+      ],
+      [
+        "stu-115",
+        "stu-077"
+      ],
+      [
+        "stu-115",
+        "stu-149"
+      ],
+      [
+        "stu-115",
+        "stu-118"
+      ],
+      [
+        "stu-077",
+        "stu-149"
+      ],
+      [
+        "stu-077",
+        "stu-118"
+      ],
+      [
+        "stu-149",
+        "stu-118"
+      ],
+      [
+        "stu-147",
+        "stu-046"
+      ],
+      [
+        "stu-147",
+        "stu-104"
+      ],
+      [
+        "stu-147",
+        "stu-061"
+      ],
+      [
+        "stu-147",
+        "stu-019"
+      ],
+      [
+        "stu-147",
+        "stu-052"
+      ],
+      [
+        "stu-046",
+        "stu-104"
+      ],
+      [
+        "stu-046",
+        "stu-061"
+      ],
+      [
+        "stu-046",
+        "stu-019"
+      ],
+      [
+        "stu-046",
+        "stu-052"
+      ],
+      [
+        "stu-104",
+        "stu-061"
+      ],
+      [
+        "stu-104",
+        "stu-019"
+      ],
+      [
+        "stu-104",
+        "stu-052"
+      ],
+      [
+        "stu-061",
+        "stu-019"
+      ],
+      [
+        "stu-061",
+        "stu-052"
+      ],
+      [
+        "stu-019",
+        "stu-052"
+      ],
+      [
+        "stu-127",
+        "stu-143"
+      ],
+      [
+        "stu-127",
+        "stu-058"
+      ],
+      [
+        "stu-127",
+        "stu-075"
+      ],
+      [
+        "stu-127",
+        "stu-102"
+      ],
+      [
+        "stu-127",
+        "stu-140"
+      ],
+      [
+        "stu-143",
+        "stu-058"
+      ],
+      [
+        "stu-143",
+        "stu-075"
+      ],
+      [
+        "stu-143",
+        "stu-102"
+      ],
+      [
+        "stu-143",
+        "stu-140"
+      ],
+      [
+        "stu-058",
+        "stu-075"
+      ],
+      [
+        "stu-058",
+        "stu-102"
+      ],
+      [
+        "stu-058",
+        "stu-140"
+      ],
+      [
+        "stu-075",
+        "stu-102"
+      ],
+      [
+        "stu-075",
+        "stu-140"
+      ],
+      [
+        "stu-102",
+        "stu-140"
+      ],
+      [
+        "stu-014",
+        "stu-003"
+      ],
+      [
+        "stu-014",
+        "stu-017"
+      ],
+      [
+        "stu-014",
+        "stu-056"
+      ],
+      [
+        "stu-014",
+        "stu-107"
+      ],
+      [
+        "stu-014",
+        "stu-069"
+      ],
+      [
+        "stu-003",
+        "stu-017"
+      ],
+      [
+        "stu-003",
+        "stu-056"
+      ],
+      [
+        "stu-003",
+        "stu-107"
+      ],
+      [
+        "stu-003",
+        "stu-069"
+      ],
+      [
+        "stu-017",
+        "stu-056"
+      ],
+      [
+        "stu-017",
+        "stu-107"
+      ],
+      [
+        "stu-017",
+        "stu-069"
+      ],
+      [
+        "stu-056",
+        "stu-107"
+      ],
+      [
+        "stu-056",
+        "stu-069"
+      ],
+      [
+        "stu-107",
+        "stu-069"
+      ],
+      [
+        "stu-121",
+        "stu-004"
+      ],
+      [
+        "stu-121",
+        "stu-037"
+      ],
+      [
+        "stu-121",
+        "stu-044"
+      ],
+      [
+        "stu-121",
+        "stu-066"
+      ],
+      [
+        "stu-121",
+        "stu-059"
+      ],
+      [
+        "stu-004",
+        "stu-037"
+      ],
+      [
+        "stu-004",
+        "stu-044"
+      ],
+      [
+        "stu-004",
+        "stu-066"
+      ],
+      [
+        "stu-004",
+        "stu-059"
+      ],
+      [
+        "stu-037",
+        "stu-044"
+      ],
+      [
+        "stu-037",
+        "stu-066"
+      ],
+      [
+        "stu-037",
+        "stu-059"
+      ],
+      [
+        "stu-044",
+        "stu-066"
+      ],
+      [
+        "stu-044",
+        "stu-059"
+      ],
+      [
+        "stu-066",
+        "stu-059"
+      ],
+      [
+        "stu-054",
+        "stu-071"
+      ],
+      [
+        "stu-054",
+        "stu-025"
+      ],
+      [
+        "stu-054",
+        "stu-043"
+      ],
+      [
+        "stu-054",
+        "stu-132"
+      ],
+      [
+        "stu-054",
+        "stu-068"
+      ],
+      [
+        "stu-071",
+        "stu-025"
+      ],
+      [
+        "stu-071",
+        "stu-043"
+      ],
+      [
+        "stu-071",
+        "stu-132"
+      ],
+      [
+        "stu-071",
+        "stu-068"
+      ],
+      [
+        "stu-025",
+        "stu-043"
+      ],
+      [
+        "stu-025",
+        "stu-132"
+      ],
+      [
+        "stu-025",
+        "stu-068"
+      ],
+      [
+        "stu-043",
+        "stu-132"
+      ],
+      [
+        "stu-043",
+        "stu-068"
+      ],
+      [
+        "stu-132",
+        "stu-068"
+      ],
+      [
+        "stu-086",
+        "stu-080"
+      ],
+      [
+        "stu-086",
+        "stu-047"
+      ],
+      [
+        "stu-086",
+        "stu-090"
+      ],
+      [
+        "stu-086",
+        "stu-125"
+      ],
+      [
+        "stu-086",
+        "stu-041"
+      ],
+      [
+        "stu-080",
+        "stu-047"
+      ],
+      [
+        "stu-080",
+        "stu-090"
+      ],
+      [
+        "stu-080",
+        "stu-125"
+      ],
+      [
+        "stu-080",
+        "stu-041"
+      ],
+      [
+        "stu-047",
+        "stu-090"
+      ],
+      [
+        "stu-047",
+        "stu-125"
+      ],
+      [
+        "stu-047",
+        "stu-041"
+      ],
+      [
+        "stu-090",
+        "stu-125"
+      ],
+      [
+        "stu-090",
+        "stu-041"
+      ],
+      [
+        "stu-125",
+        "stu-041"
+      ],
+      [
+        "stu-088",
+        "stu-141"
+      ],
+      [
+        "stu-088",
+        "stu-097"
+      ],
+      [
+        "stu-088",
+        "stu-048"
+      ],
+      [
+        "stu-088",
+        "stu-053"
+      ],
+      [
+        "stu-088",
+        "stu-142"
+      ],
+      [
+        "stu-141",
+        "stu-097"
+      ],
+      [
+        "stu-141",
+        "stu-048"
+      ],
+      [
+        "stu-141",
+        "stu-053"
+      ],
+      [
+        "stu-141",
+        "stu-142"
+      ],
+      [
+        "stu-097",
+        "stu-048"
+      ],
+      [
+        "stu-097",
+        "stu-053"
+      ],
+      [
+        "stu-097",
+        "stu-142"
+      ],
+      [
+        "stu-048",
+        "stu-053"
+      ],
+      [
+        "stu-048",
+        "stu-142"
+      ],
+      [
+        "stu-053",
+        "stu-142"
+      ],
+      [
+        "stu-018",
+        "stu-045"
+      ],
+      [
+        "stu-018",
+        "stu-091"
+      ],
+      [
+        "stu-018",
+        "stu-050"
+      ],
+      [
+        "stu-018",
+        "stu-089"
+      ],
+      [
+        "stu-018",
+        "stu-076"
+      ],
+      [
+        "stu-045",
+        "stu-091"
+      ],
+      [
+        "stu-045",
+        "stu-050"
+      ],
+      [
+        "stu-045",
+        "stu-089"
+      ],
+      [
+        "stu-045",
+        "stu-076"
+      ],
+      [
+        "stu-091",
+        "stu-050"
+      ],
+      [
+        "stu-091",
+        "stu-089"
+      ],
+      [
+        "stu-091",
+        "stu-076"
+      ],
+      [
+        "stu-050",
+        "stu-089"
+      ],
+      [
+        "stu-050",
+        "stu-076"
+      ],
+      [
+        "stu-089",
+        "stu-076"
+      ],
+      [
+        "stu-144",
+        "stu-072"
+      ],
+      [
+        "stu-144",
+        "stu-030"
+      ],
+      [
+        "stu-144",
+        "stu-057"
+      ],
+      [
+        "stu-144",
+        "stu-020"
+      ],
+      [
+        "stu-144",
+        "stu-026"
+      ],
+      [
+        "stu-072",
+        "stu-030"
+      ],
+      [
+        "stu-072",
+        "stu-057"
+      ],
+      [
+        "stu-072",
+        "stu-020"
+      ],
+      [
+        "stu-072",
+        "stu-026"
+      ],
+      [
+        "stu-030",
+        "stu-057"
+      ],
+      [
+        "stu-030",
+        "stu-020"
+      ],
+      [
+        "stu-030",
+        "stu-026"
+      ],
+      [
+        "stu-057",
+        "stu-020"
+      ],
+      [
+        "stu-057",
+        "stu-026"
+      ],
+      [
+        "stu-020",
+        "stu-026"
+      ]
+    ],
+    "adjacency_ref": null
+  },
+  "propagation": "broadcast_then_local",
+  "provider_ref": "campus_dining_choice.pop",
+  "provider_args": {
+    "n_agents": 150
+  },
+  "materialized_count": 150
+}

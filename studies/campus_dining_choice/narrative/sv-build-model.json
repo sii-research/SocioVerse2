@@ -1,0 +1,1 @@
+{"stage": "sv-build-model", "narrative": "重写 model.py 支持多轮宿舍讨论:env 持 MessageBus,每月分3轮 observe(含舍友倾向+理由)→decide→apply(发言入bus),末轮为记录选择;scripted 加宿舍从众项。默认 rounds=1 向后兼容(4 passed)。冒烟:组内选择逐轮收敛(食堂88→99→102)。", "ts": 1783497978.8025632}

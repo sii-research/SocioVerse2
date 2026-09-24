@@ -1,0 +1,126 @@
+[build-system]
+requires = ["setuptools>=77"]          # PEP 639 license / license-files support
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SocioVerse2"                   # distribution name (pip install socioverse2); import name stays `socioverse`
+dynamic = ["version"]                  # single source: socioverse/__init__.py::__version__
+description = "SocioVerse2: a longitudinal, LLM-native social-simulation runtime with interventions, counterfactual branches and panel data."
+# PyPI page: README.pypi.md uses absolute links only; README.md (the GitHub page) uses relative ones.
+readme = { file = "README.pypi.md", content-type = "text/markdown" }
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "The SocioVerse2 Authors" }]
+keywords = [
+    "agent-based modeling",
+    "social simulation",
+    "LLM agents",
+    "longitudinal",
+    "panel data",
+    "computational social science",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Sociology",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pydantic>=2.7",
+    "duckdb>=1.0",
+    "pyarrow>=14",
+    "pandas>=2.1",       # DuckDbTrajectoryStore.finalize() + FilePopulationProvider import it
+    # skills layer: resources/capabilities.yaml (capability registry) is part of the
+    # standard workflow, so a plain install must be able to read it.
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# Heavy deps belong to specific studies or workflow stages, not the core runtime.
+# Real-LLM runs of the from-scratch studies (their clients speak the OpenAI-compatible API).
+# httpx[socks] (the small pure-Python socksio) lets the client work behind a SOCKS proxy
+# (ALL_PROXY=socks5://...); without it httpx refuses to start when such a proxy is set.
+llm = ["openai>=1.30", "httpx[socks]"]
+# Report figures (sv-report).
+viz = ["matplotlib>=3.8"]
+# The 11 abm_* studies, which wrap the SocioVerse-ABM companion repo cloned as a sibling
+# (https://github.com/Lishi905/SocioVerse-ABM).
+abm = ["numpy>=1.26", "networkx>=3.0"]
+# chicago_schelling: the legacy Chicago model vendored in SocioVerse-ABM (sibling clone).
+chicago = [
+    "mesa==3.3.1",
+    "geopandas>=1.0",
+    "libpysal>=4.10",
+    "matplotlib>=3.8",
+    "openai>=1.30",
+    "httpx[socks]",
+    "numpy>=1.26",
+    "networkx>=3.0",
+]
+# The git-clone workbench: real-LLM studies, report figures, the hisim_roe sentiment scorer,
+# and the germany_auto_market grounding workbook (.xlsx).
+workbench = ["openai>=1.30", "httpx[socks]", "matplotlib>=3.8", "textblob>=0.18", "openpyxl>=3.1"]
+# /sv-lit retrieval engine (the vendored paper-search-pro skill).
+lit = [
+    "pyalex>=0.21",
+    "semanticscholar>=0.10",
+    "arxiv>=2.1",
+    "biopython>=1.85",
+    "requests>=2.32",
+    "Jinja2>=3.1",
+]
+dev = ["pytest>=8", "build", "twine"]
+all = [
+    "openai>=1.30",
+    "httpx[socks]",
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "networkx>=3.0",
+    "mesa==3.3.1",
+    "geopandas>=1.0",
+    "libpysal>=4.10",
+    "textblob>=0.18",
+    "openpyxl>=3.1",
+    "pyalex>=0.21",
+    "semanticscholar>=0.10",
+    "arxiv>=2.1",
+    "biopython>=1.85",
+    "requests>=2.32",
+    "Jinja2>=3.1",
+    "pytest>=8",
+    "build",
+    "twine",
+]
+
+[project.urls]
+Homepage = "https://socioverse.fudan-disc.com/"
+Documentation = "https://socioverse.fudan-disc.com/docs/"
+Repository = "https://github.com/sii-research/SocioVerse2"
+Issues = "https://github.com/sii-research/SocioVerse2/issues"
+Paper = "https://arxiv.org/abs/2609.24911"
+Challenge = "https://socioverse.fudan-disc.com/challenge/"
+
+[tool.setuptools.dynamic]
+version = { attr = "socioverse.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["socioverse*"]
+
+[tool.setuptools.package-data]
+socioverse = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "llm: needs a live LLM endpoint and key; skipped unless SV_RUN_LLM_TESTS=1",
+]

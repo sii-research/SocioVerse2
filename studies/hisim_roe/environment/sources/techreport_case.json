@@ -1,0 +1,91 @@
+{
+  "scenario": "roe",
+  "label": "Roe v. Wade overturn",
+  "source": {
+    "report": "https://arxiv.org/abs/2609.24911",
+    "figure": "figures/src/fig_hisim_trajectories.tikz (tech report LaTeX source)",
+    "tex": "sections/cases/case_hisim.tex (tech report LaTeX source)",
+    "upstream_paper": "Mou et al., Unveiling the Truth and Facilitating Change (ACL 2024 Findings)"
+  },
+  "series": {
+    "sim": [
+      0.0,
+      0.095,
+      0.121,
+      0.145,
+      0.256,
+      0.553,
+      0.456,
+      0.628,
+      0.648,
+      0.568,
+      0.558,
+      0.771,
+      1.0,
+      0.982
+    ],
+    "gt": [
+      0.0,
+      0.221,
+      0.208,
+      0.093,
+      0.328,
+      0.347,
+      0.449,
+      0.372,
+      0.405,
+      0.217,
+      0.243,
+      0.325,
+      0.561,
+      1.0
+    ]
+  },
+  "events": [
+    [
+      0,
+      0,
+      "触发事件：最高法院推翻 Roe v. Wade"
+    ],
+    [
+      10,
+      11,
+      "后续新闻：华盛顿特区抗议与逮捕"
+    ]
+  ],
+  "paper_metrics": {
+    "corr_best_hybrid": 0.758,
+    "hybrid_model": "Lorenz",
+    "dbias_best_hybrid": 0.009,
+    "corr_best_abm": 0.475,
+    "dbias_best_abm": 0.033
+  },
+  "micro_metrics": {
+    "stance_acc": 0.943,
+    "stance_f1": 0.336,
+    "content_acc": 0.642,
+    "content_sim": 0.809,
+    "behavior_acc": 0.667,
+    "behavior_f1": 0.469
+  },
+  "recomputed_on_digitized": {
+    "pearson": 0.783,
+    "mae": 0.187,
+    "direction_hits": 7,
+    "direction_total": 13
+  },
+  "all_scenarios": {
+    "metoo": {
+      "corr_best_hybrid": 0.724,
+      "corr_best_abm": 0.509
+    },
+    "roe": {
+      "corr_best_hybrid": 0.758,
+      "corr_best_abm": 0.475
+    },
+    "blm": {
+      "corr_best_hybrid": 0.605,
+      "corr_best_abm": 0.393
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "study_id": "hisim_roe",
+  "title": "HiSim hybrid social-movement opinion dynamics — simulated vs real Twitter sentiment (Roe v. Wade)",
+  "research_question": "After a triggering event, can a hybrid simulation — a few LLM-driven core users plus a large rule-based ordinary population — reproduce the collective opinion trajectory actually observed on Twitter?",
+  "hypothesis": "The hybrid behavior function reproduces the shape of the observed trajectory — the post-event surge, the plateau, and the response to follow-up news — markedly better than any pure rule-based opinion-dynamics model, because LLM core users carry the discourse that rule agents cannot generate.",
+  "title_i18n": {
+    "zh": "HiSim 混合社会运动舆论动态：Roe v. Wade 事件后的模拟舆论 vs 真实舆论（参考模板）",
+    "en": "HiSim Hybrid Social-Movement Opinion Dynamics — simulated vs real Twitter sentiment, Roe v. Wade (reference template)"
+  },
+  "research_question_i18n": {
+    "zh": "一起触发性事件（最高法院推翻 Roe v. Wade）之后，社交媒体上的舆论如何逐轮演化？用「少量 LLM 核心用户 + 大量规则驱动普通用户」的混合模拟，能不能复现出真实观测到的群体舆论轨迹？",
+    "en": "After a triggering event (the Supreme Court overturning Roe v. Wade), how does social-media opinion evolve round by round? Can a hybrid simulation — a few LLM-driven core users plus a large rule-based ordinary population — reproduce the collective trajectory actually observed on Twitter?"
+  },
+  "hypothesis_i18n": {
+    "zh": "混合行为函数能复现真实轨迹的形状——事件后的抬升、中段平台期、以及后续新闻注入引起的再次上行——且明显优于任何纯规则舆论动力学模型：核心用户的话语内容是规则 agent 生成不出来的，而正是它带动了普通用户。",
+    "en": "The hybrid behavior function reproduces the shape of the observed trajectory — the post-event rise, the mid plateau, and the response to a follow-up news injection — markedly better than any pure rule-based opinion-dynamics model, because LLM core users carry discourse that rule agents cannot generate."
+  },
+  "study_type": "longitudinal",
+  "n_steps": 14,
+  "seed": 42,
+  "metrics": [
+    "sim_sentiment",
+    "gt_sentiment",
+    "abs_gap",
+    "cum_corr",
+    "news_event"
+  ],
+  "metric_descriptions": {
+    "sim_sentiment": "Group sentiment produced by the hybrid simulation (LLM core users + ABM ordinary users), min-max normalized to [0, 1]",
+    "gt_sentiment": "Real Twitter group sentiment over the same period — this study's ground-truth anchor, normalized the same way",
+    "abs_gap": "Absolute difference between the two curves in this round (normalized scale)",
+    "cum_corr": "Cumulative Pearson correlation up to this round (how well the trajectory shapes match; higher is better; not computed for the first two rounds, which have too few points)",
+    "news_event": "Whether real news was injected in this round (1 = yes)"
+  },
+  "display_metrics": [
+    "sim_sentiment",
+    "gt_sentiment"
+  ],
+  "environment_ref": "environment/environment.json",
+  "population_ref": "population/population.json",
+  "simulation_ref": "simulation/simulation.json",
+  "resources_ref": "resources.json",
+  "domain": "social-movement/opinion-dynamics",
+  "tags": [
+    "hisim",
+    "opinion-dynamics",
+    "hybrid",
+    "twitter",
+    "social-movement",
+    "ground-truth",
+    "backtest",
+    "roe-v-wade"
+  ],
+  "legacy_simulator": "from_scratch",
+  "provider_refs": [
+    "hisim.twitter_env",
+    "hisim.pop",
+    "hisim.hybrid_decision",
+    "hisim.metrics"
+  ],
+  "adjustable_params": [
+    "scenario (metoo|roe|blm)",
+    "n_core",
+    "n_ord",
+    "abm model (BC|HK|Lorenz|RA|SJ)",
+    "news schedule"
+  ],
+  "status": "techreport-case-import",
+  "maintainer": "",
+  "demonstrates": [
+    "from-scratch-core",
+    "multi-round-messaging",
+    "ground-truth-validation"
+  ],
+  "teaches": "the hybrid-f paradigm scored against reality: a few LLM core users carry the discourse, a large rule-based population carries the scale, and the collective trajectory is checked round by round against observed Twitter sentiment",
+  "reference": true,
+  "rerunnable": false,
+  "created_by": "path-b-port",
+  "run_note": {
+    "zh": "本研究展示的是技术报告 §5.7 的社会运动 case：**已发表的混合模拟轨迹 vs 真实 Twitter 舆论**，由 `build_from_techreport.py` 从仓库内已跟踪的 `environment/sources/techreport_case.json` 重建（维护者可加 `--tikz <图表源码>` 逐点回读校验）。它是**导入**，不是工作台内的重跑，所以标记为不可重跑。开发期间在本工作台内跑过一版 4 步、20 agent 的真实 LLM 移植验证，其数字保留在报告末节；移植代码 `model.py` / `reporting.py` 原样保留，要真跑就以它们为模板新建研究。换场景（MeToo / BLM）：`python studies/hisim_roe/build_from_techreport.py metoo`，三套序列都在脚本里。",
+    "en": "This study shows the tech report's §5.7 social-movement case: the **published hybrid trajectory scored against real Twitter sentiment**, rebuilt by `build_from_techreport.py` from the tracked `environment/sources/techreport_case.json` (maintainers can add `--tikz <figure source>` to cross-check every coordinate). It is an **import**, not an in-workbench run, so it is marked not re-runnable. A 4-step, 20-agent live LLM port was run during development; its numbers are preserved in the report's last section. The port itself (`model.py` / `reporting.py`) is untouched; to run it for real, start a new study with it as the template. Switch scenario with `python studies/hisim_roe/build_from_techreport.py metoo|blm`."
+  }
+}

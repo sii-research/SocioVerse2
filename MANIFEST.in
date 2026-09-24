@@ -1,0 +1,8 @@
+# The sdist carries the library only (like the wheel). The workbench (skills, dashboard,
+# studies, tests) is used from a git clone of the repository.
+prune tests
+prune studies
+prune dashboard
+prune skills
+prune scripts
+prune resources

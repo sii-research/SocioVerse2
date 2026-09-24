@@ -1,0 +1,32 @@
+{
+  "study_id": "consumer_confidence_us_backtest",
+  "n_steps": 11,
+  "seed": 42,
+  "warm_start": null,
+  "decision_ref": "consumersim.survey_response_kernel",
+  "decision_args": {
+    "questions": [
+      "current_finance",
+      "durable_buying",
+      "future_finance",
+      "business_12m",
+      "business_5y"
+    ],
+    "response_categories": [
+      "positive",
+      "neutral",
+      "negative"
+    ],
+    "index_rule": "Xi = (%positive - %negative) + 100; ICS = mean of the five question scores",
+    "expansion": "post-stratified Bayesian expansion from the high-resolution core to the normal population",
+    "debias": "strict t-1 residual correction (previous calendar month only)"
+  },
+  "collector_ref": "consumersim.ics_vs_published",
+  "collector_args": {
+    "target_index": "University of Michigan ICS"
+  },
+  "interaction_rounds": 1,
+  "engine_args": {},
+  "store_ref": "duckdb",
+  "store_args": {}
+}

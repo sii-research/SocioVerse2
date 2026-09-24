@@ -1,0 +1,51 @@
+{
+  "study_id": "abm_axelrod",
+  "title": "Axelrod iterated Prisoner's Dilemma (SocioVerse-ABM)",
+  "research_question": "Does cooperation pay in a round-robin of strategies, and does an LLM agent reproduce them?",
+  "hypothesis": "Cooperative/retaliatory strategies accumulate competitive payoff; cooperation persists.",
+  "study_type": "longitudinal",
+  "n_steps": 20,
+  "seed": 42,
+  "metrics": [
+    "n",
+    "cooperation_rate",
+    "mean_score"
+  ],
+  "domain": "game-theory",
+  "tags": [
+    "abm",
+    "axelrod",
+    "game-theory",
+    "market",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "strategy mix",
+    "copies_per_strategy",
+    "payoff matrix"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "market-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "culture dissemination via trait similarity (Axelrod); convergence-vs-diversity exemplar"
+}

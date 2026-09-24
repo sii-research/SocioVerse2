@@ -1,0 +1,17 @@
+{
+  "study_id": "germany_auto_market",
+  "n_steps": 29,
+  "seed": 42,
+  "warm_start": null,
+  "decision_ref": "germany_auto.decision",
+  "decision_args": {
+    "llm_kind": "scripted",
+    "model": "gpt-4o"
+  },
+  "collector_ref": "germany_auto.collector",
+  "collector_args": {},
+  "interaction_rounds": 1,
+  "engine_args": {},
+  "store_ref": "duckdb",
+  "store_args": {}
+}

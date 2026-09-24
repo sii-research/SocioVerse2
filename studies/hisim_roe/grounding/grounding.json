@@ -1,0 +1,225 @@
+{
+  "study_id": "hisim_roe",
+  "query": "How do core (LLM) + ordinary (ABM) users' opinions on abortion rights evolve on a Twitter-like platform after the trigger news that the Supreme Court overturns Roe v. Wade (HiSim hybrid social-movement replication)?",
+  "updated_at": "2026-08-17T13:53:39Z",
+  "method_notes": "技术报告 §5.7 社会运动 case 导入：模拟与真实两条 14 轮序列由 build_from_techreport.py 从图表源码逐点提取并回读校验；真值锚是同期真实 Twitter 群体情绪。本工作台不重跑该管线——移植代码 model.py/reporting.py 保留，早先 4 步真实 LLM 验证的数字保留在报告末节。",
+  "implementation_refs": [
+    {
+      "title": "Mou et al. (2024) — Unveiling the Truth and Facilitating Change: Towards Agent-based Large-scale Social Movement Simulation (HiSim, ACL 2024 Findings)",
+      "url": "https://aclanthology.org/2024.findings-acl.285/",
+      "takeaway": "The paper this study ports. Hybrid design: a small set of 'core' users driven by LLMs (post/retweet/reply/like on a Twitter-like env) plus numerous 'ordinary' users driven by deductive agent-based bounded-confidence models; opinions are read off each core user's produced tweet (att2score: sign(stance)·|sentiment|). Directly maps to hisim.hybrid_decision (core LLM branch + ordinary BCM branch) and the env 'mirror'.",
+      "accessed": "2026-07-18"
+    },
+    {
+      "title": "Deffuant, Neau, Amblard & Weisbuch (2000) — Mixing beliefs among interacting agents (Advances in Complex Systems 3)",
+      "url": "https://www.worldscientific.com/doi/abs/10.1142/s0219525900000078",
+      "takeaway": "Foundational bounded-confidence (BCM) opinion-dynamics model: agents hold continuous opinions and assimilate toward one another ONLY when their opinions differ by less than a confidence bound; below/above the threshold the population converges to consensus, polarization, or fragmentation. Grounds the ordinary-user rule in model.py (_decide_ordinary: new = x + alpha·(peer−x) for |peer−x| < bc_bound; alpha=0.3, bc_bound=0.1).",
+      "accessed": "2026-07-18"
+    }
+  ],
+  "facts": [
+    {
+      "id": "f-truth-series",
+      "claim": "Roe 场景 14 轮真实 Twitter 群体情绪序列（min-max 归一化）",
+      "value": "0.000, 0.221, 0.208, 0.093, 0.328, 0.347, 0.449, 0.372, 0.405, 0.217, 0.243, 0.325, 0.561, 1.000",
+      "unit": "normalized",
+      "as_of": "2022",
+      "basis": "sourced",
+      "source": {
+        "title": "SocioVerse2 技术报告 §5.7（数据数字化自 HiSim 论文 Figure 6 / Tables）",
+        "url": "https://arxiv.org/abs/2609.24911",
+        "via": "paper",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "metrics.gt_sentiment"
+      ]
+    },
+    {
+      "id": "f-sim-series",
+      "claim": "同期混合模拟序列（已发表运行，归一化）",
+      "value": "0.000, 0.095, 0.121, 0.145, 0.256, 0.553, 0.456, 0.628, 0.648, 0.568, 0.558, 0.771, 1.000, 0.982",
+      "unit": "normalized",
+      "as_of": "2022",
+      "basis": "sourced",
+      "source": {
+        "title": "SocioVerse2 技术报告 §5.7（数据数字化自 HiSim 论文 Figure 6 / Tables）",
+        "url": "https://arxiv.org/abs/2609.24911",
+        "via": "paper",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "metrics.sim_sentiment"
+      ]
+    },
+    {
+      "id": "f-accuracy",
+      "claim": "本 case 评分（数字化重算）与论文公布口径",
+      "value": "数字化 Pearson 0.783 / MAE 0.187 / 方向 7-13；论文公布 Corr 0.758（hybrid w/ Lorenz）、ΔBias 0.009",
+      "unit": "—",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "SocioVerse2 技术报告 §5.7（数据数字化自 HiSim 论文 Figure 6 / Tables）",
+        "url": "https://arxiv.org/abs/2609.24911",
+        "via": "paper",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "metrics.cum_corr"
+      ]
+    },
+    {
+      "id": "f-vs-abm",
+      "claim": "三场景下混合范式 vs 最佳纯 ABM 的轨迹相关",
+      "value": "MeToo 0.724 vs 0.509；Roe 0.758 vs 0.475；BLM 0.605 vs 0.393",
+      "unit": "Pearson",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "SocioVerse2 技术报告 §5.7（数据数字化自 HiSim 论文 Figure 6 / Tables）",
+        "url": "https://arxiv.org/abs/2609.24911",
+        "via": "paper",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "report.baseline_comparison"
+      ]
+    },
+    {
+      "id": "f-micro",
+      "claim": "Roe 场景个体层对齐（LLM 核心用户 vs 真实用户单轮回复）",
+      "value": "立场准确率 0.943 / 内容相似度 0.809 / 行为类型准确率 0.667",
+      "unit": "—",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "SocioVerse2 技术报告 §5.7（数据数字化自 HiSim 论文 Figure 6 / Tables）",
+        "url": "https://arxiv.org/abs/2609.24911",
+        "via": "paper",
+        "accessed": "2026-08-17"
+      },
+      "applies_to": [
+        "report.micro_validation"
+      ]
+    },
+    {
+      "id": "f-dobbs-trigger",
+      "claim": "The Supreme Court decision Dobbs v. Jackson Women's Health Organization overturned Roe v. Wade on 2022-06-24, ending ~50 years of federally guaranteed abortion access and returning abortion regulation to the states — the exogenous shock that fires as trigger_news.",
+      "value": "2022-06-24",
+      "unit": "date",
+      "as_of": "2022-06-24",
+      "basis": "sourced",
+      "source": {
+        "title": "Supreme Court overturns constitutional right to abortion (SCOTUSblog)",
+        "url": "https://www.scotusblog.com/2022/06/supreme-court-overturns-constitutional-right-to-abortion/",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "environment.information_program.broadcasts",
+        "environment.scheduled_events",
+        "environment.provider_args.target"
+      ],
+      "note": "HiSim's ROE ref config sets current_time 2022-06-24 22:00 and trigger_news[0] to this exact event; the study's broadcast N1 is the SocioVerse2-native rendering of that shock."
+    },
+    {
+      "id": "f-pre-support",
+      "claim": "About 61% of Americans said abortion should be legal in all or most cases (Pew, published 2022-06-13, just before the decision).",
+      "value": 61,
+      "unit": "percent",
+      "as_of": "2022-06-13",
+      "basis": "sourced",
+      "source": {
+        "title": "About six-in-ten Americans say abortion should be legal in all or most cases (Pew Research Center)",
+        "url": "https://www.pewresearch.org/short-reads/2022/06/13/about-six-in-ten-americans-say-abortion-should-be-legal-in-all-or-most-cases-2/",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "population.init_state.opinion"
+      ],
+      "note": "Real-world prior: a pro-rights majority. The synthetic pool seeds opinions uniformly on [-1,1] (see assumption a-uniform-init) rather than skewing +0.22 to match this share — the showcase demonstrates mechanics, not a calibrated electorate; the number frames how the trigger perturbs an already pro-rights-leaning public."
+    },
+    {
+      "id": "f-post-disapproval",
+      "claim": "After the decision, 57% of U.S. adults disapproved of the Court's ruling to overturn Roe (43% strongly) while 41% approved (25% strongly); Pew survey of 6,174 adults, 2022-06-27→07-04.",
+      "value": {
+        "disapprove_pct": 57,
+        "approve_pct": 41
+      },
+      "unit": "percent",
+      "as_of": "2022-07-04",
+      "basis": "sourced",
+      "source": {
+        "title": "Majority of Public Disapproves of Supreme Court's Decision to Overturn Roe v. Wade (Pew Research Center)",
+        "url": "https://www.pewresearch.org/politics/2022/07/06/majority-of-public-disapproves-of-supreme-courts-decision-to-overturn-roe-v-wade/",
+        "via": "web_search",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "metrics.bias",
+        "metrics.mean_core",
+        "metrics.mean_ordinary"
+      ],
+      "note": "Directional validation target: post-shock aggregate sentiment toward the decision is net negative (disapproval > approval). The study's `bias` metric (mean attitude − neutral) and the pro-rights framing of stances read against this real net-negative reaction."
+    },
+    {
+      "id": "f-hisim-roe-scale",
+      "claim": "HiSim's published ROE configuration runs 1000 ordinary ABM users with initial attitudes init_att≈0.87-0.99 (strongly pro-rights), a bounded-confidence alpha=0.3, over max_turns=14 (12h per turn from 2022-06-24).",
+      "value": {
+        "n_ordinary": 1000,
+        "alpha": 0.3,
+        "max_turns": 14
+      },
+      "unit": "count / rate / turns",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "HiSim ref_configs/roe_config.yaml (xymou/HiSim)",
+        "url": "https://github.com/xymou/HiSim/blob/main/ref_configs/roe_config.yaml",
+        "via": "provider",
+        "accessed": "2026-07-18"
+      },
+      "applies_to": [
+        "environment.provider_args.alpha",
+        "simulation.decision_args.alpha",
+        "simulation.n_steps",
+        "population.provider_args.n_ord"
+      ],
+      "note": "The published scale the showcase downsizes from. alpha=0.3 is carried faithfully; the demo uses 8 core + 12 ordinary and 4 steps instead of 1000 users / 14 turns (assumption a-showcase-scale) to keep the real-LLM run cheap."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "a-import",
+      "statement": "本研究轨迹是已发表运行的导入，不是工作台内重跑。",
+      "rationale": "HiSim 需要真实 Twitter 数据与大量 LLM 调用；导入让'与真值对照'的形态立刻可见，代价是该次运行本身不可在此复现（可复现的是导入过程）。"
+    },
+    {
+      "id": "a-normalized",
+      "statement": "两条序列各自 min-max 归一化，只比形状不比绝对值。",
+      "rationale": "两者绝对量程不重叠，这是技术报告的既有口径；绝对水平吻合由 ΔBias 单独报告。"
+    },
+    {
+      "id": "a-two-corr",
+      "statement": "相关系数有两个口径：数字化重算 0.783、论文公布 0.758。",
+      "rationale": "数字化误差所致。报告与论文各自引用对应口径，不混用。"
+    },
+    {
+      "id": "a-no-panel",
+      "statement": "没有逐人面板：论文只公开聚合轨迹。",
+      "rationale": "个体层证据是单轮回复的对齐指标，不是逐人序列——缺的留空，不补。"
+    },
+    {
+      "id": "a-showcase-scale",
+      "claim": "The showcase runs 8 LLM core users + 12 ordinary ABM users over 4 steps (news fires at step 2), versus HiSim's published 1000 ordinary users over 14 turns. Core/ordinary counts and n_steps are declared adjustable_params (artifact-level, no simulator-code change).",
+      "rationale": "A faithful 1000-user / 14-turn real-LLM run is neither cheap nor necessary to demonstrate the hybrid mechanics (LLM core mirror + BCM ordinary assimilation + trigger-news shock). The small scale exercises the full real-LLM decision path and the endogenous env feedback end-to-end at ~32 core-LLM calls total. Not a published quantity — declared, not sourced."
+    },
+    {
+      "id": "a-uniform-init",
+      "claim": "Initial opinions for both core and ordinary users are seeded uniformly at random on [-1,1] (deterministic in seed=42 via the synthetic world builder), NOT loaded from HiSim's real role_desc / init_att data (absent on this server) nor skewed to the +0.22 pro-rights prior implied by Pew's 61% legal-support share.",
+      "rationale": "HiSim's real ROE user_data (role descriptions, follower graph, per-user init_att) is not present in this workspace, so model.load_movement's real path cannot run; the committed bundles use the synthetic _synth world. A uniform prior is the honest neutral default for a mechanics demo — it lets the trigger-news effect and BCM convergence show against a symmetric starting distribution rather than a pre-loaded consensus. Real-data calibration is the natural next /sv-iterate step."
+    }
+  ]
+}

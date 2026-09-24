@@ -1,0 +1,311 @@
+{
+  "study_id": "hisim_roe",
+  "personas": [
+    {
+      "agent_id": "core-0",
+      "attributes": {
+        "username": "0",
+        "role_description": "Synthetic core user core-0."
+      },
+      "group_key": "core",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.2789
+      }
+    },
+    {
+      "agent_id": "core-1",
+      "attributes": {
+        "username": "1",
+        "role_description": "Synthetic core user core-1."
+      },
+      "group_key": "core",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.95
+      }
+    },
+    {
+      "agent_id": "core-2",
+      "attributes": {
+        "username": "2",
+        "role_description": "Synthetic core user core-2."
+      },
+      "group_key": "core",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.4499
+      }
+    },
+    {
+      "agent_id": "core-3",
+      "attributes": {
+        "username": "3",
+        "role_description": "Synthetic core user core-3."
+      },
+      "group_key": "core",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.5536
+      }
+    },
+    {
+      "agent_id": "core-4",
+      "attributes": {
+        "username": "4",
+        "role_description": "Synthetic core user core-4."
+      },
+      "group_key": "core",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.4729
+      }
+    },
+    {
+      "agent_id": "core-5",
+      "attributes": {
+        "username": "5",
+        "role_description": "Synthetic core user core-5."
+      },
+      "group_key": "core",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.3534
+      }
+    },
+    {
+      "agent_id": "core-6",
+      "attributes": {
+        "username": "6",
+        "role_description": "Synthetic core user core-6."
+      },
+      "group_key": "core",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.7844
+      }
+    },
+    {
+      "agent_id": "core-7",
+      "attributes": {
+        "username": "7",
+        "role_description": "Synthetic core user core-7."
+      },
+      "group_key": "core",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.8261
+      }
+    },
+    {
+      "agent_id": "ord-0",
+      "attributes": {
+        "username": "0"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.1562
+      }
+    },
+    {
+      "agent_id": "ord-1",
+      "attributes": {
+        "username": "1"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.9404
+      }
+    },
+    {
+      "agent_id": "ord-2",
+      "attributes": {
+        "username": "2"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.5627
+      }
+    },
+    {
+      "agent_id": "ord-3",
+      "attributes": {
+        "username": "3"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.0107
+      }
+    },
+    {
+      "agent_id": "ord-4",
+      "attributes": {
+        "username": "4"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.9469
+      }
+    },
+    {
+      "agent_id": "ord-5",
+      "attributes": {
+        "username": "5"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.6023
+      }
+    },
+    {
+      "agent_id": "ord-6",
+      "attributes": {
+        "username": "6"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.2998
+      }
+    },
+    {
+      "agent_id": "ord-7",
+      "attributes": {
+        "username": "7"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.0899
+      }
+    },
+    {
+      "agent_id": "ord-8",
+      "attributes": {
+        "username": "8"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.5591
+      }
+    },
+    {
+      "agent_id": "ord-9",
+      "attributes": {
+        "username": "9"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.1785
+      }
+    },
+    {
+      "agent_id": "ord-10",
+      "attributes": {
+        "username": "10"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.6189
+      }
+    },
+    {
+      "agent_id": "ord-11",
+      "attributes": {
+        "username": "11"
+      },
+      "group_key": "ordinary",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": -0.987
+      }
+    }
+  ],
+  "interaction": {
+    "kind": "explicit_network",
+    "edges": [
+      [
+        "core-0",
+        "core-1"
+      ],
+      [
+        "core-0",
+        "core-7"
+      ],
+      [
+        "core-1",
+        "core-2"
+      ],
+      [
+        "core-1",
+        "core-0"
+      ],
+      [
+        "core-2",
+        "core-3"
+      ],
+      [
+        "core-2",
+        "core-1"
+      ],
+      [
+        "core-3",
+        "core-4"
+      ],
+      [
+        "core-3",
+        "core-2"
+      ],
+      [
+        "core-4",
+        "core-5"
+      ],
+      [
+        "core-4",
+        "core-3"
+      ],
+      [
+        "core-5",
+        "core-6"
+      ],
+      [
+        "core-5",
+        "core-4"
+      ],
+      [
+        "core-6",
+        "core-7"
+      ],
+      [
+        "core-6",
+        "core-5"
+      ],
+      [
+        "core-7",
+        "core-0"
+      ],
+      [
+        "core-7",
+        "core-6"
+      ]
+    ],
+    "adjacency_ref": null
+  },
+  "propagation": "contagion",
+  "provider_ref": "hisim.pop",
+  "provider_args": {
+    "n_core": 8,
+    "n_ord": 12,
+    "seed": 42
+  },
+  "materialized_count": 20
+}

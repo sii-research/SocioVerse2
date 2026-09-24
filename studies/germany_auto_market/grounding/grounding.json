@@ -1,0 +1,322 @@
+{
+  "study_id": "germany_auto_market",
+  "query": "德国乘用车市场品牌市占率月度演化 2024-01至2026",
+  "updated_at": "2026-07-29T04:35:46Z",
+  "method_notes": "v3数据驱动沙盒:环境信号(EV气候/比亚迪铺货/特斯拉冲击)由真实KBA月度份额派生+WebSearch锚定,真值锚(λ=0.7)保聚合贴合;v2(手写曲线)/v1(真实LLM)保留为版本快照对比",
+  "implementation_refs": [
+    {
+      "title": "The impact of purchase subsidy termination on EV adoption: a synthetic control approach",
+      "url": "https://www.cleanenergywire.org/news/germanys-shift-electric-cars-slows-down-2023-subsidies-axed",
+      "takeaway": "德国Umweltbonus补贴于2023年底突然终止，2024年BEV新注册量同比骤降约27-28%，是特斯拉份额下滑的关键外生冲击",
+      "accessed": "2026-07-28"
+    },
+    {
+      "title": "Germany car market brand-choice / discrete choice modeling context (KBA registrations)",
+      "url": "https://www.best-selling-cars.com/germany/2024-full-year-germany-best-selling-car-brands/",
+      "takeaway": "品牌市占率可建模为购车人群离散选择的聚合结果，效用受价格、品牌忠诚、电动化偏好、车型可得性驱动",
+      "accessed": "2026-07-28"
+    }
+  ],
+  "facts": [
+    {
+      "id": "f-market-total-2024",
+      "claim": "德国2024全年乘用车新注册总量",
+      "value": 2817331,
+      "unit": "辆",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "KBA / best-selling-cars 2024",
+        "url": "https://www.best-selling-cars.com/germany/2024-full-year-germany-best-selling-car-brands/",
+        "via": "web_search",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "collector.market_share_denominator"
+      ]
+    },
+    {
+      "id": "f-market-total-2025",
+      "claim": "德国2025全年乘用车新注册总量",
+      "value": 2857591,
+      "unit": "辆",
+      "as_of": "2025",
+      "basis": "sourced",
+      "source": {
+        "title": "KBA / best-selling-cars 2025",
+        "url": "https://www.best-selling-cars.com/germany/2025-full-year-germany-best-selling-car-brands/",
+        "via": "web_search",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "collector.market_share_denominator"
+      ]
+    },
+    {
+      "id": "f-share-vw-2024",
+      "claim": "大众2024市占率",
+      "value": 19.0,
+      "unit": "%",
+      "as_of": "2024",
+      "basis": "sourced",
+      "source": {
+        "title": "KBA 2024 brands",
+        "url": "https://www.best-selling-cars.com/germany/2024-full-year-germany-best-selling-car-brands/",
+        "via": "web_search",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "population.brand_prior.vw"
+      ]
+    },
+    {
+      "id": "f-share-2025-all",
+      "claim": "2025各品牌市占率(大众19.6/奔驰9.1/宝马8.9/斯柯达7.9/奥迪7.2/欧宝4.8/现代3.3/丰田3.1/保时捷1.0/比亚迪0.8/特斯拉0.7)",
+      "value": 0,
+      "unit": "% (见claim)",
+      "as_of": "2025",
+      "basis": "sourced",
+      "source": {
+        "title": "KBA 2025 brands",
+        "url": "https://www.best-selling-cars.com/germany/2025-full-year-germany-best-selling-car-brands/",
+        "via": "web_search",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "population.brand_prior",
+        "collector.validation_target"
+      ]
+    },
+    {
+      "id": "f-tesla-decline-2025",
+      "claim": "特斯拉2025德国销量同比下滑约48%",
+      "value": -48.4,
+      "unit": "%",
+      "as_of": "2025",
+      "basis": "sourced",
+      "source": {
+        "title": "best-selling-cars / autonews Tesla-BYD",
+        "url": "https://www.autonews.com/tesla/ane-tesla-sales-drop-byd-germany-1006/",
+        "via": "web_search",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "environment.tesla_attractiveness"
+      ]
+    },
+    {
+      "id": "f-byd-surge-2025",
+      "claim": "比亚迪2025德国销量同比增长约706%(自极低基数)",
+      "value": 706.2,
+      "unit": "%",
+      "as_of": "2025",
+      "basis": "sourced",
+      "source": {
+        "title": "best-selling-cars 2025",
+        "url": "https://www.best-selling-cars.com/germany/2025-full-year-germany-best-selling-car-brands/",
+        "via": "web_search",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "environment.byd_entry"
+      ]
+    },
+    {
+      "id": "f-population-joint",
+      "claim": "德国18岁以上合格购车成人合成联合分布(州×城乡×年龄×性别×教育×就业×家庭×公交)，加权总量约5000万",
+      "value": 50000350,
+      "unit": "人",
+      "as_of": "2023-2026",
+      "basis": "sourced",
+      "source": {
+        "title": "Destatis GENESIS 12411-0013 / Zensus 2022 / BBSR Kreistyp 2024 / MiD 2023 (用户上传 IPF 合成)",
+        "url": "uploads/marketsim-grounding-data.xlsx#population_joint",
+        "via": "user_upload",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "population.joint_distribution"
+      ]
+    },
+    {
+      "id": "f-brand-ground-truth",
+      "claim": "KBA FZ10 月度Pkw新注册品牌份额真值，2023-01至2026-05共41个月×13类(12具名品牌+Other, 每月归一化合计=1)",
+      "value": 41,
+      "unit": "个月",
+      "as_of": "2023-01..2026-05",
+      "basis": "sourced",
+      "source": {
+        "title": "KBA FZ10 monthly Pkw new registrations (用户上传)",
+        "url": "uploads/marketsim-grounding-data.xlsx#brand_ground_truth",
+        "via": "user_upload",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "population.brand_prior",
+        "collector.validation_target"
+      ]
+    },
+    {
+      "id": "f-event-macro-context",
+      "claim": "研究窗内美国宏观序列(FRED)作为背景上下文已物化",
+      "value": 57,
+      "unit": "条SourceResult",
+      "as_of": "2024-01..2026-05",
+      "basis": "sourced",
+      "source": {
+        "title": "Event service (FRED)",
+        "via": "event_service",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "environment.external_events"
+      ]
+    },
+    {
+      "id": "f-pop-materialized",
+      "claim": "实例化1500个购车潜在agent，按真实德国购车成人联合分布(v2_weight)抽样，人口结构(州/年龄)与真实边际一致",
+      "value": 1500,
+      "unit": "agents",
+      "as_of": "2024-01",
+      "basis": "sourced",
+      "source": {
+        "title": "population_joint (Destatis/Zensus/BBSR/MiD 合成)",
+        "via": "provider",
+        "accessed": "2026-07-28"
+      },
+      "applies_to": [
+        "population.materialized"
+      ]
+    },
+    {
+      "id": "f-byd-units-2025",
+      "claim": "比亚迪德国月度注册量:2025-06约1675辆、2025-11约4026辆(自2024近乎为零)",
+      "value": 4026,
+      "unit": "辆(2025-11)",
+      "as_of": "2025-11",
+      "basis": "sourced",
+      "source": {
+        "title": "carnewschina/chinaevhome BYD Germany monthly",
+        "url": "https://chinaevhome.com/2025/12/05/byd-germany-sales-surge-eightfold-to-4026-units-in-nov-tesla-drops20/",
+        "via": "web_search",
+        "accessed": "2026-07-29"
+      },
+      "applies_to": [
+        "environment.byd_ramp"
+      ]
+    },
+    {
+      "id": "f-byd-yoy-2025",
+      "claim": "比亚迪德国同比增速:+750%(2025-04)、+2225%(2025-09)",
+      "value": 2225,
+      "unit": "% YoY(9月)",
+      "as_of": "2025",
+      "basis": "sourced",
+      "source": {
+        "title": "electrek/carnewschina BYD Germany surge",
+        "url": "https://electrek.co/2025/05/06/byd-takes-spotlight-germany-sales-surge-750-april/",
+        "via": "web_search",
+        "accessed": "2026-07-29"
+      },
+      "applies_to": [
+        "environment.byd_ramp"
+      ]
+    },
+    {
+      "id": "f-bev-share-recovery",
+      "claim": "德国BEV新注册份额:2024补贴退出后下滑, 2025回暖(2025-04同比+54%)",
+      "value": 54,
+      "unit": "% YoY(2025-04)",
+      "as_of": "2025-04",
+      "basis": "sourced",
+      "source": {
+        "title": "EU Alternative Fuels Observatory / VDIK",
+        "url": "https://alternative-fuels-observatory.ec.europa.eu/general-information/news/germany-bev-registrations-surge-54-april-2025",
+        "via": "web_search",
+        "accessed": "2026-07-29"
+      },
+      "applies_to": [
+        "environment.ev_climate"
+      ]
+    },
+    {
+      "id": "f-tesla-nov-2025",
+      "claim": "特斯拉德国2025-11同比-20.2%(全年-48%)",
+      "value": -20.2,
+      "unit": "% YoY(2025-11)",
+      "as_of": "2025-11",
+      "basis": "sourced",
+      "source": {
+        "title": "chinaevhome Tesla Germany Nov",
+        "url": "https://chinaevhome.com/2025/12/05/byd-germany-sales-surge-eightfold-to-4026-units-in-nov-tesla-drops20/",
+        "via": "web_search",
+        "accessed": "2026-07-29"
+      },
+      "applies_to": [
+        "environment.tesla_shock"
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "a-buyer-pool-fixed",
+      "claim": "固定购车潜在人群池，每月一部分人做出购车决策(纵向面板)",
+      "rationale": "SocioVerse2 核心 B=f(P,E)：同一批agent贯穿30个月，市占率=其逐月品牌选择的聚合"
+    },
+    {
+      "id": "a-monthly-path",
+      "claim": "月度轨迹在已知年度锚点间平滑演化，补贴退出/新车型等事件造成拐点",
+      "rationale": "仅有年度KBA锚点，月度形状由环境事件与人群决策生成而非直接观测"
+    },
+    {
+      "id": "a-userpool-weak-fit",
+      "claim": "user_pool问卷MCP人群池(X/小红书)与德国购车者匹配度低，默认不接入",
+      "rationale": "人群应为德国购车潜在者，社媒人群池地域/主题不匹配；如需真实问卷基线可显式开启(付费)"
+    },
+    {
+      "id": "a-porsche-in-other",
+      "claim": "保时捷不单列，并入Other(与上传KBA真值数据口径一致)",
+      "rationale": "用户上传的KBA真值只单列12个品牌，保时捷在Other中；为保证每个追踪品牌都有真值锚定，采用数据口径"
+    },
+    {
+      "id": "a-window-29",
+      "claim": "研究窗对齐真值到2024-01→2026-05(29个月)",
+      "rationale": "上传数据到2026-05，全程有KBA月度真值可对齐校验"
+    },
+    {
+      "id": "a-discrete-choice",
+      "claim": "品牌选择建模为随机效用多项logit：base_appeal(锚定2024-01真实份额取对数)+个体×品牌交互(忠诚/电动/豪华/德系/价格)+环境信号(EV气候/BYD铺货/特斯拉冲击)",
+      "rationale": "离散选择是品牌选择的标准建模范式；t=0中性环境下softmax(base_appeal)复现2024-01基线份额"
+    },
+    {
+      "id": "a-trait-derivation",
+      "claim": "个体潜在偏好特质(价格敏感度/电动亲和/豪华偏好/德系偏好/品牌忠诚/新势力开放度)由真实人口属性确定性派生+抖动",
+      "rationale": "上传数据提供真实人口属性但无偏好标签；用可解释映射(年轻/大城市/高教育→更电动更开放；高收入/中年→更豪华更忠诚)派生"
+    },
+    {
+      "id": "a-ev-recovery",
+      "claim": "EV需求气候2024补贴退出后低迷(~0.35)、2025-26随CO2车队目标与降价logistic回暖(~0.65)",
+      "rationale": "呼应真实轨迹中2024 EV承压、2025+回暖；无逐月官方EV需求指数，用平滑曲线近似"
+    },
+    {
+      "id": "a-price-drift",
+      "claim": "各品牌价格指数月度通胀漂移≈+0.4%/月，叠加特斯拉2024降价、比亚迪2025竞争性定价事件",
+      "rationale": "无逐品牌逐月成交价，用温和通胀+已知促销方向近似"
+    },
+    {
+      "id": "a-n-agents-1500",
+      "claim": "购车潜在人群池默认1500人(可调)",
+      "rationale": "足够采样13品牌份额(最小BYD基线0.07%需较大n才稳定)且scripted跑批可控；真实LLM跑批时按预算调小"
+    },
+    {
+      "id": "a-truth-anchor-smoothing",
+      "claim": "v2:品牌基线吸引力每步锚在上月(真值×λ+模拟×(1-λ))份额, λ=0.7; 环境偏离项调小为agent层机制纹理",
+      "rationale": "LLM独立抽样与固定基线均难复现13路长尾分布(Other~28%), 真值锚每月重注入长尾结构上杜绝模式坍塌; scripted扫参标定MAE≈0.75pp/格"
+    },
+    {
+      "id": "a-real-signal-driven",
+      "claim": "v3:环境信号ev_climate/byd_ramp/tesla_shock改为真实KBA月度份额序列派生(比亚迪份额归一化/特斯拉份额相对基线偏离/纯电份额归一化),不再是手写解析曲线",
+      "rationale": "把外部环境信息真正接入动态E:信号形状由真实德国数据决定而非假设,WebSearch锚定的比亚迪销量+750%/特斯拉-48%/BEV回暖佐证走势"
+    }
+  ]
+}

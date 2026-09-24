@@ -1,0 +1,197 @@
+{
+  "study_id": "opinion_diffusion",
+  "personas": [
+    {
+      "agent_id": "od-000",
+      "attributes": {
+        "opinion0": 0.0417
+      },
+      "group_key": "low",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.0417
+      }
+    },
+    {
+      "agent_id": "od-001",
+      "attributes": {
+        "opinion0": 0.125
+      },
+      "group_key": "low",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.125
+      }
+    },
+    {
+      "agent_id": "od-002",
+      "attributes": {
+        "opinion0": 0.2083
+      },
+      "group_key": "low",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.2083
+      }
+    },
+    {
+      "agent_id": "od-003",
+      "attributes": {
+        "opinion0": 0.2917
+      },
+      "group_key": "low",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.2917
+      }
+    },
+    {
+      "agent_id": "od-004",
+      "attributes": {
+        "opinion0": 0.375
+      },
+      "group_key": "low",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.375
+      }
+    },
+    {
+      "agent_id": "od-005",
+      "attributes": {
+        "opinion0": 0.4583
+      },
+      "group_key": "low",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.4583
+      }
+    },
+    {
+      "agent_id": "od-006",
+      "attributes": {
+        "opinion0": 0.5417
+      },
+      "group_key": "high",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.5417
+      }
+    },
+    {
+      "agent_id": "od-007",
+      "attributes": {
+        "opinion0": 0.625
+      },
+      "group_key": "high",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.625
+      }
+    },
+    {
+      "agent_id": "od-008",
+      "attributes": {
+        "opinion0": 0.7083
+      },
+      "group_key": "high",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.7083
+      }
+    },
+    {
+      "agent_id": "od-009",
+      "attributes": {
+        "opinion0": 0.7917
+      },
+      "group_key": "high",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.7917
+      }
+    },
+    {
+      "agent_id": "od-010",
+      "attributes": {
+        "opinion0": 0.875
+      },
+      "group_key": "high",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.875
+      }
+    },
+    {
+      "agent_id": "od-011",
+      "attributes": {
+        "opinion0": 0.9583
+      },
+      "group_key": "high",
+      "weight": 1.0,
+      "init_state": {
+        "opinion": 0.9583
+      }
+    }
+  ],
+  "interaction": {
+    "kind": "explicit_network",
+    "edges": [
+      [
+        "od-000",
+        "od-001"
+      ],
+      [
+        "od-001",
+        "od-002"
+      ],
+      [
+        "od-002",
+        "od-003"
+      ],
+      [
+        "od-003",
+        "od-004"
+      ],
+      [
+        "od-004",
+        "od-005"
+      ],
+      [
+        "od-005",
+        "od-006"
+      ],
+      [
+        "od-006",
+        "od-007"
+      ],
+      [
+        "od-007",
+        "od-008"
+      ],
+      [
+        "od-008",
+        "od-009"
+      ],
+      [
+        "od-009",
+        "od-010"
+      ],
+      [
+        "od-010",
+        "od-011"
+      ],
+      [
+        "od-011",
+        "od-000"
+      ]
+    ],
+    "adjacency_ref": null
+  },
+  "propagation": "contagion",
+  "provider_ref": "opinion.pop",
+  "provider_args": {
+    "n_agents": 12
+  },
+  "materialized_count": 12
+}

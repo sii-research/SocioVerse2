@@ -1,0 +1,178 @@
+{
+  "study_id": "germany_auto_market",
+  "layers": [
+    {
+      "name": "brand_price_index",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:a-price-drift",
+      "schema_ref": null,
+      "description": "各品牌相对价格指数（基准1.0），随通胀漂移+促销事件"
+    },
+    {
+      "name": "tesla_price",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:a-price-drift",
+      "schema_ref": null,
+      "description": "特斯拉价格指数（促销事件目标）"
+    },
+    {
+      "name": "byd_price",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:a-price-drift",
+      "schema_ref": null,
+      "description": "比亚迪价格指数（竞争性定价事件目标）"
+    },
+    {
+      "name": "ev_climate",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-tesla-decline",
+      "schema_ref": null,
+      "description": "EV需求气候：2024补贴退出后低迷、2025-26回暖"
+    },
+    {
+      "name": "byd_ramp",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-byd-surge",
+      "schema_ref": null,
+      "description": "比亚迪在德铺货/认知度（0→1），2025起加速"
+    },
+    {
+      "name": "tesla_shock",
+      "modality": "physical",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-tesla-decline",
+      "schema_ref": null,
+      "description": "特斯拉品牌冲击项（2024-25打压，2026部分回升）"
+    },
+    {
+      "name": "subsidy_news",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-brand-ground-truth",
+      "schema_ref": null,
+      "description": "EV补贴退出余波新闻"
+    },
+    {
+      "name": "byd_news",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-byd-surge",
+      "schema_ref": null,
+      "description": "比亚迪进入/扩张新闻"
+    },
+    {
+      "name": "tesla_news",
+      "modality": "information",
+      "scope": "macro",
+      "dynamics": "scheduled",
+      "source": "grounding:f-tesla-decline",
+      "schema_ref": null,
+      "description": "特斯拉车型/舆论新闻"
+    },
+    {
+      "name": "cohort_trend",
+      "modality": "information",
+      "scope": "local",
+      "dynamics": "endogenous",
+      "source": null,
+      "schema_ref": null,
+      "description": "同龄段购车者上月品牌选择分布（社交扩散）"
+    }
+  ],
+  "scheduled_events": [
+    {
+      "at_step": 3,
+      "target_layer": "tesla_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price_index",
+      "value": 0.94,
+      "note": "2024Q2：特斯拉在德降价促量"
+    },
+    {
+      "at_step": 15,
+      "target_layer": "byd_price",
+      "op": "multiply",
+      "selector": {},
+      "property_name": "price_index",
+      "value": 0.93,
+      "note": "2025Q2：比亚迪以极具竞争力定价扩张"
+    }
+  ],
+  "information_program": {
+    "broadcasts": [
+      {
+        "message_id": "SUBSIDY",
+        "content": "政策余波：德国电动车补贴(Umweltbonus)已于2023年底突然终止，纯电购车成本上升、需求短期承压。",
+        "channel": "subsidy_news",
+        "at_step": 0,
+        "ttl": 6,
+        "audience": "all",
+        "note": ""
+      },
+      {
+        "message_id": "BYD_ENTRY",
+        "content": "市场新闻：比亚迪加快进入德国，扩张经销网络并推出多款高性价比车型。",
+        "channel": "byd_news",
+        "at_step": 6,
+        "ttl": 10,
+        "audience": "all",
+        "note": ""
+      },
+      {
+        "message_id": "BYD_EXPAND",
+        "content": "市场新闻：比亚迪在德销量快速攀升，展厅与车型选择明显增多，价格颇具竞争力。",
+        "channel": "byd_news",
+        "at_step": 16,
+        "ttl": 13,
+        "audience": "all",
+        "note": ""
+      },
+      {
+        "message_id": "TESLA_PRESS",
+        "content": "舆论环境：特斯拉品牌争议增多、车型更新放缓，部分买家转向其他电动品牌。",
+        "channel": "tesla_news",
+        "at_step": 10,
+        "ttl": 12,
+        "audience": "all",
+        "note": ""
+      },
+      {
+        "message_id": "TESLA_REFRESH",
+        "content": "产品新闻：特斯拉焕新车型上市，重新吸引部分纯电买家关注。",
+        "channel": "tesla_news",
+        "at_step": 24,
+        "ttl": 5,
+        "audience": "all",
+        "note": ""
+      },
+      {
+        "message_id": "EV_RECOVER",
+        "content": "行业趋势：随着车企为满足CO2车队目标推出更实惠电动车，纯电需求逐步回暖。",
+        "channel": "subsidy_news",
+        "at_step": 14,
+        "ttl": 15,
+        "audience": "all",
+        "note": ""
+      }
+    ]
+  },
+  "provider_ref": "germany_auto.env",
+  "provider_args": {
+    "n_agents": 1500,
+    "price_monthly": 1.004
+  }
+}

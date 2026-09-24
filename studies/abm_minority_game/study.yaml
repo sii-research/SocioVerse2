@@ -1,0 +1,50 @@
+{
+  "study_id": "abm_minority_game",
+  "title": "Minority Game / Challet-Zhang (SocioVerse-ABM)",
+  "research_question": "Does inductive strategy play coordinate the population, and does an LLM agent reproduce it?",
+  "hypothesis": "Volatility sigma^2/N settles to a level set by the memory/population ratio.",
+  "study_type": "longitudinal",
+  "n_steps": 30,
+  "seed": 42,
+  "metrics": [
+    "n",
+    "volatility"
+  ],
+  "domain": "game-theory",
+  "tags": [
+    "abm",
+    "minority_game",
+    "game-theory",
+    "market",
+    "umbrella"
+  ],
+  "legacy_simulator": "socioverse_abm",
+  "provider_refs": [
+    "abm.env",
+    "abm.pop",
+    "abm.decision",
+    "abm.collector"
+  ],
+  "adjustable_params": [
+    "n_steps",
+    "seed",
+    "mode (rule|llm|hybrid)",
+    "n_agents",
+    "memory M",
+    "n_strategies S"
+  ],
+  "status": "demo",
+  "maintainer": "",
+  "created_by": "abm-umbrella",
+  "reference": true,
+  "requires": [
+    "sibling:SocioVerse-ABM",
+    "extra:abm"
+  ],
+  "demonstrates": [
+    "abm-benchmark-seam",
+    "market-family",
+    "rule-vs-llm"
+  ],
+  "teaches": "inductive minority-seeking strategies (El Farol / minority game); strategic adaptation exemplar"
+}

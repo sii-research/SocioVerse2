@@ -1,0 +1,9 @@
+# Normalize text files to LF in the repository and in checkouts on every platform.
+* text=auto eol=lf
+
+# Binary files: never convert line endings, never diff as text.
+*.png   binary
+*.xlsx  binary
+*.woff2 binary
+*.docx  binary
+*.pdf   binary

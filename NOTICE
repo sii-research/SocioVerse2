@@ -1,0 +1,114 @@
+SocioVerse2
+Copyright 2026 The SocioVerse2 Authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+The license covers the source code. Third-party components keep their own
+licenses, and data files keep their own terms; both are listed below.
+
+----------------------------------------------------------------------------
+Third-party components
+----------------------------------------------------------------------------
+
+paper-search-pro  (.claude/skills/paper-search-pro/)
+  https://github.com/O0000-code/paper-search-pro, commit d60dc10
+  Copyright 2026 Bo. Licensed under the Apache License, Version 2.0.
+  It includes code adapted from paper-qa (https://github.com/Future-House/paper-qa,
+  Apache License 2.0). Its own notices are kept verbatim in
+  .claude/skills/paper-search-pro/NOTICE.md, LICENSE.txt and THIRD_PARTY.md.
+
+Research-Paper-Writing-Skills  (.claude/skills/research-paper-writing/)
+  https://github.com/Master-cai/Research-Paper-Writing-Skills, commit 77e7c2c
+  Copyright (c) 2026 Master-cai. MIT License; see
+  .claude/skills/research-paper-writing/LICENSE. One line of SKILL.md is
+  modified (see VENDOR.md in the same folder).
+
+KaTeX 0.18.7  (dashboard/web/v2/vendor/katex/)
+  https://katex.org
+  Copyright (c) 2013-2020 Khan Academy and other contributors. MIT License; see
+  dashboard/web/v2/vendor/katex/LICENSE.
+
+HiSim  (the core-user prompt in studies/hisim_roe/model.py)
+  https://github.com/xymou/HiSim
+  The core-user prompt template (_PROMPT_TEMPLATE) and its Thought / Action
+  format are adapted from the prompt in HiSim's
+  agentverse/tasks/simulation/roe_macro_hybrid/config.yaml. HiSim accompanies
+  Mou et al., "Unveiling the Truth and Facilitating Change: Towards Agent-based
+  Large-scale Social Movement Simulation" (Findings of ACL 2024). Copyright the
+  HiSim authors. Licensed under the Apache License, Version 2.0. The study
+  re-implements HiSim's hybrid mode on the SocioVerse2 runtime; no other HiSim
+  code is included.
+
+----------------------------------------------------------------------------
+Data attributions
+----------------------------------------------------------------------------
+
+German grounding workbook
+  studies/germany_auto_market/uploads/marketsim-grounding-data.xlsx, and the
+  brand-share series derived from it (studies/germany_auto_market/brand_truth_series.json).
+  The workbook was compiled from the following sources. The data were
+  aggregated, combined into a synthetic joint population distribution and
+  reshaped, and the monthly brand shares were normalized; these are changes to
+  the original data.
+
+  - Statistisches Bundesamt (Destatis), GENESIS-Online, table 12411-0013
+    (population by Land, sex and age).
+  - Statistische Aemter des Bundes und der Laender, Zensus 2022, Regionaltabellen
+    (education, employment, household and housing marginals).
+  - Bundesinstitut fuer Bau-, Stadt- und Raumforschung (BBSR), siedlungsstrukturelle
+    Kreistypen 2024 (urbanicity by Land).
+  - Mobilitaet in Deutschland 2023 (MiD 2023), district-level small-area estimates
+    (public-transport access, car dependence, annual kilometres).
+    The four sources above are licensed under the Data licence Germany -
+    attribution - version 2.0 (dl-de/by-2-0, https://www.govdata.de/dl-de/by-2-0).
+  - Kraftfahrt-Bundesamt (KBA), Flensburg, Fahrzeugzulassungen FZ10: monthly new
+    registrations of passenger cars by make, 2023-01 to 2026-05.
+    Source: Kraftfahrt-Bundesamt.
+  The workbook's "README" and "provenance" sheets describe each field and its
+  source.
+
+FRED snapshot (studies/germany_auto_market/environment/external_events.json)
+  Monthly macro series retrieved through FRED, Federal Reserve Bank of St. Louis
+  (https://fred.stlouisfed.org/). Only public-domain series of U.S. government
+  agencies are committed: CPIAUCSL, UNRATE, PAYEMS and JTSJOL (U.S. Bureau of
+  Labor Statistics); PCE and DSPIC96 (U.S. Bureau of Economic Analysis); FEDFUNDS
+  (Board of Governors of the Federal Reserve System); GASREGW (U.S. Energy
+  Information Administration); ICSA (U.S. Employment and Training
+  Administration). The values of copyrighted series (SP500, VIXCLS, UMCSENT,
+  MICH, CSUSHPINSA, MORTGAGE30US) were removed; each record lists them under
+  metadata.redacted_series. Re-fetch them locally with
+  socioverse.materialize_external_events under the terms of their owners.
+
+ConsumerSim release data (studies/consumer_confidence_us_backtest/)
+  The population, roster, environment, metrics and figures of this study are
+  built from the public release data of ConsumerSim
+  (https://sii-research.github.io/ConsumerSim/, data file
+  https://sii-research.github.io/ConsumerSim/data/consumersim_site_data.csv) and
+  are redistributed with the permission of its authors. The shipped artifacts
+  were built from the 2026-07-03 publish, pinned at
+  https://raw.githubusercontent.com/RunRiotComeOn/ConsumerSim-Consumer-Confidence-Forecast/f018181eb105e6845993a5ba1f2ab2a5287608bd/data/consumersim_site_data.csv
+  The actual index values it is scored against are the University of Michigan
+  Index of Consumer Sentiment. Source: Surveys of Consumers, University of
+  Michigan (https://data.sca.isr.umich.edu/).
+
+Consumer-confidence headline figures (studies/consumer_confidence/)
+  The study's grounding ledger, report and paper quote published headline
+  figures of the University of Michigan Surveys of Consumers
+  (https://www.sca.isr.umich.edu/) and The Conference Board Consumer Confidence
+  Index, each with its source link. These figures remain the property of their
+  publishers.
+
+HiSim case series (studies/hisim_roe/)
+  environment/sources/techreport_case.json and the metrics built from it hold
+  aggregate opinion series digitized from the SocioVerse2 technical report
+  (arXiv:2609.24911), whose Roe v. Wade case follows HiSim (Mou et al., Findings
+  of ACL 2024). The files contain aggregate series only; no tweet text or user
+  records are included.
+
+Chicago census data (studies/chicago_schelling/)
+  The Chicago census geography, the archetype configuration and the other
+  legacy data live in the companion repository SocioVerse-ABM
+  (https://github.com/Lishi905/SocioVerse-ABM) under their own data notice
+  (tasks/organization/chicago_segregation/legacy/DATA_LICENSE.md). This
+  repository ships only artifacts of the study: the initial roster of household
+  archetypes on census tracts, built by that model from U.S. Census Bureau
+  counts (public domain), and the report, figures and metrics of a run.
