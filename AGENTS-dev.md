@@ -34,7 +34,7 @@ for t in 1..N:                            # the longitudinal loop
   1 exogenous update  env.advance_to(t)   # scheduled events + info broadcasts change E;
                                           #   an intervention lands here, before anyone observes
   2 observe           env.observe_batch()      -> Observation[]  # each agent's 4-quadrant view
-  3 decide            decision.decide_batch()  -> Action[] (= B) # batched LLM/rule decision
+  3 decide            decision.decide_batch()  -> Action[] (= B) # whole step in, one Action per agent out
   4 apply             env.apply(actions)       # endogenous feedback: E -> E_{t+1}
   5 record            store.record(panel rows) + _collect() -> metrics -> DuckDB (panel/metrics/events)
 ```
@@ -71,8 +71,12 @@ A study = **4 abc implementations + (optional) engine-seam + 4 artifacts**. Mirr
 2. **`PopulationProvider`** — `build(seed) -> Persona[]` with **deterministic persistent ids** (so
    sv-build-population's pre-run materialization matches what sv-run rebuilds at t=0);
    `neighbors()` for local-information propagation.
-3. **`DecisionModel`** — `decide_batch(obs, memories) -> Action[]`. Call your engine's *batched*
-   decision; KEEP batching (never per-agent LLM).
+3. **`DecisionModel`** — `decide_batch(obs, memories) -> Action[]`. `decide_batch` receives the
+   whole step at once; on this adapter path, call the wrapped engine's own decision and keep
+   its call pattern (e.g. Chicago's archetype-grouped LLM phases), so its validated dynamics
+   stay unchanged. This rule is for legacy wraps only: a from-scratch study calls the LLM
+   once per agent, sending the step's calls concurrently (see `sv-build-model`), and never
+   asks for one JSON reply covering the whole population.
 4. **`MetricCollector`** — `collect(env, actions, t) -> dict`, wrapping the existing metrics.
 5. **(optional) `engine-seam`** — a config-injection context manager that builds + holds a *legacy*
    engine WITHOUT editing its source. A from-scratch study skips this (then it's just the 4 abc impls).

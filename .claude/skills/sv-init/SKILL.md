@@ -21,6 +21,8 @@ brief ("Language: English"), so later stages and a resumed session keep it.
   German", "reply in Chinese") overrides all of this.
 - `*_i18n` variants are extra translations for the dashboard, never the primary text: the plain
   field is always in the query's language.
+- This holds for a Path-A fork too: a fork of a study written in another language rewrites the
+  inherited display fields in the query's language (see Path A below).
 
 ## Step −1 — the intent checklist (clarify task understanding BEFORE planning)
 A one-line query almost never pins down what the user actually wants, and "clarify while
@@ -168,6 +170,26 @@ Otherwise judge each candidate on: same `domain` / `legacy_simulator`, overlappi
   fork = fork_study("studies", "chicago_schelling", "chicago_sez")   # matched_id -> new_id; refuses to overwrite
   init_manifest(fork)                                                # the fork starts its own version line at v1
   print("edit:", study_paths(fork)["environment"])                   # then /sv-build-environment on the FORK
+  ```
+
+  **Then put the fork's display fields in the query's language (the language rule above).** The fork
+  inherits the source's `title` / `research_question` / `hypothesis` / `metric_descriptions`, and most
+  reference studies are written in Chinese. When their language differs from the query's, rewrite the
+  plain fields in the query's language, framed for THIS query, and keep the source's wording in the
+  `*_i18n` field under its language code (`zh` for the Chinese references). `metric_descriptions` has
+  no `*_i18n` variant, so rewrite each line in place. Save before the next stage: `/sv-report` and the
+  stage narratives take their language from these fields.
+
+  ```python
+  from skills.sv_workspace import load_study_yaml, save_study_yaml
+  spec = load_study_yaml(study_paths(fork)["study"])
+  for f in ("title", "research_question", "hypothesis"):
+      getattr(spec, f + "_i18n").setdefault("zh", getattr(spec, f))   # keep the source's wording
+  spec.title, spec.research_question, spec.hypothesis = "<title>", "<question>", "<hypothesis>"  # query language
+  for f in ("title", "research_question", "hypothesis"):
+      getattr(spec, f + "_i18n")["en"] = getattr(spec, f)             # "en" = the query language here
+  spec.metric_descriptions = {m: "<one line in the query language>" for m in spec.metrics}
+  save_study_yaml(study_paths(fork)["study"], spec)
   ```
 
 - **Path B — build from scratch on Core** (no match, and the user has NO existing simulator to wrap — the default for an end-user query). Write the artifacts below with `legacy_simulator="from_scratch"`, then the **next skill is `/sv-build-model`**, which implements the four abc natively on Core (no seam). This is the high-freedom, from-zero path; `CLAUDE-dev.md` is NOT needed.

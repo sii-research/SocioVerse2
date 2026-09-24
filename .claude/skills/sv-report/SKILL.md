@@ -10,10 +10,14 @@ Read the DuckDB trajectory store and produce the human-facing outputs. Everythin
 ## Strict contract
 - **Read** `trajectory/study.duckdb` (tables: `panel`, `metrics`, `events`, optional `messages`) and `study.yaml`.
 - **Write** `reports/report.md` + `reports/figures/*.png`.
-- **Write the report in the study's language** — the language of the user's query, which sv-init
-  used for `title` / `research_question` (its language rule). Never default to Chinese: the
-  reference studies' shipped reports are Chinese, but that says nothing about this user. Text
-  quoted from a source (grounding claims, news) may stay in its own language.
+- **Write the report in the study's language** — take it from the plain `title` /
+  `research_question` in `study.yaml`. sv-init writes those in the language of the user's query (its
+  language rule) and rewrites them when a Path-A fork's source was in another language, so they
+  carry the language; the `*_i18n` fields are translations, never the signal. If the plain fields
+  are still in another language than the one the user writes in (an older fork that kept its
+  source's Chinese text), write in the user's language and tell them the fields are stale. Never
+  default to Chinese: the reference studies' shipped reports are Chinese, but that says nothing
+  about this user. Text quoted from a source (grounding claims, news) may stay in its own language.
 - **Every figure the report references must actually be written this pass** — and on a
   version-iterated re-run remember that `/sv-iterate` WIPED the live `reports/` (the old
   figures live only in the `versions/vN` snapshot): regenerate the full figure set this

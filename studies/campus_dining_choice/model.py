@@ -301,6 +301,20 @@ def build_student_prompt(ob: Observation) -> str:
     ) % (meals, p["canteen"], p["delivery"], p["cook"], info_block, cohort_line, dorm_block, last_line)
 
 
+# The reason recorded when a reply does not parse is written in the prompt's language, so an
+# English study's panel never gets a Chinese filler line. The shipped build_student_prompt is
+# Chinese, so this template records the "zh" text; a copy whose prompt is English gets "en".
+_FALLBACK_REASON = {
+    "zh": "（作答未解析，维持上月选择）",
+    "en": "(reply not parsed; kept last month's choice)",
+}
+
+
+def _prompt_lang(prompt: str) -> str:
+    """'zh' when the prompt contains CJK characters, otherwise 'en'."""
+    return "zh" if re.search(r"[\u4e00-\u9fff]", prompt) else "en"
+
+
 _CHOICE_SYNONYMS = {
     "canteen": ["canteen", "食堂"], "delivery": ["delivery", "外卖", "点外卖"],
     "cook": ["cook", "自己做", "做饭", "自炊", "自己做饭"],
@@ -592,7 +606,7 @@ class DiningDecision(DecisionModel):
                              ob.agent_id, resp[:300])
                 keep = ob.local_physical["state"].get("choice") or "canteen"
                 dec = {"choice": keep, "satisfaction": ob.local_physical["state"].get("satisfaction") or 0.5,
-                       "reason": "（作答未解析，维持上月选择）"}
+                       "reason": _FALLBACK_REASON[_prompt_lang(build_student_prompt(ob))]}
                 source = "fallback"
             else:
                 source = "llm" if self.llm_kind == "openai" else "rule"

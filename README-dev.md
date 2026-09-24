@@ -43,7 +43,7 @@ reset()                                     # E_0
 loop t=1..N:
   1 exogenous update   env.advance_to(t)                    # scheduled events + info broadcasts mutate E
   2 observe            env.observe_batch() -> Observation[] # 4-quadrant per-agent view (macro/local × physical/info)
-  3 decide             decision.decide_batch() -> Action[]  (= B)   # batched decision
+  3 decide             decision.decide_batch() -> Action[]  (= B)   # whole step in, one Action per agent out
   4 apply              env.apply(actions)                   # endogenous feedback E -> E_{t+1}
   5 record             store.record(panel rows) + _collect() -> metrics -> DuckDB
 ```
@@ -65,8 +65,11 @@ Mirror `studies/chicago_schelling/adapter/`:
    information), `apply` (endogenous), `advance_to(t)` (exogenous events + broadcasts).
 3. **`PopulationProvider`** — project agents → `Persona` with **deterministic persistent ids**;
    `group_key` = the batching cohort; encode the neighbour/network relation as `InteractionStructure`.
-4. **`DecisionModel.decide_batch`** — call the engine's batched decision; project to typed `Action`s.
-   Keep batching (no per-agent LLM).
+4. **`DecisionModel.decide_batch`** — receives the whole step at once; call the wrapped engine's own
+   decision, keep its call pattern (e.g. Chicago's archetype-grouped LLM phases) and project the
+   result to typed `Action`s. That rule is for legacy wraps only: a from-scratch study calls the LLM
+   once per agent, sending the step's calls concurrently (see the `sv-build-model` skill), and never
+   asks for one JSON reply covering the whole population.
 5. **`MetricCollector`** — wrap the existing metrics → the DuckDB store (reused from Core).
 6. **4 artifacts** (`study/env/pop/sim.json`) + register classes via `socioverse.engine.registry`.
    Fill `study.yaml`'s **discovery fields** (`domain`, `tags`, `legacy_simulator`/`"from_scratch"`,

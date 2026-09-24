@@ -167,8 +167,19 @@ This stage **spends LLM budget and writes the trajectory store**, so confirming 
 ## Dashboard narrative (required after every completed run, non-blocking — L2)
 After **every** run that completes (a first run, a re-run, a branch or a resumed run), post a
 1–2 sentence plain-language summary of *what happened and why* (did the metrics move?) plus the
-run shape (LLM or scripted, steps run vs replayed, `decision_source` counts when there were
-fallbacks). It is written to `studies/<id>/narrative/sv-run.json`, the record of this version's run
+run shape (LLM or scripted, steps run vs replayed) and, for a real-LLM run, how many decisions fell
+back. The engine does not store `Action.source` (the panel keeps only `state`, `action_kind` and
+`action_payload`), so count fallbacks where they actually exist:
+- if the model copies `act.source` into the agent's state as `decision_source` (optional in
+  `/sv-build-model`; the shipped templates `opinion_diffusion` and `campus_dining_choice` do NOT),
+  report the counts from the panel:
+  `SELECT state->>'decision_source' AS src, count(*) FROM panel GROUP BY src`;
+- otherwise count the fallback warnings the model logged during the run (stderr of the run
+  process; the templates log `LLM call failed for <agent_id>` and `unparsed reply from <agent_id>`),
+  and say the number comes from the log. With neither available, say fallbacks were not recorded;
+  never estimate a count.
+
+The narrative is written to `studies/<id>/narrative/sv-run.json`, the record of this version's run
 that the dashboard shows on this stage's card + event feed (files already carry the state; this is
 the reasoning):
 ```bash
