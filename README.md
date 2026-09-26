@@ -8,7 +8,7 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/challenge-banner.svg">
       <source media="(prefers-color-scheme: light)" srcset="assets/challenge-banner-light.svg">
-      <img alt="SocioVerse Challenge 2026: AI4SS Challenge for Human-AI Collaboration and Social Governance. Three research tracks, $21,050 in prizes and API support, final submission October 31, 2026." src="assets/challenge-banner.svg" width="100%">
+      <img alt="SocioVerse Challenge 2026: AI4SS Challenge for Human-AI Collaboration and Social Governance. Three research tracks, $17,600 in prizes and API support, final submission October 31, 2026." src="assets/challenge-banner.svg" width="100%">
     </picture>
   </a>
 </p>
@@ -46,7 +46,7 @@
 
 - **2026-09-25** SocioVerse2 v0.2.0 is open source: the runtime, the `/sv-*` workflow skills, the local research dashboard and the reference studies. The 11 ABM benchmark studies and the Chicago study run on the companion repository [SocioVerse-ABM](https://github.com/Lishi905/SocioVerse-ABM).
 - **2026-09-21** The technical report is on arXiv: [SocioVerse2: A Longitudinal Dynamic Social Simulation Framework under a Human-AI Co-evolutionary Paradigm](https://arxiv.org/abs/2609.24911).
-- **2026-09-15** [SocioVerse Challenge 2026](https://socioverse.fudan-disc.com/challenge/) (AI4SS Challenge for Human–AI Collaboration and Social Governance) opens registration. Three tracks, $21,050 in prizes and API support. Proposals are due 2026-10-09, final submissions 2026-10-31 (23:59 UTC+8). Outcomes are shared with [LASS 2026 @ CIKM 2026](https://socioverse.fudan-disc.com/challenge/#about). Teams in the local-development mode build their studies with this repository.
+- **2026-09-15** [SocioVerse Challenge 2026](https://socioverse.fudan-disc.com/challenge/) (AI4SS Challenge for Human–AI Collaboration and Social Governance) opens registration. Three tracks, $17,600 in prizes and API support. Proposals are due 2026-10-09, final submissions 2026-10-31 (23:59 UTC+8). Outcomes are shared with [LASS 2026 @ CIKM 2026](https://socioverse.fudan-disc.com/challenge/#about). Teams in the local-development mode build their studies with this repository.
 - **2025-04** [SocioVerse](https://arxiv.org/abs/2504.10157), the predecessor, introduced a world model for social simulation over a pool of 10 million real-world users.
 
 ## What is SocioVerse2

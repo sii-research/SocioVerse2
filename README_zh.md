@@ -8,7 +8,7 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/challenge-banner.svg">
       <source media="(prefers-color-scheme: light)" srcset="assets/challenge-banner-light.svg">
-      <img alt="SocioVerse Challenge 2026: AI4SS Challenge for Human-AI Collaboration and Social Governance. Three research tracks, $21,050 in prizes and API support, final submission October 31, 2026." src="assets/challenge-banner.svg" width="100%">
+      <img alt="SocioVerse Challenge 2026: AI4SS Challenge for Human-AI Collaboration and Social Governance. Three research tracks, $17,600 in prizes and API support, final submission October 31, 2026." src="assets/challenge-banner.svg" width="100%">
     </picture>
   </a>
 </p>
@@ -46,7 +46,7 @@
 
 - **2026-09-25** SocioVerse2 v0.2.0 开源：运行时、`/sv-*` 工作流 skills、本地研究仪表盘以及参考研究。11 个 ABM 基准研究和芝加哥研究运行在配套仓库 [SocioVerse-ABM](https://github.com/Lishi905/SocioVerse-ABM) 之上。
 - **2026-09-21** 技术报告发布于 arXiv：[SocioVerse2: A Longitudinal Dynamic Social Simulation Framework under a Human-AI Co-evolutionary Paradigm](https://arxiv.org/abs/2609.24911)。
-- **2026-09-15** [SocioVerse Challenge 2026](https://socioverse.fudan-disc.com/challenge/)（面向人机协同与社会治理的 AI4SS 挑战赛）开放报名。设三个赛道，$21,050 奖金与 API 支持。提案截止 2026-10-09，最终提交截止 2026-10-31（UTC+8 23:59）。成果将在 [LASS 2026 @ CIKM 2026](https://socioverse.fudan-disc.com/challenge/#about) 上交流。以本地开发方式参赛的队伍使用本仓库构建研究。
+- **2026-09-15** [SocioVerse Challenge 2026](https://socioverse.fudan-disc.com/challenge/)（面向人机协同与社会治理的 AI4SS 挑战赛）开放报名。设三个赛道，$17,600 奖金与 API 支持。提案截止 2026-10-09，最终提交截止 2026-10-31（UTC+8 23:59）。成果将在 [LASS 2026 @ CIKM 2026](https://socioverse.fudan-disc.com/challenge/#about) 上交流。以本地开发方式参赛的队伍使用本仓库构建研究。
 - **2025-04** 前作 [SocioVerse](https://arxiv.org/abs/2504.10157) 提出了基于千万级真实用户池的社会模拟世界模型。
 
 ## SocioVerse2 是什么
