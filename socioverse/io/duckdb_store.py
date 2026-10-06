@@ -1,7 +1,8 @@
 """DuckDbTrajectoryStore — database-like panel/metrics/events/messages store.
 
 One DuckDB file per study (`trajectory/study.duckdb`) with tables:
-  - panel(agent_id, step, state JSON, action_kind, action_payload JSON)  -- longitudinal panel
+  - panel(agent_id, step, state JSON, action_kind, action_payload JSON,
+          action_source)                                                 -- longitudinal panel
   - metrics(step, <one column per metric>)                               -- per-step aggregates
   - events(step, note)                                                   -- fired interventions
   - messages(author_id, step, round, channel, content, audience)         -- inter-agent (scenario 2)
@@ -44,7 +45,7 @@ class DuckDbTrajectoryStore(TrajectoryStore):
         self._con.execute(
             "CREATE TABLE panel("
             "agent_id VARCHAR, step INTEGER, state JSON, "
-            "action_kind VARCHAR, action_payload JSON)"
+            "action_kind VARCHAR, action_payload JSON, action_source VARCHAR)"
         )
         self._con.execute("CREATE TABLE events(step INTEGER, note VARCHAR)")
 
@@ -66,10 +67,10 @@ class DuckDbTrajectoryStore(TrajectoryStore):
             return
         rows = [
             (r.agent_id, r.step, json.dumps(r.state, ensure_ascii=False),
-             r.action_kind, json.dumps(r.action_payload, ensure_ascii=False))
+             r.action_kind, json.dumps(r.action_payload, ensure_ascii=False), r.action_source)
             for r in records
         ]
-        self._insert_batch("INSERT INTO panel VALUES (?, ?, ?::JSON, ?, ?::JSON)", rows)
+        self._insert_batch("INSERT INTO panel VALUES (?, ?, ?::JSON, ?, ?::JSON, ?)", rows)
 
     def record_metrics(self, row: dict[str, Any]) -> None:
         self._metrics_rows.append(dict(row))
@@ -103,7 +104,7 @@ class DuckDbTrajectoryStore(TrajectoryStore):
             out = self.db_path.parent
             self._con.execute(
                 "COPY (SELECT agent_id, step, CAST(state AS VARCHAR) AS state, "
-                "action_kind, CAST(action_payload AS VARCHAR) AS action_payload "
+                "action_kind, CAST(action_payload AS VARCHAR) AS action_payload, action_source "
                 f"FROM panel) TO '{out / 'panel.parquet'}' (FORMAT PARQUET)"
             )
             if self._metrics_rows:

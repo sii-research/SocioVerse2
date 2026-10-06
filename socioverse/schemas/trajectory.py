@@ -15,6 +15,7 @@ class TrajectoryRecord(BaseModel):
     state: dict[str, Any] = Field(default_factory=dict)   # tract_id, satisfaction, ...
     action_kind: str | None = None
     action_payload: dict[str, Any] = Field(default_factory=dict)
+    action_source: str | None = None   # Action.source: llm | rule | fallback | replay (None = no action)
 
 
 class MetricsHistory(BaseModel):

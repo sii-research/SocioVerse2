@@ -150,6 +150,8 @@ Draft a one-line version `note` (≤ 50 chars, e.g. "subway news + step-4 home-b
   environment bundle (or only stretches `n_steps`) and changes nothing else. It **inherits steps
   `0..t*-1` from the parent by replaying that run's stored actions** (exact, no LLM, no budget) and
   only computes `t*..n_steps`, so it pairs with its parent as control / treatment on the *same* individuals.
+  After the run, the panel's `action_source` reads `replay` for steps `1..t*-1`; cite it as the
+  evidence that the inherited steps were replayed and not decided again.
   Offer it **only when step 2 classified the change as a branch** (environment-only at
   `at_step >= t*`, or a pure `n_steps` extension) and the study is from-scratch / Path-B with
   `interaction_rounds == 1`. chicago (legacy wrap) and multi-round studies are not eligible — the

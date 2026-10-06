@@ -38,7 +38,7 @@ Bind the study's bundles into a `SimulationConfig`, wire the providers + decisio
   a message when they want you to fetch the results — never promise an automatic follow-up you cannot
   deliver.
 - `interaction_rounds = 1` for move-based models (Schelling). For agent-to-agent message exchange (hybrid opinion dynamics, scenario 2) set `interaction_rounds = K`; the env's MessageBus carries posts between rounds.
-- Large scale: the decision model batches LLM calls internally (per cohort), not per agent.
+- Large scale: the decision model fans its LLM calls out concurrently, one short call per agent on a bounded thread pool (see `/sv-build-model`), never one reply covering the whole population.
 - **Branch replay (honored automatically).** When the live version is a **branch** (`kind == "branch"` in
   `versions.json` — written by `/sv-iterate` when the user only added interventions at `at_step >= fork_step`),
   `resolve_warm_start` first runs `check_branch_invariant`, which checks that this version differs from its
@@ -87,7 +87,7 @@ assert hist.covers(study.metrics) == [], f"missing metrics: {hist.covers(study.m
 - **Cost note**: small scale ≈ 1–2 min/step (real LLM). For a no-cost plumbing check, pass a `DeterministicLLMClient` as `llm_client=`.
 
 ### Generic (from-scratch / Path B — registry-assembled, no per-study builder)
-A `sv-build-model` study runs through the **generic Core assembler** `socioverse.engine.build_simulator`, which resolves the `*_ref`s from the registry — no `build_<study>_simulator` to write. Set `decision_ref` **and** `collector_ref` in the `SimulationConfig`. Importing the study package runs its `@register` decorators.
+A `sv-build-model` study runs through the **generic Core assembler** `socioverse.engine.build_simulator`, which resolves the `*_ref`s from the registry — no `build_<study>_simulator` to write. Set `decision_ref` **and** `collector_ref` in the `SimulationConfig`. Importing the study package runs its `@register` decorators. A Path-A fork has no code of its own: import the package that registers the refs its `simulation.json` names, i.e. the reference study it was forked from (`import studies.opinion_diffusion` for a fork of `opinion_diffusion`).
 ```python
 import studies.opinion_diffusion          # side effect: registers opinion.* refs
 from socioverse.engine import build_simulator
@@ -168,16 +168,13 @@ This stage **spends LLM budget and writes the trajectory store**, so confirming 
 After **every** run that completes (a first run, a re-run, a branch or a resumed run), post a
 1–2 sentence plain-language summary of *what happened and why* (did the metrics move?) plus the
 run shape (LLM or scripted, steps run vs replayed) and, for a real-LLM run, how many decisions fell
-back. The engine does not store `Action.source` (the panel keeps only `state`, `action_kind` and
-`action_payload`), so count fallbacks where they actually exist:
-- if the model copies `act.source` into the agent's state as `decision_source` (optional in
-  `/sv-build-model`; the shipped templates `opinion_diffusion` and `campus_dining_choice` do NOT),
-  report the counts from the panel:
-  `SELECT state->>'decision_source' AS src, count(*) FROM panel GROUP BY src`;
-- otherwise count the fallback warnings the model logged during the run (stderr of the run
-  process; the templates log `LLM call failed for <agent_id>` and `unparsed reply from <agent_id>`),
-  and say the number comes from the log. With neither available, say fallbacks were not recorded;
-  never estimate a count.
+back. The panel's `action_source` column holds each action's `Action.source` (`llm`, `fallback`,
+`rule`, or `replay` for the steps a branch inherits), so take the counts from there:
+`SELECT step, action_source, count(*) FROM panel WHERE step > 0 GROUP BY ALL ORDER BY step`.
+Runs stored before the column existed lack it; for those, count the fallback warnings the model
+logged during the run (stderr of the run process; the templates log `LLM call failed for
+<agent_id>` and `unparsed reply from <agent_id>`) and say the number comes from the log. With
+neither available, say fallbacks were not recorded; never estimate a count.
 
 The narrative is written to `studies/<id>/narrative/sv-run.json`, the record of this version's run
 that the dashboard shows on this stage's card + event feed (files already carry the state; this is

@@ -52,6 +52,7 @@ def build_panel_rows(env: EnvironmentProvider, personas: list[Persona], actions,
                 state=env.agent_state(p.agent_id),
                 action_kind=a.kind if a else None,
                 action_payload=a.payload if a else {},
+                action_source=a.source if a else None,
             )
         )
     return out
@@ -275,7 +276,8 @@ class LongitudinalSimulator(Simulator):
             with open(Path(db_path).parent / "panel_live.jsonl", "w" if t == 0 else "a") as f:
                 for r in rows:
                     f.write(json.dumps({"agent_id": r.agent_id, "step": r.step, "state": r.state,
-                                        "action_kind": r.action_kind, "action_payload": r.action_payload},
+                                        "action_kind": r.action_kind, "action_payload": r.action_payload,
+                                        "action_source": r.action_source},
                                        ensure_ascii=False) + "\n")
         except Exception:
             pass
