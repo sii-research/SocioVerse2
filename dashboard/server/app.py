@@ -769,7 +769,7 @@ def _read_panel_jsonl(p: Path) -> list:
 
 
 def read_panel(d: Path):
-    """Per-agent rows (agent_id, step, state, action_kind, action_payload) + a source tag.
+    """Per-agent rows (agent_id, step, state, action_kind, action_payload, action_source) + a source tag.
 
     Priority: the lock-free panel_live.jsonl (readable mid-run) → the finalized DuckDB store
     (read-only, safe once the run released its lock) → the pre-run population/roster.jsonl that
@@ -777,22 +777,45 @@ def read_panel(d: Path):
     any run). Source tag is one of "live" | "duckdb" | "roster" | None (empty).
     """
     live_file = d / "trajectory" / "panel_live.jsonl"
-    if live_file.exists():
-        return _read_panel_jsonl(live_file), "live"
     db = d / "trajectory" / "study.duckdb"
+    if live_file.exists() and (not db.exists() or mtime(live_file) > mtime(db)):
+        return _read_panel_jsonl(live_file), "live"
     if db.exists():
+        con = None
         try:
             import duckdb
             con = duckdb.connect(str(db), read_only=True)
-            rows = [{"agent_id": a, "step": s, "state": json.loads(st),
-                     "action_kind": ak, "action_payload": json.loads(ap or "{}")}
-                    for a, s, st, ak, ap in con.execute(
-                        "SELECT agent_id, step, state, action_kind, action_payload "
-                        "FROM panel ORDER BY step, agent_id").fetchall()]
-            con.close()
+            tables = {r[0] for r in con.execute("SHOW TABLES").fetchall()}
+            if "metrics" not in tables and live_file.exists():
+                return _read_panel_jsonl(live_file), "live"
+            cols = {c[0] for c in con.execute("DESCRIBE panel").fetchall()}
+            has_src = "action_source" in cols
+            sql = (
+                "SELECT agent_id, step, state, action_kind, action_payload, action_source FROM panel ORDER BY step, agent_id"
+                if has_src else
+                "SELECT agent_id, step, state, action_kind, action_payload, NULL AS action_source FROM panel ORDER BY step, agent_id"
+            )
+            rows = [
+                {
+                    "agent_id": a,
+                    "step": s,
+                    "state": json.loads(st) if isinstance(st, str) else (st or {}),
+                    "action_kind": ak,
+                    "action_payload": json.loads(ap or "{}") if isinstance(ap, str) else (ap or {}),
+                    "action_source": asrc,
+                }
+                for a, s, st, ak, ap, asrc in con.execute(sql).fetchall()
+            ]
             return rows, "duckdb"
         except Exception:
+            if live_file.exists():
+                return _read_panel_jsonl(live_file), "live"
             return [], None
+        finally:
+            if con is not None:
+                con.close()
+    if live_file.exists():
+        return _read_panel_jsonl(live_file), "live"
     roster = d / "population" / "roster.jsonl"
     if roster.exists():
         return _read_panel_jsonl(roster), "roster"

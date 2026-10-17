@@ -7,7 +7,9 @@ Every input is built fresh with pytest tmp_path and has nothing to do with the r
 from __future__ import annotations
 
 import json
+import os
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "dashboard" / "server"))
@@ -115,6 +117,150 @@ def test_agent_detail_from_roster(tmp_path):
     assert det["agent_id"] == "a1" and det["phase"] == "initial"
     assert [r["step"] for r in det["rows"]] == [0, 2]   # ascending by step
     assert all(r["agent_id"] == "a1" for r in det["rows"])
+
+
+# ── read_panel & agents_summary (live vs duckdb post-run, action_source) ────
+def test_read_panel_post_run_duckdb_with_action_source(tmp_path):
+    import studies.opinion_diffusion  # noqa: F401
+    from socioverse.engine import build_simulator
+    from socioverse.schemas import SimulationConfig
+    from studies.opinion_diffusion.model import make_opinion_bundles
+
+    study_dir = tmp_path / "study"
+    traj_dir = study_dir / "trajectory"
+    traj_dir.mkdir(parents=True)
+    db_path = traj_dir / "study.duckdb"
+
+    cfg = SimulationConfig(
+        study_id="opinion_diffusion", n_steps=2, seed=7,
+        decision_ref="opinion.decision", decision_args={"confidence": 0.3},
+        collector_ref="opinion.collector", interaction_rounds=1,
+    )
+    _, env_b, pop_b, _ = make_opinion_bundles(n_agents=4, n_steps=2)
+    # sim.run() executes self.store.finalize(), materializing metrics table and releasing lock
+    build_simulator(env_bundle=env_b, pop_bundle=pop_b, sim_config=cfg, store_path=db_path).run()
+
+    live_file = traj_dir / "panel_live.jsonl"
+    assert live_file.exists()
+    assert db_path.exists()
+
+    # Even without metrics_history.json, a finalized run returns duckdb (phase == post_run)
+    rows, source = app.read_panel(study_dir)
+    assert source == "duckdb"
+
+    summary = app.agents_summary(study_dir)
+    assert summary["phase"] == "post_run"
+    assert summary["live"] is False
+
+    live_rows = [json.loads(line) for line in live_file.read_text().splitlines() if line]
+    assert len(rows) == len(live_rows)
+    for r, lr in zip(rows, live_rows):
+        assert r["agent_id"] == lr["agent_id"]
+        assert r["step"] == lr["step"]
+        assert r["action_kind"] == lr["action_kind"]
+        assert r["action_source"] == lr["action_source"]
+
+    assert {r["action_source"] for r in rows if r["step"] == 0} == {None}
+    assert {r["action_source"] for r in rows if r["step"] > 0} == {"rule"}
+
+
+def test_read_panel_mid_run_returns_live(tmp_path):
+    study_dir = tmp_path / "study"
+    traj_dir = study_dir / "trajectory"
+    traj_dir.mkdir(parents=True)
+    live_file = traj_dir / "panel_live.jsonl"
+    db_path = traj_dir / "study.duckdb"
+
+    # Case 2a: Only panel_live.jsonl exists (duckdb not created yet)
+    write_jsonl(live_file, [
+        {"agent_id": "a1", "step": 0, "state": {"x": 1}, "action_kind": None, "action_source": None},
+        {"agent_id": "a1", "step": 1, "state": {"x": 2}, "action_kind": "act", "action_source": "rule"},
+    ])
+    rows, source = app.read_panel(study_dir)
+    assert source == "live"
+    assert app.agents_summary(study_dir)["phase"] == "live"
+    assert app.agents_summary(study_dir)["live"] is True
+    assert len(rows) == 2
+
+    # Case 2b: duckdb exists with panel table but NO metrics table (mid-run unfinalized store)
+    import duckdb
+    con = duckdb.connect(str(db_path))
+    con.execute("CREATE TABLE panel(agent_id VARCHAR, step INTEGER, state JSON, action_kind VARCHAR, action_payload JSON, action_source VARCHAR)")
+    con.execute("INSERT INTO panel VALUES ('a1', 0, '{}', NULL, '{}', NULL)")
+    con.close()
+
+    rows, source = app.read_panel(study_dir)
+    assert source == "live"
+    assert app.agents_summary(study_dir)["phase"] == "live"
+
+    # Case 2c: metrics table exists (finalized), but panel_live.jsonl has a newer mtime (new run in flight)
+    con = duckdb.connect(str(db_path))
+    con.execute("CREATE TABLE metrics(step INTEGER, val DOUBLE)")
+    con.close()
+    old_time = time.time() - 100.0
+    os.utime(db_path, (old_time, old_time))
+    new_time = time.time()
+    os.utime(live_file, (new_time, new_time))
+
+    rows, source = app.read_panel(study_dir)
+    assert source == "live"
+    assert app.agents_summary(study_dir)["phase"] == "live"
+
+    # Case 2d: DuckDB raises exception (e.g. invalid/locked DB), fallback to live_file
+    corrupt_dir = tmp_path / "corrupt"
+    (corrupt_dir / "trajectory").mkdir(parents=True)
+    (corrupt_dir / "trajectory" / "study.duckdb").write_text("not a duckdb file")
+    write_jsonl(corrupt_dir / "trajectory" / "panel_live.jsonl", [
+        {"agent_id": "a1", "step": 0, "state": {}, "action_kind": None, "action_source": None}
+    ])
+    c_rows, c_source = app.read_panel(corrupt_dir)
+    assert c_source == "live"
+    assert len(c_rows) == 1
+
+
+def test_read_panel_legacy_duckdb_without_action_source(tmp_path):
+    import duckdb
+
+    study_dir = tmp_path / "study"
+    traj_dir = study_dir / "trajectory"
+    traj_dir.mkdir(parents=True)
+    db_path = traj_dir / "study.duckdb"
+
+    con = duckdb.connect(str(db_path))
+    con.execute(
+        "CREATE TABLE panel("
+        "agent_id VARCHAR, step INTEGER, state JSON, "
+        "action_kind VARCHAR, action_payload JSON)"
+    )
+    con.execute(
+        "INSERT INTO panel VALUES "
+        "('agent-1', 0, '{\"val\": 10}', NULL, '{}'), "
+        "('agent-1', 1, '{\"val\": 20}', 'jump', '{\"height\": 5}')"
+    )
+    con.execute("CREATE TABLE metrics(step INTEGER)")
+    con.close()
+
+    rows, source = app.read_panel(study_dir)
+    assert source == "duckdb"
+    assert len(rows) == 2
+
+    assert rows[0]["agent_id"] == "agent-1"
+    assert rows[0]["step"] == 0
+    assert rows[0]["state"] == {"val": 10}
+    assert rows[0]["action_kind"] is None
+    assert rows[0]["action_payload"] == {}
+    assert rows[0]["action_source"] is None
+
+    assert rows[1]["agent_id"] == "agent-1"
+    assert rows[1]["step"] == 1
+    assert rows[1]["state"] == {"val": 20}
+    assert rows[1]["action_kind"] == "jump"
+    assert rows[1]["action_payload"] == {"height": 5}
+    assert rows[1]["action_source"] is None
+
+    summary = app.agents_summary(study_dir)
+    assert summary["phase"] == "post_run"
+    assert summary["live"] is False
 
 
 # ── pop_summary ─────────────────────────────────────────────────────────────
