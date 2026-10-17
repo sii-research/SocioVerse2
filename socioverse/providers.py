@@ -8,6 +8,8 @@ Both yield Personas with persistent ids (the longitudinal key).
 
 from __future__ import annotations
 
+import json
+import math
 from typing import Any, Callable
 
 from .abc.population import PopulationProvider
@@ -17,14 +19,38 @@ from .schemas.population import InteractionStructure, Persona, PopulationBundle
 _RESERVED = {"agent_id", "group_key", "weight"}
 
 
+def _is_nan(v: Any) -> bool:
+    return isinstance(v, float) and math.isnan(v)
+
+
 def _row_to_persona(rec: dict[str, Any]) -> Persona:
     rec = dict(rec)
-    aid = str(rec.pop("agent_id"))
+    raw_id = rec.pop("agent_id", None)
+    if raw_id is None or _is_nan(raw_id) or str(raw_id).strip() == "":
+        raise ValueError("Persona row is missing a valid 'agent_id'")
+    aid = str(raw_id)
+
     gk = rec.pop("group_key", None)
-    weight = float(rec.pop("weight", 1.0) or 1.0)
-    init_state = rec.pop("init_state", {}) if isinstance(rec.get("init_state"), dict) else {}
-    return Persona(agent_id=aid, group_key=(str(gk) if gk is not None else None),
-                   weight=weight, attributes=rec, init_state=init_state)
+    gk_str = None if (gk is None or _is_nan(gk)) else str(gk)
+
+    raw_w = rec.pop("weight", 1.0)
+    weight = 1.0 if (raw_w is None or _is_nan(raw_w) or raw_w == "") else float(raw_w)
+
+    raw_init = rec.pop("init_state", {})
+    if isinstance(raw_init, dict):
+        init_state = raw_init
+    elif isinstance(raw_init, str) and raw_init.strip():
+        try:
+            parsed = json.loads(raw_init)
+            init_state = parsed if isinstance(parsed, dict) else {}
+        except (ValueError, TypeError):
+            init_state = {}
+    else:
+        init_state = {}
+
+    attrs = {k: (None if _is_nan(v) else v) for k, v in rec.items()}
+    return Persona(agent_id=aid, group_key=gk_str, weight=weight,
+                   attributes=attrs, init_state=init_state)
 
 
 @register("population", "file.personas")

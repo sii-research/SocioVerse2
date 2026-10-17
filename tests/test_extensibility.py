@@ -28,16 +28,36 @@ from studies.chicago_schelling.adapter.engine_seam import chicago_missing
 
 def test_file_population_provider(tmp_path):
     csv = tmp_path / "people.csv"
-    csv.write_text("agent_id,group_key,weight,age,party\n"
-                   "u1,young,2.0,24,Dem\nu2,old,1.0,71,Rep\n", encoding="utf-8")
+    csv.write_text("agent_id,group_key,weight,init_state,age,party\n"
+                   'u1,,,"{""opinion"": 0.5}",24,Dem\n'
+                   "u2,old,1.0,,71,\n", encoding="utf-8")
     bundle = PopulationBundle(study_id="s", provider_ref="file.personas",
                               provider_args={"path": str(csv)})
     personas = FilePopulationProvider(bundle).build(seed=0)
     assert [p.agent_id for p in personas] == ["u1", "u2"]
-    assert personas[0].group_key == "young" and personas[0].weight == 2.0
+    # u1: empty group_key and weight become None and 1.0, JSON init_state is parsed to dict
+    assert personas[0].group_key is None
+    assert personas[0].weight == 1.0
+    assert personas[0].init_state == {"opinion": 0.5}
     assert personas[0].attributes["party"] == "Dem"
+    assert personas[0].attributes["age"] == 24
+
+    # u2: empty init_state is {}, empty attribute party is None (sanitized from NaN)
+    assert personas[1].group_key == "old" and personas[1].weight == 1.0
+    assert personas[1].init_state == {}
+    assert personas[1].attributes["party"] is None
+    assert personas[1].attributes["age"] == 71
+
     # the unique-id invariant is enforceable on the materialized bundle
     PopulationBundle(study_id="s", provider_ref="file.personas", personas=personas)
+
+    # Missing / empty agent_id raises ValueError
+    bad_csv = tmp_path / "bad.csv"
+    bad_csv.write_text("agent_id,age\n,25\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="agent_id"):
+        FilePopulationProvider(PopulationBundle(
+            study_id="s", provider_ref="file.personas", provider_args={"path": str(bad_csv)}
+        )).build(seed=0)
 
 
 def test_mcp_population_provider():
